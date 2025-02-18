@@ -19,3 +19,8 @@ class EmailExistAlready(APIException):
     status_code = 409
     default_detail = "Diese Email existiert bereits."
     default_code = "email_invalid"
+
+class PasswordNotMatch(APIException):
+    status_code = 400
+    default_detail = "Passwörter müssen übereinstimmen."
+    default_code = "password_not_match"
