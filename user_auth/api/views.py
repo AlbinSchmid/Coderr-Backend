@@ -1,13 +1,14 @@
 from rest_framework import generics
+from rest_framework import status
 from rest_framework.permissions import AllowAny
-from .serializer import *
 from rest_framework.authtoken.models import Token
+from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework import status
-from rest_framework.authtoken.views import ObtainAuthToken
-from .exeptions import *
 from itertools import chain
+from .serializer import *
+from .exeptions import *
+from .permissions import *
 
 
 class CustomLogInView(ObtainAuthToken):
@@ -38,7 +39,6 @@ class CustomLogInView(ObtainAuthToken):
                 'username': user.username,
                 'email': user.email,
                 'user_id': user_id
-
             }
             return Response(data, status.HTTP_200_OK)
         else:
@@ -72,21 +72,50 @@ class RegistrationView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
 
-class ProfileSingleView(generics.RetrieveDestroyAPIView):
+class ProfileSingleView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsOwnerOrAdmin]
+
+    def get_object(self):
+        pk = self.kwargs.get('pk')
+        obj = Consumer.objects.filter(pk=pk).first() or Seller.objects.filter(pk=pk).first()
+
+        if not obj:
+            raise UserNotFound()
+
+        self.check_object_permissions(self.request, obj) 
+        return obj
     
     def get(self, request, *args, **kwargs):
-        pk = kwargs.get('pk')
+        obj = self.get_object()
+        serializer = ConsumerSerializer(obj) if isinstance(obj, Consumer) else SellerSerializer(obj)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    def patch(self, request, *args, **kwargs):
+        obj = self.get_object() 
+        serializer = ConsumerSerializer(obj, data=request.data, partial=True) if isinstance(obj, Consumer) else SellerSerializer(obj, data=request.data, partial=True)
+        user = obj.user
 
-        consumer = Consumer.objects.filter(pk=pk).first()
-        if consumer:
-            serializer = ConsumerSerializer(consumer)
+        if serializer.is_valid() and user:
+            username = request.data.get('username', user.username)
+            email = request.data.get('email', user.email)
+            first_name = request.data.get('first_name', user.first_name)
+            last_name = request.data.get('last_name', user.last_name)
+
+            try: 
+                validate_email = validate_email_address(email, user)
+                user.email = validate_email
+            except EmailExistAlready:
+                raise EmailExistAlready()
+            except EmailIncorrect:
+                raise EmailIncorrect()
+
+            user.username = username
+            user.first_name = first_name
+            user.last_name = last_name
+            user.save()
+            serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
 
-        seller = Seller.objects.filter(pk=pk).first()
-        if seller:
-            serializer = SellerSerializer(seller)
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        
         return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
 
 

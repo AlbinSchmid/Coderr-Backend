@@ -11,7 +11,10 @@ def validate_username(username):
         raise UsernameExistAlready()
     return username
     
-def validate_email_address(email):
+def validate_email_address(email, user=None):
+    if user and user.email == email:
+        return email
+
     if User.objects.filter(email=email).exists():
         raise EmailExistAlready()
         

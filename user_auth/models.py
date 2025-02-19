@@ -1,15 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.timezone import now
 
 # Create your models here.
+
 
 class BaseUserProfile(models.Model):
     type = models.CharField(max_length=20)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # profile_file = models.ImageField(null=True, blank=True)
-    location = models.CharField(null=True, blank=True, max_length=255)
-    description = models.TextField(null=True, blank=True, max_length=255)
-    working_hours = models.CharField(null=True, blank=True, max_length=255)
+    file = models.FileField(upload_to='profiles/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -17,7 +16,11 @@ class BaseUserProfile(models.Model):
 
 
 class Seller(BaseUserProfile):
-    pass
+    location = models.CharField(max_length=255, default='')
+    description = models.TextField(max_length=255, default='')
+    working_hours = models.CharField(max_length=255, default='')
+    tel = models.CharField(max_length=255, default='')
+
     def __str__(self):
         return self.user.username
     

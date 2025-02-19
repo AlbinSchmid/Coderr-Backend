@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from user_auth.models import *
 from .exeptions import *
 from .validators import *
+import re
 
 
 class RegistrationSerializer(serializers.ModelSerializer):
@@ -30,8 +31,15 @@ class RegistrationSerializer(serializers.ModelSerializer):
         email = self.validated_data['email']
         username = self.validated_data['username']
         user_type = self.validated_data['type']
+        first_name = ''
+        last_name = ''
 
-        account = User(email=email, username=username)
+        if re.search(r'[._-]', username): 
+            parts = re.split(r'[._-]', username)
+            first_name = parts[0]
+            last_name = parts[1]
+
+        account = User(email=email, username=username, first_name=first_name, last_name=last_name)
         account.set_password(pw)
         account.save()
 
@@ -39,8 +47,6 @@ class RegistrationSerializer(serializers.ModelSerializer):
             Seller.objects.create(user=account, type=user_type)
         elif user_type == 'customer':
             Consumer.objects.create(user=account, type=user_type)
-        else:
-            print('HELLO')
 
         return account
 
@@ -48,16 +54,24 @@ class RegistrationSerializer(serializers.ModelSerializer):
 class ConsumerSerializer(serializers.ModelSerializer):
     username = serializers.CharField(source='user.username', read_only=True)
     email = serializers.EmailField(source='user.email', read_only=True)
+    first_name = serializers.CharField(source='user.first_name', read_only=True)
+    last_name = serializers.CharField(source='user.last_name', read_only=True)
+    user = serializers.IntegerField(source='id', read_only=True)
+    owner = serializers.IntegerField(source='user.id', read_only=True)
 
     class Meta:
         model = Consumer
-        fields = '__all__'
+        exclude = ['id']
 
-
+        
 class SellerSerializer(serializers.ModelSerializer):
     username = serializers.CharField(source='user.username', read_only=True)
     email = serializers.EmailField(source='user.email', read_only=True)
+    first_name = serializers.CharField(source='user.first_name', read_only=True)
+    last_name = serializers.CharField(source='user.last_name', read_only=True)
+    user = serializers.IntegerField(source='id', read_only=True)
+    owner = serializers.IntegerField(source='user.id', read_only=True)
 
     class Meta:
         model = Seller
-        fields = '__all__'
+        exclude = ['id']

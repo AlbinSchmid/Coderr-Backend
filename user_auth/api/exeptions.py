@@ -24,3 +24,13 @@ class PasswordNotMatch(APIException):
     status_code = 400
     default_detail = "Passwörter müssen übereinstimmen."
     default_code = "password_not_match"
+
+class Unauthorized(APIException):
+    status_code = 403
+    default_detail = "Sie sind nicht Berechtig."
+    default_code = "unauthorized"
+
+class UserNotFound(APIException):
+    status_code = 404
+    default_detail = "User wurde nicht gefunden."
+    default_code = "not_found"
