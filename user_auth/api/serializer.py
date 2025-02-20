@@ -56,8 +56,6 @@ class ConsumerSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(source='user.email', read_only=True)
     first_name = serializers.CharField(source='user.first_name', read_only=True)
     last_name = serializers.CharField(source='user.last_name', read_only=True)
-    user = serializers.IntegerField(source='id', read_only=True)
-    owner = serializers.IntegerField(source='user.id', read_only=True)
 
     class Meta:
         model = Consumer
@@ -69,8 +67,6 @@ class SellerSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(source='user.email', read_only=True)
     first_name = serializers.CharField(source='user.first_name', read_only=True)
     last_name = serializers.CharField(source='user.last_name', read_only=True)
-    user = serializers.IntegerField(source='id', read_only=True)
-    owner = serializers.IntegerField(source='user.id', read_only=True)
 
     class Meta:
         model = Seller

@@ -18,7 +18,7 @@ class ProfileTests(APITestCase):
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
         
     def test_patch_owner_seller(self):
-        url = reverse('profile-detail', kwargs={'pk': self.seller.id})
+        url = reverse('profile-detail', kwargs={'pk': self.seller.user.id})
         data = {
             "first_name": "Seller"
         }
@@ -28,7 +28,7 @@ class ProfileTests(APITestCase):
         self.assertEqual(self.seller.location, 'Austria') 
 
     def test_patch_owner_consumer(self):
-        url = reverse('profile-detail', kwargs={'pk': self.consumer.id})
+        url = reverse('profile-detail', kwargs={'pk': self.consumer.user.id})
         data = {
             "first_name": "Consumer"
         }
@@ -38,7 +38,7 @@ class ProfileTests(APITestCase):
 
     def test_patch_unauthorized(self):
         self.client.force_authenticate(user=None)
-        url = reverse('profile-detail', kwargs={'pk': self.consumer.id})
+        url = reverse('profile-detail', kwargs={'pk': self.consumer.user.id})
         data = {
             "first_name": "Consumer"
         }
@@ -50,7 +50,7 @@ class ProfileTests(APITestCase):
         self.client.force_authenticate(user=None)
         self.token = Token.objects.create(user=self.user2)
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
-        url = reverse('profile-detail', kwargs={'pk': self.consumer.id})
+        url = reverse('profile-detail', kwargs={'pk': self.consumer.user.id})
         data = {
             "first_name": "Consumer"
         }
@@ -65,7 +65,7 @@ class ProfileTests(APITestCase):
         self.assertEqual(response.data['detail'], 'Das Benutzerprofil wurde nicht gefunden.')
 
     def test_patch_exist_email(self):
-        url = reverse('profile-detail', kwargs={'pk': self.consumer.id})
+        url = reverse('profile-detail', kwargs={'pk': self.consumer.user.id})
         data = {
             "email": "test2@gmail.com"
         }
@@ -74,7 +74,7 @@ class ProfileTests(APITestCase):
         self.assertEqual(response.data['detail'], 'Diese Email existiert bereits.')
 
     def test_patch_incorrect_email(self):
-        url = reverse('profile-detail', kwargs={'pk': self.consumer.id})
+        url = reverse('profile-detail', kwargs={'pk': self.consumer.user.id})
         data = {
             "email": "test2@gmail.c"
         }
@@ -84,7 +84,7 @@ class ProfileTests(APITestCase):
 
     def test_get_unauthorized(self):
         self.client.force_authenticate(user=None)
-        url = reverse('profile-detail', kwargs={'pk': self.consumer.id})
+        url = reverse('profile-detail', kwargs={'pk': self.consumer.user.id})
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertEqual(response.data['detail'], 'Benutzer ist nicht authentifiziert.')

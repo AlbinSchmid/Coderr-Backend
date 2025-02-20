@@ -21,24 +21,12 @@ class CustomLogInView(ObtainAuthToken):
         if serializer.is_valid():
             user = serializer.validated_data['user']
             token, create = Token.objects.get_or_create(user=user)
-            seller = Seller.objects.filter(user__username=user.username).first()
-            consumer = Consumer.objects.filter(user__username=user.username).first()
-            user_type = ''
-            if seller:
-                user_type = seller.type
-            elif consumer:
-                user_type = consumer.type
-            
-            user_id = ''
-            if user_type == 'business':
-                user_id = Seller.objects.get(user=user).id
-            elif user_type == 'customer':
-                user_id = Consumer.objects.get(user=user).id
+    
             data = {
                 'token': token.key,
                 'username': user.username,
                 'email': user.email,
-                'user_id': user_id
+                'user_id': user.id
             }
             return Response(data, status.HTTP_200_OK)
         else:
@@ -56,17 +44,12 @@ class RegistrationView(APIView):
         if serializer.is_valid():
             save_user = serializer.save()
             token, create = Token.objects.get_or_create(user=save_user)
-            user_type = serializer.validated_data.get('type')
-            user_id = ''
-            if user_type == 'business':
-                user_id = Seller.objects.get(user=save_user).id
-            elif user_type == 'customer':
-                user_id = Consumer.objects.get(user=save_user).id
+   
             data = {
                 'token': token.key,
                 'username': save_user.username,
                 'email': save_user.email,
-                'user_id': user_id
+                'user_id': save_user.id
             }
             return Response(data, status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -77,7 +60,7 @@ class ProfileSingleView(generics.RetrieveUpdateDestroyAPIView):
 
     def get_object(self):
         pk = self.kwargs.get('pk')
-        obj = Consumer.objects.filter(pk=pk).first() or Seller.objects.filter(pk=pk).first()
+        obj = Consumer.objects.filter(user__id=pk).first() or Seller.objects.filter(user__id=pk).first()
 
         if not obj:
             raise UserNotFound()
