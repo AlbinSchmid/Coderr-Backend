@@ -1,6 +1,7 @@
 from rest_framework.permissions import BasePermission, SAFE_METHODS
-from .exeptions import Unauthorized
+from .exeptions import Unauthorized, UserIsNotOwner
 from rest_framework.exceptions import PermissionDenied
+
 
 class IsOwnerOrAdmin(BasePermission):
 
@@ -15,5 +16,15 @@ class IsOwnerOrAdmin(BasePermission):
             raise Unauthorized()
         elif request.user and request.user == obj.user:
             return True
+        raise UserIsNotOwner()
+    
+
+class IsAuthenticated(BasePermission):
+
+    def has_permission(self, request, view):
+        if request.method in SAFE_METHODS:
+            if request.user and request.user.is_authenticated:
+                return True
+            raise Unauthorized()
         raise Unauthorized()
         

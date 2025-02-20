@@ -13,9 +13,9 @@ class ProfileTests(APITestCase):
         self.user = User.objects.create_user(username='TestUser', password='TestPassword', email="test@gmail.com")
         self.user2 = User.objects.create_user(username='TestUser2', password='TestPassword2', email="test2@gmail.com")
         self.seller = Seller.objects.create(user=self.user, location='Austria', type='business')
-        self.consumer = Consumer.objects.create(user=self.user, location='Austria', type='customer')
-        token = Token.objects.create(user=self.user)
-        self.client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
+        self.consumer = Consumer.objects.create(user=self.user, type='customer')
+        self.token = Token.objects.create(user=self.user)
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
         
     def test_patch_owner_seller(self):
         url = reverse('profile-detail', kwargs={'pk': self.seller.id})
@@ -35,7 +35,6 @@ class ProfileTests(APITestCase):
         response = self.client.patch(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data.get('first_name'), 'Consumer')
-        self.assertEqual(self.seller.location, 'Austria') 
 
     def test_patch_unauthorized(self):
         self.client.force_authenticate(user=None)
@@ -45,7 +44,25 @@ class ProfileTests(APITestCase):
         }
         response = self.client.patch(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-        self.assertEqual(response.data['detail'], 'Sie sind nicht Berechtig.')
+        self.assertEqual(response.data['detail'], 'Authentifizierter Benutzer ist nicht der Eigentümer Profils.')
+
+    def test_patch_not_owner(self):
+        self.client.force_authenticate(user=None)
+        self.token = Token.objects.create(user=self.user2)
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
+        url = reverse('profile-detail', kwargs={'pk': self.consumer.id})
+        data = {
+            "first_name": "Consumer"
+        }
+        response = self.client.patch(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.data['detail'], 'Authentifizierter Benutzer ist nicht der Eigentümer Profils.')
+
+    def test_patch_not_exist_profile(self):
+        url = reverse('profile-detail', kwargs={'pk': 9999999})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+        self.assertEqual(response.data['detail'], 'Das Benutzerprofil wurde nicht gefunden.')
 
     def test_patch_exist_email(self):
         url = reverse('profile-detail', kwargs={'pk': self.consumer.id})
@@ -69,12 +86,33 @@ class ProfileTests(APITestCase):
         self.client.force_authenticate(user=None)
         url = reverse('profile-detail', kwargs={'pk': self.consumer.id})
         response = self.client.get(url)
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-        self.assertEqual(response.data['detail'], 'Sie sind nicht Berechtig.')
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+        self.assertEqual(response.data['detail'], 'Benutzer ist nicht authentifiziert.')
 
     def test_get_not_exist_profile(self):
         url = reverse('profile-detail', kwargs={'pk': 9999999})
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-        self.assertEqual(response.data['detail'], 'User wurde nicht gefunden.')
+        self.assertEqual(response.data['detail'], 'Das Benutzerprofil wurde nicht gefunden.')
+
+    def test_get_consumer_authorized(self):
+        url = reverse('consumer')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_get_consumer_authorized(self):
+        url = reverse('seller')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
         
+    def test_get_consumer_unauthorized(self):
+        self.client.force_authenticate(user=None)
+        url = reverse('consumer')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+    def test_get_seller_unauthorized(self):
+        self.client.force_authenticate(user=None)
+        url = reverse('seller')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)

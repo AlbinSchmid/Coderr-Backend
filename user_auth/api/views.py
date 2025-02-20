@@ -130,3 +130,15 @@ class ProfileListView(generics.ListAPIView):
 
         combined_data = list(chain(consumer_serializer.data, seller_serializer.data))
         return Response(combined_data)
+    
+
+class SellerListView(generics.ListAPIView):
+    queryset = Seller.objects.all()
+    serializer_class = SellerSerializer
+    permission_classes = [IsAuthenticated]
+
+
+class ConsumerListView(generics.ListAPIView):
+    queryset = Consumer.objects.all()
+    serializer_class = ConsumerSerializer
+    permission_classes = [IsAuthenticated]
