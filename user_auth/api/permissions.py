@@ -1,6 +1,5 @@
 from rest_framework.permissions import BasePermission, SAFE_METHODS
 from .exeptions import Unauthorized, UserIsNotOwner
-from rest_framework.exceptions import PermissionDenied
 
 
 class IsOwnerOrAdmin(BasePermission):

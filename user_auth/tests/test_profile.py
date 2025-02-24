@@ -9,12 +9,17 @@ from rest_framework.test import APIClient
 
 class ProfileTests(APITestCase):
 
+    @classmethod
+    def setUpTestData(cls):
+        user = User.objects.create_user(username='TestUser', password='TestPassword', email="test@gmail.com")
+        cls.user2 = User.objects.create_user(username='TestUser2', password='TestPassword2', email="test2@gmail.com")
+
+        cls.seller = Seller.objects.create(user=user, location='Austria', type='business')
+        cls.consumer = Consumer.objects.create(user=user, type='customer')
+        
+        cls.token = Token.objects.create(user=user)
+
     def setUp(self):
-        self.user = User.objects.create_user(username='TestUser', password='TestPassword', email="test@gmail.com")
-        self.user2 = User.objects.create_user(username='TestUser2', password='TestPassword2', email="test2@gmail.com")
-        self.seller = Seller.objects.create(user=self.user, location='Austria', type='business')
-        self.consumer = Consumer.objects.create(user=self.user, type='customer')
-        self.token = Token.objects.create(user=self.user)
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
         
     def test_patch_owner_seller(self):
@@ -100,7 +105,7 @@ class ProfileTests(APITestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_get_consumer_authorized(self):
+    def test_get_seller_authorized(self):
         url = reverse('seller')
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)

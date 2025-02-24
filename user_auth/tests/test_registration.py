@@ -6,11 +6,11 @@ from user_auth.models import *
 
 class RegistrationTests(APITestCase):
 
-    def setUp(self):
-        self.registration_url = reverse('registration')
+    @classmethod
+    def setUpTestData(cls):
+        cls.registration_url = reverse('registration')
 
     def test_patch_correct_form_seller(self):
-        url = reverse('registration')
         data = {
             'username': 'seller',
             'email': 'testuser@example.com',
@@ -28,7 +28,6 @@ class RegistrationTests(APITestCase):
         self.assertEqual(response.data['email'], 'testuser@example.com')
 
     def test_patch_correct_form_consumer(self):
-        url = reverse('registration')
         data = {
             'username': 'consumer',
             'email': 'testuser@example.com',
@@ -46,7 +45,6 @@ class RegistrationTests(APITestCase):
         self.assertEqual(response.data['email'], 'testuser@example.com')
 
     def test_patch_incorrect_username(self):
-        url = reverse('registration')
         data = {
             'username': 'consumer consumer',
             'email': 'testuser@example.com',
@@ -60,7 +58,6 @@ class RegistrationTests(APITestCase):
 
     def test_patch_already_exist_username(self):
         User.objects.create_user(username='consumer', password='password')
-        url = reverse('registration')
         data = {
             'username': 'consumer',
             'email': 'testuser@example.com',
@@ -73,7 +70,6 @@ class RegistrationTests(APITestCase):
         self.assertEqual(response.data['detail'], 'Benutzername existiert bereits.')
 
     def test_patch_incorrect_email(self):
-        url = reverse('registration')
         data = {
             'username': 'consumer',
             'email': 'testuser@example.c',
@@ -87,7 +83,6 @@ class RegistrationTests(APITestCase):
 
     def test_patch_already_exist_email(self):
         User.objects.create_user(username='no-username', password='password', email='testuser@example.com')
-        url = reverse('registration')
         data = {
             'username': 'consumer',
             'email': 'testuser@example.com',
@@ -100,7 +95,6 @@ class RegistrationTests(APITestCase):
         self.assertEqual(response.data['detail'], 'Diese Email existiert bereits.')
 
     def test_patch_password_dont_match(self):
-        url = reverse('registration')
         data = {
             'username': 'consumer',
             'email': 'testuser@example.com',
@@ -111,5 +105,3 @@ class RegistrationTests(APITestCase):
         response = self.client.post(self.registration_url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(response.data['detail'], 'Passwörter müssen übereinstimmen.')
-        
-    
