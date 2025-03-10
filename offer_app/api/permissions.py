@@ -29,7 +29,7 @@ class OwnerPatchAndDeleteOrIsAuthenticated(BasePermission):
                 raise UserIsNotOwnerOffer
         raise Unauthorized  
     
-class AuthenticatedReadOnly(BasePermission):
+class Authenticated(BasePermission):
     def has_permission(self, request, view):
         if request.method == 'GET':
             if request.user and request.user.is_authenticated:

@@ -9,7 +9,7 @@ from user_auth.api.permissions import IsAuthenticated
 
 class OfferListView(generics.ListCreateAPIView):
     queryset = Offer.objects.all()
-    # permission_classes = [SellerUserCreateOrReadOnly]
+    permission_classes = [SellerUserCreateOrReadOnly]
     pagination_class = LargeResultsSetPagination
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     filterset_fields = ['min_price']
@@ -37,7 +37,7 @@ class OfferListView(generics.ListCreateAPIView):
 class OfferDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Offer.objects.all()
     serializer_class = OfferListSmallDetailsSerializer
-    # permission_classes = [OwnerPatchAndDeleteOrIsAuthenticated]
+    permission_classes = [OwnerPatchAndDeleteOrIsAuthenticated]
 
     def get_object(self):
         pk = self.kwargs.get('pk')
@@ -55,7 +55,7 @@ class OfferDetailView(generics.RetrieveUpdateDestroyAPIView):
 class OfferDetailsListView(generics.RetrieveAPIView):
     queryset = OfferDetail.objects.all()
     serializer_class = OfferDetailSerializer
-    # permission_classes = [AuthenticatedReadOnly]
+    permission_classes = [Authenticated]
 
     def get_object(self):
         pk = self.kwargs.get('pk')
