@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'offer_app',
     'user_auth',
     'order_app',
+    'reviews_app',
     'django_filters',
 ]
 
