@@ -15,6 +15,11 @@ class UserIsNotStaff(APIException):
     default_detail = 'Benutzer hat keine Berechtigung, die Bestellung zu löschen.'
     default_code = 'false_user'
 
+class UserSellerNotFound(APIException):
+    status_code = 404
+    default_detail = 'Kein Geschäftsnutzer mit der angegebenen ID gefunden.'
+    default_code = 'not_found'
+
 class OfferDetailNotExist(APIException):
     status_code = 404
     default_detail = 'Das angegebene Angebotsdetail wurde nicht gefunden.'
@@ -24,4 +29,5 @@ class OrderNotFound(APIException):
     status_code = 404
     default_detail = 'Die angegebene Bestellung wurde nicht gefunden.'
     default_code = 'not_found'
+
 

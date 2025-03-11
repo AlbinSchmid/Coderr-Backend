@@ -3,6 +3,8 @@ from order_app.models import *
 from .permissions import *
 from .serializers import *
 from offer_app.models import OfferDetail
+from rest_framework import status
+from rest_framework.response import Response
 
 
 class OrderListView(generics.ListCreateAPIView):
@@ -12,6 +14,7 @@ class OrderListView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(customer_user=self.request.user)
+
 
 class OrderDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Order.objects.all()
@@ -25,3 +28,31 @@ class OrderDetailView(generics.RetrieveUpdateDestroyAPIView):
         if obj is None:
             raise OrderNotFound
         return super().get_object()
+
+
+class OrderCountView(generics.ListAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+    def get(self, request, *args, **kwargs):
+        user_id = kwargs.get('pk')
+        seller = Seller.objects.filter(user_id=user_id)
+
+        if seller:
+            order_count = Order.objects.filter(offer_detail__offer__user__id=user_id, status='in_progress').count()
+            return Response({"order_count": order_count})
+        raise UserSellerNotFound
+    
+
+class CompletedOrderCount(generics.ListAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+    def get(self, request, *args, **kwargs):
+        user_id = kwargs.get('pk')
+        seller = Seller.objects.filter(user_id=user_id)
+        if seller:
+            order_count = Order.objects.filter(offer_detail__offer__user__id=user_id, status='completed').count()
+            return Response({"completed_order_count": order_count})
+        raise UserSellerNotFound
+    
