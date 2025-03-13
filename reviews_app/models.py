@@ -6,16 +6,16 @@ from django.db import IntegrityError
 
 # Create your models here.
 class Review(models.Model):
-    business_user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='seller_user')
+    business_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='received_reviews')
     reviewer = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     rating = models.IntegerField()
     description = models.CharField(max_length=255, default='')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def save(self, *args, **kwargs):
-        try:
-            self.clean()
-            super().save(*args, **kwargs)
-        except IntegrityError:
+    class Meta:
+        unique_together = ('business_user', 'reviewer')
+
+    def clean(self):
+        if Review.objects.filter(business_user=self.business_user, reviewer=self.reviewer).exclude(id=self.id).exists():
             raise UserHasAlreadyReview

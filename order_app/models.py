@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 
 class Order(models.Model):
+    business_user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='seller_users', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=255, default='in_progress')

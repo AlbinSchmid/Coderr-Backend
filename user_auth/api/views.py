@@ -61,7 +61,6 @@ class ProfileSingleView(generics.RetrieveUpdateDestroyAPIView):
     def get_object(self):
         pk = self.kwargs.get('pk')
         obj = Consumer.objects.filter(user__id=pk).first() or Seller.objects.filter(user__id=pk).first()
-
         if not obj:
             raise UserNotFound()
 

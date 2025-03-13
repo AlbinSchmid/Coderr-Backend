@@ -52,63 +52,63 @@ class OrderDetailTests(APITestCase):
         cls.url = reverse('order', kwargs={'pk': cls.order.id})
 
     def test_patch_unauthenticated(self):
-        respone = self.client.patch(self.url, self.data, format='json')
-        self.assertEqual(respone.status_code, status.HTTP_401_UNAUTHORIZED)
-        self.assertEqual(respone.data.get('detail'),
+        response = self.client.patch(self.url, self.data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+        self.assertEqual(response.data.get('detail'),
                          'Benutzer ist nicht authentifiziert.')
         
     def test_patch_authenticated_seller(self):
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_seller.key)
-        respone = self.client.patch(self.url, self.data, format='json')
-        self.assertEqual(respone.status_code, status.HTTP_200_OK)
-        self.assertEqual(respone.data.get('status'), 'completed')
+        response = self.client.patch(self.url, self.data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data.get('status'), 'completed')
 
     def test_patch_authenticated_consumer(self):
         self.client.credentials()
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_consumer.key)
-        respone = self.client.patch(self.url, self.data, format='json')
-        self.assertEqual(respone.status_code, status.HTTP_403_FORBIDDEN)
-        self.assertEqual(respone.data.get('detail'),
+        response = self.client.patch(self.url, self.data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.data.get('detail'),
                          'Benutzer hat keine Berechtigung, diese Bestellung zu aktualisieren.')
         
     def test_patch_not_exist_order(self):
         self.client.credentials()
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_seller.key)
         url = reverse('order', kwargs={'pk': 9999})
-        respone = self.client.patch(url, self.data, format='json')
-        self.assertEqual(respone.status_code, status.HTTP_404_NOT_FOUND)
-        self.assertEqual(respone.data.get('detail'),
+        response = self.client.patch(url, self.data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+        self.assertEqual(response.data.get('detail'),
                          'Die angegebene Bestellung wurde nicht gefunden.')
         
     def test_delete_unauthenticated(self):
-        respone = self.client.delete(self.url)
-        self.assertEqual(respone.status_code, status.HTTP_401_UNAUTHORIZED)
-        self.assertEqual(respone.data.get('detail'),
+        response = self.client.delete(self.url)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+        self.assertEqual(response.data.get('detail'),
                          'Benutzer ist nicht authentifiziert.')
         self.assertEqual(Order.objects.count(), 1)
         
     def test_delete_authenticated_no_staff(self):
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_seller.key)
-        respone = self.client.delete(self.url)
-        self.assertEqual(respone.status_code, status.HTTP_403_FORBIDDEN)
-        self.assertEqual(respone.data.get('detail'), 'Benutzer hat keine Berechtigung, die Bestellung zu löschen.')
+        response = self.client.delete(self.url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.data.get('detail'), 'Benutzer hat keine Berechtigung, die Bestellung zu löschen.')
         self.assertEqual(Order.objects.count(), 1)
 
     def test_delete_authenticated_staff(self):
         self.client.credentials()
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_staff.key)
         initial_count = Order.objects.count()
-        respone = self.client.delete(self.url)
-        self.assertEqual(respone.status_code, status.HTTP_204_NO_CONTENT)
+        response = self.client.delete(self.url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(Order.objects.count(), initial_count - 1)
 
     def test_delete_not_exist_order(self):
         self.client.credentials()
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_staff.key)
         url = reverse('order', kwargs={'pk': 9999})
-        respone = self.client.delete(url)
-        self.assertEqual(respone.status_code, status.HTTP_404_NOT_FOUND)
-        self.assertEqual(respone.data.get('detail'),
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+        self.assertEqual(response.data.get('detail'),
                          'Die angegebene Bestellung wurde nicht gefunden.')
         
     
