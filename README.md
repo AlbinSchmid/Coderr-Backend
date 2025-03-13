@@ -1,7 +1,5 @@
 # Coderr/ Backend Projekt
 
-![Coderr Logo](assets/logo/logo_coderr.svg)
-
 Dieses Projekt ist das Backend von Coderr, entwickelt mit Django und Django REST Framework.
 
 ---
