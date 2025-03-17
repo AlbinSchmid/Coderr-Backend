@@ -1,5 +1,6 @@
 from rest_framework.exceptions import APIException
 
+
 class UsernameContainsSpace(APIException):
     status_code = 400
     default_detail = "Benutzername darf kein Leerzeichen enthalten."
@@ -7,9 +8,15 @@ class UsernameContainsSpace(APIException):
 
 
 class UsernameExistAlready(APIException):
-    status_code = 409
+    status_code = 400
     default_detail = "Benutzername existiert bereits."
     default_code = "username_invalid"
+
+
+class LoginNotCorrect(APIException):
+    status_code = 400
+    default_detail = "Ungültige Anfragedaten."
+    default_code = "login_failed"
 
 
 class EmailIncorrect(APIException):

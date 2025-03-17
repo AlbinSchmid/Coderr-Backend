@@ -3,9 +3,8 @@ from order_app.models import *
 from .permissions import *
 from .serializers import *
 from offer_app.models import OfferDetail
-from rest_framework import status
 from rest_framework.response import Response
-from offer_app.models import Offer
+from user_auth.api.permissions import IsAuthenticated
 
 
 class OrderListView(generics.ListCreateAPIView):
@@ -31,7 +30,7 @@ class OrderDetailView(generics.RetrieveUpdateDestroyAPIView):
     def get_object(self):
         pk = self.kwargs.get('pk')
         obj = Order.objects.filter(pk=pk).first()
-
+            
         if obj is None:
             raise OrderNotFound
         return super().get_object()
@@ -40,6 +39,7 @@ class OrderDetailView(generics.RetrieveUpdateDestroyAPIView):
 class OrderCountView(generics.ListAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
         user_id = kwargs.get('pk')
@@ -54,6 +54,7 @@ class OrderCountView(generics.ListAPIView):
 class CompletedOrderCount(generics.ListAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
         user_id = kwargs.get('pk')

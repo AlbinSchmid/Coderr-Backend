@@ -30,8 +30,7 @@ class CustomLogInView(ObtainAuthToken):
             }
             return Response(data, status.HTTP_200_OK)
         else:
-            data = serializer.errors
-            return Response(data, status.HTTP_401_UNAUTHORIZED)
+            raise LoginNotCorrect
             
 
 class RegistrationView(APIView):

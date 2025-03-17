@@ -21,11 +21,11 @@ class OfferListView(generics.ListCreateAPIView):
         creator_id_param = self.request.query_params.get('creator_id', None)
         max_delivery_time_param = self.request.query_params.get('max_delivery_time', None)
 
-        if creator_id_param:
+        if creator_id_param is int:
             queryset = queryset.filter(user__id=creator_id_param)
 
-        if max_delivery_time_param:
-            queryset = queryset.filter(min_delivery_time__lte=max_delivery_time_param)
+        if max_delivery_time_param is int:
+            queryset = queryset.filter(max_delivery_time__lte=max_delivery_time_param)
 
         return self.filter_queryset(queryset) 
 
@@ -43,9 +43,11 @@ class OfferDetailView(generics.RetrieveUpdateDestroyAPIView):
         pk = self.kwargs.get('pk')
         obj = Offer.objects.filter(pk=pk).first()
         
-        if obj is None:
-            raise OfferNotFound
-        return super().get_object()
+        if self.request.user and self.request.user.is_authenticated:
+            if obj is None:
+                raise OfferNotFound
+            return super().get_object()
+        raise Unauthorized
     
     def get_serializer_class(self):
         if self.request.method == 'PATCH':
