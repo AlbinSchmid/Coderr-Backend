@@ -20,7 +20,6 @@ class ConsumerForPostOrAuthenticated(BasePermission):
 class SellerForPatchOrStaffForDelete(BasePermission):
 
     def has_permission(self, request, view):
-        print(f"User: {request.user}, Authenticated: {request.user.is_authenticated}")
         if request.user and request.user.is_authenticated:
             if request.method == 'PATCH':
                 seller_user = Seller.objects.filter(user__username=request.user.username).first()

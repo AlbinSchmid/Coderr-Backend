@@ -14,7 +14,6 @@ class OrderListView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         user_id = OfferDetail.objects.select_related('offer__user').values_list('offer__user__id', flat=True).first()
-
         if user_id:
             business_user = User.objects.get(id=user_id)
         else:

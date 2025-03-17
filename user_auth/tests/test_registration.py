@@ -66,7 +66,7 @@ class RegistrationTests(APITestCase):
             'type': 'customer'
         }
         response = self.client.post(self.registration_url, data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_409_CONFLICT)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(response.data['detail'], 'Benutzername existiert bereits.')
 
     def test_patch_incorrect_email(self):
