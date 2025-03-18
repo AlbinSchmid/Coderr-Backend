@@ -11,7 +11,6 @@ class ReviewListView(generics.ListCreateAPIView):
     permission_classes = [isAuthenticated]
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
     ordering_fields = ['updated_at', 'rating']
-    filterset_fieds = ['']
 
     def get_queryset(self):
         queryset = Review.objects.all()

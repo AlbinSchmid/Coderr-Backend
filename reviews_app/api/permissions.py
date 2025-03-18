@@ -1,5 +1,6 @@
 from rest_framework.permissions import BasePermission, SAFE_METHODS
 from .exeptions import *
+from user_auth.models import Consumer
 
 class isAuthenticated(BasePermission):
 
@@ -10,8 +11,12 @@ class isAuthenticated(BasePermission):
                 return True
             raise UserUnauthenticated
         elif request.method == 'POST':
+            consumer_user = Consumer.objects.filter(user__id=request.user.id)
+            print(consumer_user)
             if request.user and request.user.is_authenticated:
-                return True
+                if consumer_user:
+                    return True
+                raise UserIsNotConsumer
             raise UserUnauthenticatedPost
 
     

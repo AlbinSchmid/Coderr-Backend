@@ -2,6 +2,7 @@ from rest_framework.permissions import BasePermission, SAFE_METHODS
 from user_auth.models import Consumer, Seller
 from .exeptions import *
 from user_auth.api.exeptions import Unauthorized
+from order_app.models import Order
 
 class ConsumerForPostOrAuthenticated(BasePermission):
     
@@ -23,6 +24,10 @@ class SellerForPatchOrStaffForDelete(BasePermission):
         if request.user and request.user.is_authenticated:
             if request.method == 'PATCH':
                 seller_user = Seller.objects.filter(user__username=request.user.username).first()
+                obj_pk = view.kwargs.get('pk')
+                obj = Order.objects.filter(id=obj_pk).first()
+                if obj is None:
+                    raise OrderNotFound
                 if seller_user:
                     return True
                 raise UserIsNotSeller

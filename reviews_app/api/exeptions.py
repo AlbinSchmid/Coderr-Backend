@@ -23,6 +23,11 @@ class UserIsNotOwnerForDelete(APIException):
     default_detail = 'Forbidden. Der Benutzer ist nicht berechtigt, diese Bewertung zu löschen.'
     default_code = 'forbidden'
 
+class UserIsNotConsumer(APIException):
+    status_code = 403
+    default_detail = 'Forbidden. Der Bentutzer ist kein typ vom Consumer.'
+    default_code = 'forbidden'
+
 class UserIsNotOwnerForPatch(APIException):
     status_code = 403
     default_detail = 'Forbidden. Der Benutzer ist nicht berechtigt, diese Bewertung zu bearbeiten.'

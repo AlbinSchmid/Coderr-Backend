@@ -12,7 +12,6 @@ class OfferListView(generics.ListCreateAPIView):
     permission_classes = [SellerUserCreateOrReadOnly]
     pagination_class = LargeResultsSetPagination
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
-    filterset_fields = ['min_price']
     ordering_fields = ['updated_at', 'min_price']
     search_fields = ['title', 'description']
 
@@ -20,12 +19,16 @@ class OfferListView(generics.ListCreateAPIView):
         queryset = Offer.objects.all()
         creator_id_param = self.request.query_params.get('creator_id', None)
         max_delivery_time_param = self.request.query_params.get('max_delivery_time', None)
+        min_price = self.request.query_params.get('min_price', None)
 
-        if creator_id_param is int:
+        if creator_id_param and creator_id_param.isdigit():
             queryset = queryset.filter(user__id=creator_id_param)
 
-        if max_delivery_time_param is int:
-            queryset = queryset.filter(max_delivery_time__lte=max_delivery_time_param)
+        if max_delivery_time_param and max_delivery_time_param.isdigit():
+            queryset = queryset.filter(min_delivery_time__lte=max_delivery_time_param)
+
+        if min_price and min_price.isdigit():
+            queryset = queryset.filter(min_price__gte=min_price)
 
         return self.filter_queryset(queryset) 
 
