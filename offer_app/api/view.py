@@ -23,13 +23,19 @@ class OfferListView(generics.ListCreateAPIView):
 
         if creator_id_param and creator_id_param.isdigit():
             queryset = queryset.filter(user__id=creator_id_param)
+        elif creator_id_param != '' and creator_id_param is not None:
+            raise IncorrectParams
+
 
         if max_delivery_time_param and max_delivery_time_param.isdigit():
             queryset = queryset.filter(min_delivery_time__lte=max_delivery_time_param)
+        elif max_delivery_time_param != '' and max_delivery_time_param is not None:
+            raise IncorrectParams
 
         if min_price and min_price.isdigit():
             queryset = queryset.filter(min_price__gte=min_price)
-
+        elif min_price != '' and min_price is not None:
+            raise IncorrectParams
         return self.filter_queryset(queryset) 
 
     def get_serializer_class(self):

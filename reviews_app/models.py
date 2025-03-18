@@ -17,5 +17,9 @@ class Review(models.Model):
         unique_together = ('business_user', 'reviewer')
 
     def clean(self):
-        if Review.objects.filter(business_user=self.business_user, reviewer=self.reviewer).exclude(id=self.id).exists():
+        if Review.objects.filter(business_user=self.business_user, reviewer=self.reviewer).exists():
             raise UserHasAlreadyReview
+        
+    def save(self, *args, **kwargs):
+        self.clean() 
+        super().save(*args, **kwargs) 

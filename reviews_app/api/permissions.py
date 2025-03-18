@@ -12,7 +12,6 @@ class isAuthenticated(BasePermission):
             raise UserUnauthenticated
         elif request.method == 'POST':
             consumer_user = Consumer.objects.filter(user__id=request.user.id)
-            print(consumer_user)
             if request.user and request.user.is_authenticated:
                 if consumer_user:
                     return True

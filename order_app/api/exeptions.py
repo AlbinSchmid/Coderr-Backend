@@ -30,4 +30,9 @@ class OrderNotFound(APIException):
     default_detail = 'Die angegebene Bestellung wurde nicht gefunden.'
     default_code = 'not_found'
 
+class IncorrectStatus(APIException):
+    status_code = 400
+    default_detail = 'Ungültiger Status oder unzulässige Felder in der Anfrage.'
+    default_code = 'bad_request'
+
 

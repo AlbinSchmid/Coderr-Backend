@@ -5,6 +5,7 @@ from .serializers import *
 from offer_app.models import OfferDetail
 from rest_framework.response import Response
 from user_auth.api.permissions import IsAuthenticated
+from user_auth.models import Seller
 
 
 class OrderListView(generics.ListCreateAPIView):
@@ -13,11 +14,9 @@ class OrderListView(generics.ListCreateAPIView):
     permission_classes = [ConsumerForPostOrAuthenticated]
 
     def perform_create(self, serializer):
-        user_id = OfferDetail.objects.select_related('offer__user').values_list('offer__user__id', flat=True).first()
-        if user_id:
-            business_user = User.objects.get(id=user_id)
-        else:
-            business_user = None 
+        offer_detail_id = self.request.data.get('offer_detail_id')
+        offer_detail_user = OfferDetail.objects.filter(id=offer_detail_id).select_related('offer__user').first()
+        business_user = offer_detail_user.offer.user
         serializer.save(customer_user=self.request.user, business_user=business_user)
 
 

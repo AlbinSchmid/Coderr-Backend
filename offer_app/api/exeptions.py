@@ -14,3 +14,8 @@ class UserIsNotOwnerOffer(APIException):
     status_code = 403
     default_detail = "Authentifizierter Benutzer ist nicht der Eigentümer des Angebots."
     default_code = "not_found"
+
+class IncorrectParams(APIException):
+    status_code = 400
+    default_detail = "Ungültige Anfrageparameter."
+    default_code = "bad_request"
