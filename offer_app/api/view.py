@@ -26,7 +26,6 @@ class OfferListView(generics.ListCreateAPIView):
         elif creator_id_param != '' and creator_id_param is not None:
             raise IncorrectParams
 
-
         if max_delivery_time_param and max_delivery_time_param.isdigit():
             queryset = queryset.filter(min_delivery_time__lte=max_delivery_time_param)
         elif max_delivery_time_param != '' and max_delivery_time_param is not None:
@@ -51,12 +50,12 @@ class OfferDetailView(generics.RetrieveUpdateDestroyAPIView):
     def get_object(self):
         pk = self.kwargs.get('pk')
         obj = Offer.objects.filter(pk=pk).first()
+        self.check_object_permissions(self.request, obj)
         
-        if self.request.user and self.request.user.is_authenticated:
-            if obj is None:
-                raise OfferNotFound
-            return super().get_object()
-        raise Unauthorized
+        if obj is None:
+            raise OfferNotFound
+        return super().get_object()
+
     
     def get_serializer_class(self):
         if self.request.method == 'PATCH':

@@ -19,3 +19,8 @@ class IncorrectParams(APIException):
     status_code = 400
     default_detail = "Ungültige Anfrageparameter."
     default_code = "bad_request"
+
+class BadRequest(APIException):
+    status_code = 400
+    default_detail = "Ungültige Anfragedaten oder unvollständige Details."
+    default_code = "bad_request"

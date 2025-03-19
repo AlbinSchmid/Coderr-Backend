@@ -24,7 +24,7 @@ class OwnerPatchAndDeleteOrIsAuthenticated(BasePermission):
             if request.method in SAFE_METHODS:
                 return True
             elif request.method == 'PATCH' or request.method == 'DELETE':
-                if request.user and request.user == obj.user:
+                if request.user and obj and request.user == obj.user:
                     return True  
                 raise UserIsNotOwnerOffer
         raise Unauthorized  

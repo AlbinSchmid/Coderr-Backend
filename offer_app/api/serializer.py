@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from offer_app.models import *
+from .exeptions import BadRequest
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -46,13 +47,20 @@ class OfferListBigDetailsSerializer(serializers.ModelSerializer):
         return offer
     
     def update(self, instance, validated_data):
-        details_data = validated_data.pop('details', [])
-        instance = super().update(instance, validated_data)
-        instance.details.all().delete()
+        details_data = validated_data.pop('details', None) 
 
-        for detail_data in details_data:
-            OfferDetail.objects.create(offer=instance, **detail_data)
+        if details_data is not None:
+            for detail_data in details_data:
+                offer_type = detail_data.get('offer_type') 
+                detail = instance.details.filter(offer_type=offer_type).first()
 
+                if detail is not None:
+                    OfferDetail.objects.filter(id=detail.id).update(**detail_data)
+                else: 
+                    raise BadRequest
+        for key, value in validated_data.items():
+            setattr(instance, key, value)
+        instance.save()
         return instance
     
     
