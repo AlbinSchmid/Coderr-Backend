@@ -51,6 +51,14 @@ class ReviewDetailView(generics.RetrieveUpdateDestroyAPIView):
     def update(self, request, *args, **kwargs):
         rating = self.request.data.get('rating')
         description = self.request.data.get('description')
-        if isinstance(rating, str) or description == '':
-            raise BadRequest
-        return super().update(request, *args, **kwargs)
+        if request.user and request.user.is_authenticated:
+            pk = kwargs.get('pk')
+            obj = Review.objects.filter(id=pk).first()
+            if obj:
+                if obj.reviewer == request.user:
+                    if isinstance(rating, str) or description == '':
+                        raise BadRequest
+                    return super().update(request, *args, **kwargs)
+                raise UserIsNotOwnerForPatch
+            raise ReviewNotFound
+        raise UserUnauthenticated

@@ -50,11 +50,12 @@ class OfferDetailView(generics.RetrieveUpdateDestroyAPIView):
     def get_object(self):
         pk = self.kwargs.get('pk')
         obj = Offer.objects.filter(pk=pk).first()
-        self.check_object_permissions(self.request, obj)
         
-        if obj is None:
-            raise OfferNotFound
-        return super().get_object()
+        if self.request.user and self.request.user.is_authenticated:
+            if obj is None:
+                raise OfferNotFound
+            return super().get_object()
+        raise Unauthorized
 
     
     def get_serializer_class(self):

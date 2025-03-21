@@ -14,8 +14,8 @@ class UserUnauthenticatedPost(APIException):
 
 
 class UserHasAlreadyReview(APIException):
-    status_code = 403
-    default_detail = 'Forbidden. Ein Benutzer kann nur eine Bewertung pro Geschäftsprofil abgeben.'
+    status_code = 400
+    default_detail = 'Fehlerhafte Anfrage. Der Benutzer hat möglicherweise bereits eine Bewertung für das gleiche Geschäftsprofil abgegeben.'
     default_code = 'forbidden'
 
 
