@@ -15,7 +15,7 @@ class isAuthenticated(BasePermission):
             if request.user and request.user.is_authenticated:
                 if consumer_user:
                     return True
-                raise UserIsNotConsumer
+                raise UserHasAlreadyReview
             raise UserUnauthenticatedPost
 
     

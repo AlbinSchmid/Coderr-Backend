@@ -17,9 +17,13 @@ class OfferDetailSerializer(serializers.ModelSerializer):
 
 
 class OfferDetailsHyperlinkedSerializer(serializers.HyperlinkedModelSerializer, OfferDetailSerializer):
+    url = serializers.SerializerMethodField()
     class Meta:
         model = OfferDetail
         fields = ['id', 'url']
+
+    def get_url(self, obj):
+        return f"/offerdetails/{obj.pk}/"
 
 
 class OfferListBigDetailsSerializer(serializers.ModelSerializer):
