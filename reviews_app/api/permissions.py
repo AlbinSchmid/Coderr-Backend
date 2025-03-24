@@ -5,17 +5,16 @@ from user_auth.models import Consumer
 class isAuthenticated(BasePermission):
 
     def has_permission(self, request, view):
-        
         if request.method in SAFE_METHODS:
             if request.user and request.user.is_authenticated:
                 return True
             raise UserUnauthenticated
         elif request.method == 'POST':
-            consumer_user = Consumer.objects.filter(user__id=request.user.id)
             if request.user and request.user.is_authenticated:
+                consumer_user = Consumer.objects.filter(user__id=request.user.id)
                 if consumer_user:
                     return True
-                raise UserHasAlreadyReview
+                raise UserUnauthenticatedPost
             raise UserUnauthenticatedPost
 
     
