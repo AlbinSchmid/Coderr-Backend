@@ -5,8 +5,14 @@ from user_auth.api.exeptions import Unauthorized
 from order_app.models import Order
 
 class ConsumerForPostOrAuthenticated(BasePermission):
-    
+    """
+    Custom permission to only allow authenticated users to create orders.
+    Consumers are allowed to create orders, while sellers and staff members are not.
+    """
     def has_permission(self, request, view):
+        """
+        Check if the user is authenticated and has permission to create orders.
+        """
         if request.user and request.user.is_authenticated:
             if request.method in SAFE_METHODS:
                 return True
@@ -19,8 +25,14 @@ class ConsumerForPostOrAuthenticated(BasePermission):
                 
 
 class SellerForPatchOrStaffForDelete(BasePermission):
-
+    """
+    Custom permission to only allow sellers to update orders and staff members to delete orders.
+    """
     def has_permission(self, request, view):
+        """
+        Check if the user is authenticated and has permission to update or delete orders.
+        Sellers are allowed to update orders, while staff members are allowed to delete orders.
+        """
         if request.user and request.user.is_authenticated:
             if request.method == 'PATCH':
                 seller_user = Seller.objects.filter(user__username=request.user.username).first()

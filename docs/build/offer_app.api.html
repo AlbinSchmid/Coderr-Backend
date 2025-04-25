@@ -1,0 +1,603 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>offer_app.api package &mdash; Coderr 25.04.2025 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f1b069c9"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="offer_app.migrations package" href="offer_app.migrations.html" />
+    <link rel="prev" title="offer_app package" href="offer_app.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Coderr
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="user_auth.html">user_auth package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reviews_app.html">reviews_app package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="order_app.html">order_app package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="offer_app.html">offer_app package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="offer_app.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">offer_app.api package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-offer_app.api.exeptions">offer_app.api.exeptions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-offer_app.api.pagination">offer_app.api.pagination module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-offer_app.api.permissions">offer_app.api.permissions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-offer_app.api.serializer">offer_app.api.serializer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-offer_app.api.urls">offer_app.api.urls module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-offer_app.api.view">offer_app.api.view module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-offer_app.api">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="offer_app.migrations.html">offer_app.migrations package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="offer_app.tests.html">offer_app.tests package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="offer_app.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offer_app.html#module-offer_app.admin">offer_app.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offer_app.html#module-offer_app.apps">offer_app.apps module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offer_app.html#module-offer_app.models">offer_app.models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offer_app.html#module-offer_app.views">offer_app.views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offer_app.html#module-offer_app">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Coderr</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="offer_app.html">offer_app package</a></li>
+      <li class="breadcrumb-item active">offer_app.api package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/offer_app.api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="offer-app-api-package">
+<h1>offer_app.api package<a class="headerlink" href="#offer-app-api-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-offer_app.api.exeptions">
+<span id="offer-app-api-exeptions-module"></span><h2>offer_app.api.exeptions module<a class="headerlink" href="#module-offer_app.api.exeptions" title="Link to this heading"></a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.BadRequest">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">BadRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.exeptions.BadRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the request is invalid or incomplete.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.BadRequest.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'bad_request'</span></em><a class="headerlink" href="#offer_app.api.exeptions.BadRequest.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.BadRequest.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Ungültige</span> <span class="pre">Anfragedaten</span> <span class="pre">oder</span> <span class="pre">unvollständige</span> <span class="pre">Details.'</span></em><a class="headerlink" href="#offer_app.api.exeptions.BadRequest.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.BadRequest.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">400</span></em><a class="headerlink" href="#offer_app.api.exeptions.BadRequest.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.IncorrectParams">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">IncorrectParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.exeptions.IncorrectParams" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the request parameters are incorrect.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.IncorrectParams.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'bad_request'</span></em><a class="headerlink" href="#offer_app.api.exeptions.IncorrectParams.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.IncorrectParams.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Ungültige</span> <span class="pre">Anfrageparameter.'</span></em><a class="headerlink" href="#offer_app.api.exeptions.IncorrectParams.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.IncorrectParams.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">400</span></em><a class="headerlink" href="#offer_app.api.exeptions.IncorrectParams.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.NoSellerUser">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">NoSellerUser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.exeptions.NoSellerUser" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the user is not a seller.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.NoSellerUser.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'no_business_user'</span></em><a class="headerlink" href="#offer_app.api.exeptions.NoSellerUser.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.NoSellerUser.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Authentifizierter</span> <span class="pre">Benutzer</span> <span class="pre">ist</span> <span class="pre">kein</span> <span class="pre">business</span> <span class="pre">Profil.'</span></em><a class="headerlink" href="#offer_app.api.exeptions.NoSellerUser.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.NoSellerUser.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">403</span></em><a class="headerlink" href="#offer_app.api.exeptions.NoSellerUser.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.OfferNotFound">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">OfferNotFound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.exeptions.OfferNotFound" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the offer is not found.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.OfferNotFound.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'not_found'</span></em><a class="headerlink" href="#offer_app.api.exeptions.OfferNotFound.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.OfferNotFound.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Das</span> <span class="pre">Angebot</span> <span class="pre">mit</span> <span class="pre">der</span> <span class="pre">angegebenen</span> <span class="pre">ID</span> <span class="pre">wurde</span> <span class="pre">nicht</span> <span class="pre">gefunden.'</span></em><a class="headerlink" href="#offer_app.api.exeptions.OfferNotFound.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.OfferNotFound.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">404</span></em><a class="headerlink" href="#offer_app.api.exeptions.OfferNotFound.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.UserIsNotOwnerOffer">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">UserIsNotOwnerOffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.exeptions.UserIsNotOwnerOffer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the authenticated user is not the owner of the offer.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.UserIsNotOwnerOffer.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'not_found'</span></em><a class="headerlink" href="#offer_app.api.exeptions.UserIsNotOwnerOffer.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.UserIsNotOwnerOffer.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Authentifizierter</span> <span class="pre">Benutzer</span> <span class="pre">ist</span> <span class="pre">nicht</span> <span class="pre">der</span> <span class="pre">Eigentümer</span> <span class="pre">des</span> <span class="pre">Angebots.'</span></em><a class="headerlink" href="#offer_app.api.exeptions.UserIsNotOwnerOffer.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.exeptions.UserIsNotOwnerOffer.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">403</span></em><a class="headerlink" href="#offer_app.api.exeptions.UserIsNotOwnerOffer.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-offer_app.api.pagination">
+<span id="offer-app-api-pagination-module"></span><h2>offer_app.api.pagination module<a class="headerlink" href="#module-offer_app.api.pagination" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.api.pagination.LargeResultsSetPagination">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.api.pagination.</span></span><span class="sig-name descname"><span class="pre">LargeResultsSetPagination</span></span><a class="headerlink" href="#offer_app.api.pagination.LargeResultsSetPagination" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PageNumberPagination</span></code></p>
+<p>Custom pagination class for large result sets.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.pagination.LargeResultsSetPagination.max_page_size">
+<span class="sig-name descname"><span class="pre">max_page_size</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10000</span></em><a class="headerlink" href="#offer_app.api.pagination.LargeResultsSetPagination.max_page_size" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.pagination.LargeResultsSetPagination.page_size">
+<span class="sig-name descname"><span class="pre">page_size</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">105</span></em><a class="headerlink" href="#offer_app.api.pagination.LargeResultsSetPagination.page_size" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.pagination.LargeResultsSetPagination.page_size_query_param">
+<span class="sig-name descname"><span class="pre">page_size_query_param</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'page_size'</span></em><a class="headerlink" href="#offer_app.api.pagination.LargeResultsSetPagination.page_size_query_param" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-offer_app.api.permissions">
+<span id="offer-app-api-permissions-module"></span><h2>offer_app.api.permissions module<a class="headerlink" href="#module-offer_app.api.permissions" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.api.permissions.Authenticated">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.api.permissions.</span></span><span class="sig-name descname"><span class="pre">Authenticated</span></span><a class="headerlink" href="#offer_app.api.permissions.Authenticated" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BasePermission</span></code></p>
+<p>Custom permission to only allow authenticated users to access the API.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.api.permissions.Authenticated.has_permission">
+<span class="sig-name descname"><span class="pre">has_permission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.permissions.Authenticated.has_permission" title="Link to this definition"></a></dt>
+<dd><p>Check if the user is authenticated.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.api.permissions.OwnerPatchAndDeleteOrIsAuthenticated">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.api.permissions.</span></span><span class="sig-name descname"><span class="pre">OwnerPatchAndDeleteOrIsAuthenticated</span></span><a class="headerlink" href="#offer_app.api.permissions.OwnerPatchAndDeleteOrIsAuthenticated" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BasePermission</span></code></p>
+<p>Custom permission to only allow the owner of an offer to update or delete it.
+All authenticated users can read offers.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.api.permissions.OwnerPatchAndDeleteOrIsAuthenticated.has_object_permission">
+<span class="sig-name descname"><span class="pre">has_object_permission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.permissions.OwnerPatchAndDeleteOrIsAuthenticated.has_object_permission" title="Link to this definition"></a></dt>
+<dd><p>Check if the user is the owner of the offer or if they are authenticated.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.api.permissions.SellerUserCreateOrReadOnly">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.api.permissions.</span></span><span class="sig-name descname"><span class="pre">SellerUserCreateOrReadOnly</span></span><a class="headerlink" href="#offer_app.api.permissions.SellerUserCreateOrReadOnly" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BasePermission</span></code></p>
+<p>Custom permission to only allow authenticated sellers to create offers.
+All users can read offers.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.api.permissions.SellerUserCreateOrReadOnly.has_permission">
+<span class="sig-name descname"><span class="pre">has_permission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.permissions.SellerUserCreateOrReadOnly.has_permission" title="Link to this definition"></a></dt>
+<dd><p>Check if the user is authenticated and has permission to create offers.
+Sellers are allowed to create offers, while all users can read offers.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-offer_app.api.serializer">
+<span id="offer-app-api-serializer-module"></span><h2>offer_app.api.serializer module<a class="headerlink" href="#module-offer_app.api.serializer" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferDetailSerializer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.api.serializer.</span></span><span class="sig-name descname"><span class="pre">OfferDetailSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.serializer.OfferDetailSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for OfferDetail model.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferDetailSerializer.Meta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#offer_app.api.serializer.OfferDetailSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Meta class for OfferDetailSerializer.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferDetailSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'title',</span> <span class="pre">'revisions',</span> <span class="pre">'delivery_time_in_days',</span> <span class="pre">'price',</span> <span class="pre">'offer_type',</span> <span class="pre">'features']</span></em><a class="headerlink" href="#offer_app.api.serializer.OfferDetailSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferDetailSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#offer_app.api.serializer.OfferDetailSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="offer_app.html#offer_app.models.OfferDetail" title="offer_app.models.OfferDetail"><code class="xref py py-class docutils literal notranslate"><span class="pre">OfferDetail</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferDetailsHyperlinkedSerializer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.api.serializer.</span></span><span class="sig-name descname"><span class="pre">OfferDetailsHyperlinkedSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.serializer.OfferDetailsHyperlinkedSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">HyperlinkedModelSerializer</span></code>, <a class="reference internal" href="#offer_app.api.serializer.OfferDetailSerializer" title="offer_app.api.serializer.OfferDetailSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">OfferDetailSerializer</span></code></a></p>
+<p>Serializer for OfferDetail model with a hyperlink to the detail view.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferDetailsHyperlinkedSerializer.Meta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#offer_app.api.serializer.OfferDetailsHyperlinkedSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Meta class for OfferDetailsHyperlinkedSerializer.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferDetailsHyperlinkedSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'url']</span></em><a class="headerlink" href="#offer_app.api.serializer.OfferDetailsHyperlinkedSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferDetailsHyperlinkedSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#offer_app.api.serializer.OfferDetailsHyperlinkedSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="offer_app.html#offer_app.models.OfferDetail" title="offer_app.models.OfferDetail"><code class="xref py py-class docutils literal notranslate"><span class="pre">OfferDetail</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferDetailsHyperlinkedSerializer.get_url">
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.serializer.OfferDetailsHyperlinkedSerializer.get_url" title="Link to this definition"></a></dt>
+<dd><p>Generate a URL for the OfferDetail instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferListBigDetailsSerializer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.api.serializer.</span></span><span class="sig-name descname"><span class="pre">OfferListBigDetailsSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.serializer.OfferListBigDetailsSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for Offer model with detailed information about the offer and its details.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferListBigDetailsSerializer.Meta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#offer_app.api.serializer.OfferListBigDetailsSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Meta class for OfferListBigDetailsSerializer.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferListBigDetailsSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'__all__'</span></em><a class="headerlink" href="#offer_app.api.serializer.OfferListBigDetailsSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferListBigDetailsSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#offer_app.api.serializer.OfferListBigDetailsSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="offer_app.html#offer_app.models.Offer" title="offer_app.models.Offer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Offer</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferListBigDetailsSerializer.Meta.read_only_fields">
+<span class="sig-name descname"><span class="pre">read_only_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['user']</span></em><a class="headerlink" href="#offer_app.api.serializer.OfferListBigDetailsSerializer.Meta.read_only_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferListBigDetailsSerializer.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">validated_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.serializer.OfferListBigDetailsSerializer.create" title="Link to this definition"></a></dt>
+<dd><p>Create a new Offer instance with its details.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferListBigDetailsSerializer.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validated_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.serializer.OfferListBigDetailsSerializer.update" title="Link to this definition"></a></dt>
+<dd><p>Update an existing Offer instance and its details.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferListSmallDetailsSerializer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.api.serializer.</span></span><span class="sig-name descname"><span class="pre">OfferListSmallDetailsSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.serializer.OfferListSmallDetailsSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for Offer model with small details.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferListSmallDetailsSerializer.Meta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#offer_app.api.serializer.OfferListSmallDetailsSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Meta class for OfferListSmallDetailsSerializer.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferListSmallDetailsSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'__all__'</span></em><a class="headerlink" href="#offer_app.api.serializer.OfferListSmallDetailsSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferListSmallDetailsSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#offer_app.api.serializer.OfferListSmallDetailsSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="offer_app.html#offer_app.models.Offer" title="offer_app.models.Offer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Offer</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.serializer.OfferListSmallDetailsSerializer.Meta.read_only_fields">
+<span class="sig-name descname"><span class="pre">read_only_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['user']</span></em><a class="headerlink" href="#offer_app.api.serializer.OfferListSmallDetailsSerializer.Meta.read_only_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.api.serializer.UserSerializer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.api.serializer.</span></span><span class="sig-name descname"><span class="pre">UserSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.serializer.UserSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for User model.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.api.serializer.UserSerializer.Meta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#offer_app.api.serializer.UserSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Meta class for UserSerializer.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.serializer.UserSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['username',</span> <span class="pre">'first_name',</span> <span class="pre">'last_name']</span></em><a class="headerlink" href="#offer_app.api.serializer.UserSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.serializer.UserSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#offer_app.api.serializer.UserSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-offer_app.api.urls">
+<span id="offer-app-api-urls-module"></span><h2>offer_app.api.urls module<a class="headerlink" href="#module-offer_app.api.urls" title="Link to this heading"></a></h2>
+</section>
+<section id="module-offer_app.api.view">
+<span id="offer-app-api-view-module"></span><h2>offer_app.api.view module<a class="headerlink" href="#module-offer_app.api.view" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferDetailView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.api.view.</span></span><span class="sig-name descname"><span class="pre">OfferDetailView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.view.OfferDetailView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RetrieveUpdateDestroyAPIView</span></code></p>
+<p>View to retrieve, update, or delete an offer.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferDetailView.get_object">
+<span class="sig-name descname"><span class="pre">get_object</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.view.OfferDetailView.get_object" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the offer object based on the provided primary key (pk).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferDetailView.get_serializer_class">
+<span class="sig-name descname"><span class="pre">get_serializer_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.view.OfferDetailView.get_serializer_class" title="Link to this definition"></a></dt>
+<dd><p>Return the appropriate serializer class based on the request method.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferDetailView.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'offer_app.api.permissions.OwnerPatchAndDeleteOrIsAuthenticated'&gt;]</span></em><a class="headerlink" href="#offer_app.api.view.OfferDetailView.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferDetailView.queryset">
+<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;QuerySet</span> <span class="pre">[]&gt;</span></em><a class="headerlink" href="#offer_app.api.view.OfferDetailView.queryset" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferDetailView.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#offer_app.api.view.OfferDetailView.serializer_class" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#offer_app.api.serializer.OfferListSmallDetailsSerializer" title="offer_app.api.serializer.OfferListSmallDetailsSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">OfferListSmallDetailsSerializer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferDetailsListView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.api.view.</span></span><span class="sig-name descname"><span class="pre">OfferDetailsListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.view.OfferDetailsListView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RetrieveAPIView</span></code></p>
+<p>View to retrieve the details of a specific offer.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferDetailsListView.get_object">
+<span class="sig-name descname"><span class="pre">get_object</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.view.OfferDetailsListView.get_object" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the offer detail object based on the provided primary key (pk).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferDetailsListView.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'offer_app.api.permissions.Authenticated'&gt;]</span></em><a class="headerlink" href="#offer_app.api.view.OfferDetailsListView.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferDetailsListView.queryset">
+<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;QuerySet</span> <span class="pre">[]&gt;</span></em><a class="headerlink" href="#offer_app.api.view.OfferDetailsListView.queryset" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferDetailsListView.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#offer_app.api.view.OfferDetailsListView.serializer_class" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#offer_app.api.serializer.OfferDetailSerializer" title="offer_app.api.serializer.OfferDetailSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">OfferDetailSerializer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferListView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.api.view.</span></span><span class="sig-name descname"><span class="pre">OfferListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.view.OfferListView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListCreateAPIView</span></code></p>
+<p>View to list and create offers.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferListView.filter_backends">
+<span class="sig-name descname"><span class="pre">filter_backends</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'django_filters.rest_framework.backends.DjangoFilterBackend'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'rest_framework.filters.OrderingFilter'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'rest_framework.filters.SearchFilter'&gt;]</span></em><a class="headerlink" href="#offer_app.api.view.OfferListView.filter_backends" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferListView.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.view.OfferListView.get_queryset" title="Link to this definition"></a></dt>
+<dd><p>Optionally restricts the returned offers to a given user,
+by filtering against a <cite>creator_id</cite> query parameter in the URL.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferListView.get_serializer_class">
+<span class="sig-name descname"><span class="pre">get_serializer_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.api.view.OfferListView.get_serializer_class" title="Link to this definition"></a></dt>
+<dd><p>Return the appropriate serializer class based on the request method.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferListView.ordering_fields">
+<span class="sig-name descname"><span class="pre">ordering_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['updated_at',</span> <span class="pre">'min_price']</span></em><a class="headerlink" href="#offer_app.api.view.OfferListView.ordering_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferListView.pagination_class">
+<span class="sig-name descname"><span class="pre">pagination_class</span></span><a class="headerlink" href="#offer_app.api.view.OfferListView.pagination_class" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#offer_app.api.pagination.LargeResultsSetPagination" title="offer_app.api.pagination.LargeResultsSetPagination"><code class="xref py py-class docutils literal notranslate"><span class="pre">LargeResultsSetPagination</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferListView.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'offer_app.api.permissions.SellerUserCreateOrReadOnly'&gt;]</span></em><a class="headerlink" href="#offer_app.api.view.OfferListView.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferListView.queryset">
+<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;QuerySet</span> <span class="pre">[]&gt;</span></em><a class="headerlink" href="#offer_app.api.view.OfferListView.queryset" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="offer_app.api.view.OfferListView.search_fields">
+<span class="sig-name descname"><span class="pre">search_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['title',</span> <span class="pre">'description']</span></em><a class="headerlink" href="#offer_app.api.view.OfferListView.search_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-offer_app.api">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-offer_app.api" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="offer_app.html" class="btn btn-neutral float-left" title="offer_app package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="offer_app.migrations.html" class="btn btn-neutral float-right" title="offer_app.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Albin Schmid.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

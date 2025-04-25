@@ -1,0 +1,859 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>user_auth package &mdash; Coderr 25.04.2025 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f1b069c9"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="user_auth.api package" href="user_auth.api.html" />
+    <link rel="prev" title="Coderr documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Coderr
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">user_auth package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html">user_auth.api package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html">user_auth.migrations package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.tests.html">user_auth.tests package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-user_auth.admin">user_auth.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-user_auth.apps">user_auth.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#user_auth.apps.UserAuthConfig"><code class="docutils literal notranslate"><span class="pre">UserAuthConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.apps.UserAuthConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">UserAuthConfig.default_auto_field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.apps.UserAuthConfig.name"><code class="docutils literal notranslate"><span class="pre">UserAuthConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-user_auth.models">user_auth.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#user_auth.models.BaseUserProfile"><code class="docutils literal notranslate"><span class="pre">BaseUserProfile</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.BaseUserProfile.Meta"><code class="docutils literal notranslate"><span class="pre">BaseUserProfile.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.BaseUserProfile.created_at"><code class="docutils literal notranslate"><span class="pre">BaseUserProfile.created_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.BaseUserProfile.file"><code class="docutils literal notranslate"><span class="pre">BaseUserProfile.file</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.BaseUserProfile.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">BaseUserProfile.get_next_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.BaseUserProfile.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">BaseUserProfile.get_previous_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.BaseUserProfile.type"><code class="docutils literal notranslate"><span class="pre">BaseUserProfile.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.BaseUserProfile.user"><code class="docutils literal notranslate"><span class="pre">BaseUserProfile.user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.BaseUserProfile.user_id"><code class="docutils literal notranslate"><span class="pre">BaseUserProfile.user_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#user_auth.models.Consumer"><code class="docutils literal notranslate"><span class="pre">Consumer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Consumer.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Consumer.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Consumer.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Consumer.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Consumer.created_at"><code class="docutils literal notranslate"><span class="pre">Consumer.created_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Consumer.file"><code class="docutils literal notranslate"><span class="pre">Consumer.file</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Consumer.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Consumer.get_next_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Consumer.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Consumer.get_previous_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Consumer.id"><code class="docutils literal notranslate"><span class="pre">Consumer.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Consumer.objects"><code class="docutils literal notranslate"><span class="pre">Consumer.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Consumer.type"><code class="docutils literal notranslate"><span class="pre">Consumer.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Consumer.user"><code class="docutils literal notranslate"><span class="pre">Consumer.user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Consumer.user_id"><code class="docutils literal notranslate"><span class="pre">Consumer.user_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#user_auth.models.Seller"><code class="docutils literal notranslate"><span class="pre">Seller</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Seller.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Seller.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Seller.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Seller.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Seller.created_at"><code class="docutils literal notranslate"><span class="pre">Seller.created_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Seller.description"><code class="docutils literal notranslate"><span class="pre">Seller.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Seller.file"><code class="docutils literal notranslate"><span class="pre">Seller.file</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Seller.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Seller.get_next_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Seller.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Seller.get_previous_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Seller.id"><code class="docutils literal notranslate"><span class="pre">Seller.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Seller.location"><code class="docutils literal notranslate"><span class="pre">Seller.location</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Seller.objects"><code class="docutils literal notranslate"><span class="pre">Seller.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Seller.tel"><code class="docutils literal notranslate"><span class="pre">Seller.tel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Seller.type"><code class="docutils literal notranslate"><span class="pre">Seller.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Seller.user"><code class="docutils literal notranslate"><span class="pre">Seller.user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Seller.user_id"><code class="docutils literal notranslate"><span class="pre">Seller.user_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user_auth.models.Seller.working_hours"><code class="docutils literal notranslate"><span class="pre">Seller.working_hours</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-user_auth.views">user_auth.views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-user_auth">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reviews_app.html">reviews_app package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Coderr</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">user_auth package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/user_auth.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="user-auth-package">
+<h1>user_auth package<a class="headerlink" href="#user-auth-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user_auth.api.html">user_auth.api package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.api.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.api.html#module-user_auth.api.exeptions">user_auth.api.exeptions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.EmailExistAlready"><code class="docutils literal notranslate"><span class="pre">EmailExistAlready</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.EmailExistAlready.default_code"><code class="docutils literal notranslate"><span class="pre">EmailExistAlready.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.EmailExistAlready.default_detail"><code class="docutils literal notranslate"><span class="pre">EmailExistAlready.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.EmailExistAlready.status_code"><code class="docutils literal notranslate"><span class="pre">EmailExistAlready.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.EmailIncorrect"><code class="docutils literal notranslate"><span class="pre">EmailIncorrect</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.EmailIncorrect.default_code"><code class="docutils literal notranslate"><span class="pre">EmailIncorrect.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.EmailIncorrect.default_detail"><code class="docutils literal notranslate"><span class="pre">EmailIncorrect.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.EmailIncorrect.status_code"><code class="docutils literal notranslate"><span class="pre">EmailIncorrect.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.LoginNotCorrect"><code class="docutils literal notranslate"><span class="pre">LoginNotCorrect</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.LoginNotCorrect.default_code"><code class="docutils literal notranslate"><span class="pre">LoginNotCorrect.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.LoginNotCorrect.default_detail"><code class="docutils literal notranslate"><span class="pre">LoginNotCorrect.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.LoginNotCorrect.status_code"><code class="docutils literal notranslate"><span class="pre">LoginNotCorrect.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.PasswordNotMatch"><code class="docutils literal notranslate"><span class="pre">PasswordNotMatch</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.PasswordNotMatch.default_code"><code class="docutils literal notranslate"><span class="pre">PasswordNotMatch.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.PasswordNotMatch.default_detail"><code class="docutils literal notranslate"><span class="pre">PasswordNotMatch.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.PasswordNotMatch.status_code"><code class="docutils literal notranslate"><span class="pre">PasswordNotMatch.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.Unauthorized"><code class="docutils literal notranslate"><span class="pre">Unauthorized</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.Unauthorized.default_code"><code class="docutils literal notranslate"><span class="pre">Unauthorized.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.Unauthorized.default_detail"><code class="docutils literal notranslate"><span class="pre">Unauthorized.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.Unauthorized.status_code"><code class="docutils literal notranslate"><span class="pre">Unauthorized.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.UserIsNotOwner"><code class="docutils literal notranslate"><span class="pre">UserIsNotOwner</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.UserIsNotOwner.default_code"><code class="docutils literal notranslate"><span class="pre">UserIsNotOwner.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.UserIsNotOwner.default_detail"><code class="docutils literal notranslate"><span class="pre">UserIsNotOwner.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.UserIsNotOwner.status_code"><code class="docutils literal notranslate"><span class="pre">UserIsNotOwner.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.UserNotFound"><code class="docutils literal notranslate"><span class="pre">UserNotFound</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.UserNotFound.default_code"><code class="docutils literal notranslate"><span class="pre">UserNotFound.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.UserNotFound.default_detail"><code class="docutils literal notranslate"><span class="pre">UserNotFound.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.UserNotFound.status_code"><code class="docutils literal notranslate"><span class="pre">UserNotFound.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.UsernameContainsSpace"><code class="docutils literal notranslate"><span class="pre">UsernameContainsSpace</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.UsernameContainsSpace.default_code"><code class="docutils literal notranslate"><span class="pre">UsernameContainsSpace.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.UsernameContainsSpace.default_detail"><code class="docutils literal notranslate"><span class="pre">UsernameContainsSpace.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.UsernameContainsSpace.status_code"><code class="docutils literal notranslate"><span class="pre">UsernameContainsSpace.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.UsernameExistAlready"><code class="docutils literal notranslate"><span class="pre">UsernameExistAlready</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.UsernameExistAlready.default_code"><code class="docutils literal notranslate"><span class="pre">UsernameExistAlready.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.UsernameExistAlready.default_detail"><code class="docutils literal notranslate"><span class="pre">UsernameExistAlready.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.exeptions.UsernameExistAlready.status_code"><code class="docutils literal notranslate"><span class="pre">UsernameExistAlready.status_code</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.api.html#module-user_auth.api.permissions">user_auth.api.permissions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.permissions.IsAuthenticated"><code class="docutils literal notranslate"><span class="pre">IsAuthenticated</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.permissions.IsAuthenticated.has_permission"><code class="docutils literal notranslate"><span class="pre">IsAuthenticated.has_permission()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.permissions.IsOwnerOrAdmin"><code class="docutils literal notranslate"><span class="pre">IsOwnerOrAdmin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.permissions.IsOwnerOrAdmin.has_object_permission"><code class="docutils literal notranslate"><span class="pre">IsOwnerOrAdmin.has_object_permission()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.api.html#module-user_auth.api.serializer">user_auth.api.serializer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.serializer.ConsumerSerializer"><code class="docutils literal notranslate"><span class="pre">ConsumerSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.serializer.ConsumerSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">ConsumerSerializer.Meta</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.serializer.RegistrationSerializer"><code class="docutils literal notranslate"><span class="pre">RegistrationSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.serializer.RegistrationSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">RegistrationSerializer.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.serializer.RegistrationSerializer.save"><code class="docutils literal notranslate"><span class="pre">RegistrationSerializer.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.serializer.RegistrationSerializer.validate"><code class="docutils literal notranslate"><span class="pre">RegistrationSerializer.validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.serializer.SellerSerializer"><code class="docutils literal notranslate"><span class="pre">SellerSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.serializer.SellerSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">SellerSerializer.Meta</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.api.html#module-user_auth.api.urls">user_auth.api.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.api.html#module-user_auth.api.validators">user_auth.api.validators module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.validators.validate_email_address"><code class="docutils literal notranslate"><span class="pre">validate_email_address()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.validators.validate_password"><code class="docutils literal notranslate"><span class="pre">validate_password()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.validators.validate_username"><code class="docutils literal notranslate"><span class="pre">validate_username()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.api.html#module-user_auth.api.views">user_auth.api.views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.ConsumerListView"><code class="docutils literal notranslate"><span class="pre">ConsumerListView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.ConsumerListView.permission_classes"><code class="docutils literal notranslate"><span class="pre">ConsumerListView.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.ConsumerListView.queryset"><code class="docutils literal notranslate"><span class="pre">ConsumerListView.queryset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.ConsumerListView.serializer_class"><code class="docutils literal notranslate"><span class="pre">ConsumerListView.serializer_class</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.CustomLogInView"><code class="docutils literal notranslate"><span class="pre">CustomLogInView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.CustomLogInView.permission_classes"><code class="docutils literal notranslate"><span class="pre">CustomLogInView.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.CustomLogInView.post"><code class="docutils literal notranslate"><span class="pre">CustomLogInView.post()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.ProfileListView"><code class="docutils literal notranslate"><span class="pre">ProfileListView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.ProfileListView.get"><code class="docutils literal notranslate"><span class="pre">ProfileListView.get()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.ProfileSingleView"><code class="docutils literal notranslate"><span class="pre">ProfileSingleView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.ProfileSingleView.get"><code class="docutils literal notranslate"><span class="pre">ProfileSingleView.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.ProfileSingleView.get_object"><code class="docutils literal notranslate"><span class="pre">ProfileSingleView.get_object()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.ProfileSingleView.patch"><code class="docutils literal notranslate"><span class="pre">ProfileSingleView.patch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.ProfileSingleView.permission_classes"><code class="docutils literal notranslate"><span class="pre">ProfileSingleView.permission_classes</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.RegistrationView"><code class="docutils literal notranslate"><span class="pre">RegistrationView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.RegistrationView.permission_classes"><code class="docutils literal notranslate"><span class="pre">RegistrationView.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.RegistrationView.post"><code class="docutils literal notranslate"><span class="pre">RegistrationView.post()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.SellerListView"><code class="docutils literal notranslate"><span class="pre">SellerListView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.SellerListView.permission_classes"><code class="docutils literal notranslate"><span class="pre">SellerListView.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.SellerListView.queryset"><code class="docutils literal notranslate"><span class="pre">SellerListView.queryset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.api.html#user_auth.api.views.SellerListView.serializer_class"><code class="docutils literal notranslate"><span class="pre">SellerListView.serializer_class</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.api.html#module-user_auth.api">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_auth.migrations.html">user_auth.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0001_initial">user_auth.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0002_consumer">user_auth.migrations.0002_consumer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0002_consumer.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0002_consumer.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0002_consumer.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0003_rename_provider_seller">user_auth.migrations.0003_rename_provider_seller module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0003_rename_provider_seller.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0003_rename_provider_seller.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0003_rename_provider_seller.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0004_user_alter_consumer_user_alter_seller_user">user_auth.migrations.0004_user_alter_consumer_user_alter_seller_user module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0004_user_alter_consumer_user_alter_seller_user.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0004_user_alter_consumer_user_alter_seller_user.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0004_user_alter_consumer_user_alter_seller_user.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0005_alter_consumer_user_alter_seller_user_delete_user">user_auth.migrations.0005_alter_consumer_user_alter_seller_user_delete_user module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0005_alter_consumer_user_alter_seller_user_delete_user.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0005_alter_consumer_user_alter_seller_user_delete_user.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0005_alter_consumer_user_alter_seller_user_delete_user.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0006_consumer_created_at_consumer_description_and_more">user_auth.migrations.0006_consumer_created_at_consumer_description_and_more module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0006_consumer_created_at_consumer_description_and_more.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0006_consumer_created_at_consumer_description_and_more.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0006_consumer_created_at_consumer_description_and_more.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0007_alter_consumer_type_alter_seller_type">user_auth.migrations.0007_alter_consumer_type_alter_seller_type module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0007_alter_consumer_type_alter_seller_type.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0007_alter_consumer_type_alter_seller_type.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0007_alter_consumer_type_alter_seller_type.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0008_alter_consumer_type_alter_seller_type">user_auth.migrations.0008_alter_consumer_type_alter_seller_type module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0008_alter_consumer_type_alter_seller_type.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0008_alter_consumer_type_alter_seller_type.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0008_alter_consumer_type_alter_seller_type.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0009_alter_consumer_type_alter_seller_type">user_auth.migrations.0009_alter_consumer_type_alter_seller_type module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0009_alter_consumer_type_alter_seller_type.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0009_alter_consumer_type_alter_seller_type.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0009_alter_consumer_type_alter_seller_type.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0010_alter_consumer_type_alter_seller_type">user_auth.migrations.0010_alter_consumer_type_alter_seller_type module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0010_alter_consumer_type_alter_seller_type.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0010_alter_consumer_type_alter_seller_type.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0010_alter_consumer_type_alter_seller_type.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0011_testmodel">user_auth.migrations.0011_testmodel module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0011_testmodel.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0011_testmodel.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0011_testmodel.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0012_delete_testmodel">user_auth.migrations.0012_delete_testmodel module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0012_delete_testmodel.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0012_delete_testmodel.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0012_delete_testmodel.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0013_alter_consumer_type_alter_seller_type">user_auth.migrations.0013_alter_consumer_type_alter_seller_type module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0013_alter_consumer_type_alter_seller_type.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0013_alter_consumer_type_alter_seller_type.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0013_alter_consumer_type_alter_seller_type.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0014_remove_consumer_type_remove_seller_type">user_auth.migrations.0014_remove_consumer_type_remove_seller_type module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0014_remove_consumer_type_remove_seller_type.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0014_remove_consumer_type_remove_seller_type.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0014_remove_consumer_type_remove_seller_type.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0015_consumer_type_seller_type">user_auth.migrations.0015_consumer_type_seller_type module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0015_consumer_type_seller_type.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0015_consumer_type_seller_type.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0015_consumer_type_seller_type.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0016_alter_consumer_type_alter_seller_type">user_auth.migrations.0016_alter_consumer_type_alter_seller_type module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0016_alter_consumer_type_alter_seller_type.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0016_alter_consumer_type_alter_seller_type.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0016_alter_consumer_type_alter_seller_type.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0017_consumer_profile_seller_profile">user_auth.migrations.0017_consumer_profile_seller_profile module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0017_consumer_profile_seller_profile.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0017_consumer_profile_seller_profile.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0017_consumer_profile_seller_profile.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0018_rename_profile_consumer_file_and_more">user_auth.migrations.0018_rename_profile_consumer_file_and_more module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0018_rename_profile_consumer_file_and_more.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0018_rename_profile_consumer_file_and_more.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0018_rename_profile_consumer_file_and_more.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0019_remove_seller_description_remove_seller_location_and_more">user_auth.migrations.0019_remove_seller_description_remove_seller_location_and_more module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0019_remove_seller_description_remove_seller_location_and_more.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0019_remove_seller_description_remove_seller_location_and_more.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0019_remove_seller_description_remove_seller_location_and_more.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0020_consumer_tel">user_auth.migrations.0020_consumer_tel module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0020_consumer_tel.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0020_consumer_tel.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0020_consumer_tel.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0021_remove_consumer_description_remove_consumer_location_and_more">user_auth.migrations.0021_remove_consumer_description_remove_consumer_location_and_more module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0021_remove_consumer_description_remove_consumer_location_and_more.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0021_remove_consumer_description_remove_consumer_location_and_more.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0021_remove_consumer_description_remove_consumer_location_and_more.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations.0022_seller_tel">user_auth.migrations.0022_seller_tel module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0022_seller_tel.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0022_seller_tel.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.migrations.html#user_auth.migrations.0022_seller_tel.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.migrations.html#module-user_auth.migrations">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_auth.tests.html">user_auth.tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.tests.html#module-user_auth.tests.test_profile">user_auth.tests.test_profile module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_profile.ProfileTests"><code class="docutils literal notranslate"><span class="pre">ProfileTests</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_profile.ProfileTests.setUp"><code class="docutils literal notranslate"><span class="pre">ProfileTests.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_profile.ProfileTests.setUpTestData"><code class="docutils literal notranslate"><span class="pre">ProfileTests.setUpTestData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_profile.ProfileTests.test_get_consumer_authorized"><code class="docutils literal notranslate"><span class="pre">ProfileTests.test_get_consumer_authorized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_profile.ProfileTests.test_get_consumer_unauthorized"><code class="docutils literal notranslate"><span class="pre">ProfileTests.test_get_consumer_unauthorized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_profile.ProfileTests.test_get_not_exist_profile"><code class="docutils literal notranslate"><span class="pre">ProfileTests.test_get_not_exist_profile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_profile.ProfileTests.test_get_seller_authorized"><code class="docutils literal notranslate"><span class="pre">ProfileTests.test_get_seller_authorized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_profile.ProfileTests.test_get_seller_unauthorized"><code class="docutils literal notranslate"><span class="pre">ProfileTests.test_get_seller_unauthorized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_profile.ProfileTests.test_get_unauthorized"><code class="docutils literal notranslate"><span class="pre">ProfileTests.test_get_unauthorized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_profile.ProfileTests.test_patch_exist_email"><code class="docutils literal notranslate"><span class="pre">ProfileTests.test_patch_exist_email()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_profile.ProfileTests.test_patch_incorrect_email"><code class="docutils literal notranslate"><span class="pre">ProfileTests.test_patch_incorrect_email()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_profile.ProfileTests.test_patch_not_exist_profile"><code class="docutils literal notranslate"><span class="pre">ProfileTests.test_patch_not_exist_profile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_profile.ProfileTests.test_patch_not_owner"><code class="docutils literal notranslate"><span class="pre">ProfileTests.test_patch_not_owner()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_profile.ProfileTests.test_patch_owner_consumer"><code class="docutils literal notranslate"><span class="pre">ProfileTests.test_patch_owner_consumer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_profile.ProfileTests.test_patch_owner_seller"><code class="docutils literal notranslate"><span class="pre">ProfileTests.test_patch_owner_seller()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_profile.ProfileTests.test_patch_unauthorized"><code class="docutils literal notranslate"><span class="pre">ProfileTests.test_patch_unauthorized()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.tests.html#module-user_auth.tests.test_registration">user_auth.tests.test_registration module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_registration.RegistrationTests"><code class="docutils literal notranslate"><span class="pre">RegistrationTests</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_registration.RegistrationTests.setUpTestData"><code class="docutils literal notranslate"><span class="pre">RegistrationTests.setUpTestData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_registration.RegistrationTests.test_patch_already_exist_email"><code class="docutils literal notranslate"><span class="pre">RegistrationTests.test_patch_already_exist_email()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_registration.RegistrationTests.test_patch_already_exist_username"><code class="docutils literal notranslate"><span class="pre">RegistrationTests.test_patch_already_exist_username()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_registration.RegistrationTests.test_patch_correct_form_consumer"><code class="docutils literal notranslate"><span class="pre">RegistrationTests.test_patch_correct_form_consumer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_registration.RegistrationTests.test_patch_correct_form_seller"><code class="docutils literal notranslate"><span class="pre">RegistrationTests.test_patch_correct_form_seller()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_registration.RegistrationTests.test_patch_incorrect_email"><code class="docutils literal notranslate"><span class="pre">RegistrationTests.test_patch_incorrect_email()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_registration.RegistrationTests.test_patch_incorrect_username"><code class="docutils literal notranslate"><span class="pre">RegistrationTests.test_patch_incorrect_username()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_auth.tests.html#user_auth.tests.test_registration.RegistrationTests.test_patch_password_dont_match"><code class="docutils literal notranslate"><span class="pre">RegistrationTests.test_patch_password_dont_match()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.tests.html#module-user_auth.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-user_auth.admin">
+<span id="user-auth-admin-module"></span><h2>user_auth.admin module<a class="headerlink" href="#module-user_auth.admin" title="Link to this heading"></a></h2>
+</section>
+<section id="module-user_auth.apps">
+<span id="user-auth-apps-module"></span><h2>user_auth.apps module<a class="headerlink" href="#module-user_auth.apps" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.apps.UserAuthConfig">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.apps.</span></span><span class="sig-name descname"><span class="pre">UserAuthConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.apps.UserAuthConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<p>Configuration for the User Authentication app.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.apps.UserAuthConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#user_auth.apps.UserAuthConfig.default_auto_field" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.apps.UserAuthConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'user_auth'</span></em><a class="headerlink" href="#user_auth.apps.UserAuthConfig.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-user_auth.models">
+<span id="user-auth-models-module"></span><h2>user_auth.models module<a class="headerlink" href="#module-user_auth.models" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.models.BaseUserProfile">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.models.</span></span><span class="sig-name descname"><span class="pre">BaseUserProfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.models.BaseUserProfile" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Abstract base class for user profiles. This class contains common fields
+and methods that can be inherited by other user profile models.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.models.BaseUserProfile.Meta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#user_auth.models.BaseUserProfile.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Meta class for the BaseUserProfile model.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.BaseUserProfile.Meta.abstract">
+<span class="sig-name descname"><span class="pre">abstract</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#user_auth.models.BaseUserProfile.Meta.abstract" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.BaseUserProfile.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#user_auth.models.BaseUserProfile.created_at" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.BaseUserProfile.file">
+<span class="sig-name descname"><span class="pre">file</span></span><a class="headerlink" href="#user_auth.models.BaseUserProfile.file" title="Link to this definition"></a></dt>
+<dd><p>The descriptor for the file attribute on the model instance. Return a
+FieldFile when accessed so you can write code like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">myapp.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">MyModel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span> <span class="o">=</span> <span class="n">MyModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+</div>
+<p>Assign a file object on assignment so you can do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/path/to/hello.world&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">instance</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.models.BaseUserProfile.get_next_by_created_at">
+<span class="sig-name descname"><span class="pre">get_next_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.models.BaseUserProfile.get_next_by_created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.models.BaseUserProfile.get_previous_by_created_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.models.BaseUserProfile.get_previous_by_created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.BaseUserProfile.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#user_auth.models.BaseUserProfile.type" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.BaseUserProfile.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#user_auth.models.BaseUserProfile.user" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.BaseUserProfile.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#user_auth.models.BaseUserProfile.user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.models.Consumer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.models.</span></span><span class="sig-name descname"><span class="pre">Consumer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.models.Consumer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#user_auth.models.BaseUserProfile" title="user_auth.models.BaseUserProfile"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseUserProfile</span></code></a></p>
+<p>Consumer profile model. Inherits from BaseUserProfile and adds additional fields
+specific to consumers.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_auth.models.Consumer.DoesNotExist">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#user_auth.models.Consumer.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_auth.models.Consumer.MultipleObjectsReturned">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#user_auth.models.Consumer.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.Consumer.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#user_auth.models.Consumer.created_at" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.Consumer.file">
+<span class="sig-name descname"><span class="pre">file</span></span><a class="headerlink" href="#user_auth.models.Consumer.file" title="Link to this definition"></a></dt>
+<dd><p>The descriptor for the file attribute on the model instance. Return a
+FieldFile when accessed so you can write code like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">myapp.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">MyModel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span> <span class="o">=</span> <span class="n">MyModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+</div>
+<p>Assign a file object on assignment so you can do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/path/to/hello.world&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">instance</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.models.Consumer.get_next_by_created_at">
+<span class="sig-name descname"><span class="pre">get_next_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.models.Consumer.get_next_by_created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.models.Consumer.get_previous_by_created_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.models.Consumer.get_previous_by_created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.Consumer.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#user_auth.models.Consumer.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.Consumer.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#user_auth.models.Consumer.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.Consumer.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#user_auth.models.Consumer.type" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.Consumer.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#user_auth.models.Consumer.user" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.Consumer.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#user_auth.models.Consumer.user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.models.Seller">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.models.</span></span><span class="sig-name descname"><span class="pre">Seller</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.models.Seller" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#user_auth.models.BaseUserProfile" title="user_auth.models.BaseUserProfile"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseUserProfile</span></code></a></p>
+<p>Seller profile model. Inherits from BaseUserProfile and adds additional fields
+specific to sellers.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_auth.models.Seller.DoesNotExist">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#user_auth.models.Seller.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_auth.models.Seller.MultipleObjectsReturned">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#user_auth.models.Seller.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.Seller.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#user_auth.models.Seller.created_at" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.Seller.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#user_auth.models.Seller.description" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.Seller.file">
+<span class="sig-name descname"><span class="pre">file</span></span><a class="headerlink" href="#user_auth.models.Seller.file" title="Link to this definition"></a></dt>
+<dd><p>The descriptor for the file attribute on the model instance. Return a
+FieldFile when accessed so you can write code like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">myapp.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">MyModel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span> <span class="o">=</span> <span class="n">MyModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+</div>
+<p>Assign a file object on assignment so you can do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/path/to/hello.world&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">instance</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.models.Seller.get_next_by_created_at">
+<span class="sig-name descname"><span class="pre">get_next_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.models.Seller.get_next_by_created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.models.Seller.get_previous_by_created_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.models.Seller.get_previous_by_created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.Seller.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#user_auth.models.Seller.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.Seller.location">
+<span class="sig-name descname"><span class="pre">location</span></span><a class="headerlink" href="#user_auth.models.Seller.location" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.Seller.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#user_auth.models.Seller.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.Seller.tel">
+<span class="sig-name descname"><span class="pre">tel</span></span><a class="headerlink" href="#user_auth.models.Seller.tel" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.Seller.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#user_auth.models.Seller.type" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.Seller.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#user_auth.models.Seller.user" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.Seller.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#user_auth.models.Seller.user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.models.Seller.working_hours">
+<span class="sig-name descname"><span class="pre">working_hours</span></span><a class="headerlink" href="#user_auth.models.Seller.working_hours" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-user_auth.views">
+<span id="user-auth-views-module"></span><h2>user_auth.views module<a class="headerlink" href="#module-user_auth.views" title="Link to this heading"></a></h2>
+</section>
+<section id="module-user_auth">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-user_auth" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Coderr documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="user_auth.api.html" class="btn btn-neutral float-right" title="user_auth.api package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Albin Schmid.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

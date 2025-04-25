@@ -11,6 +11,7 @@ class RegistrationTests(APITestCase):
         cls.registration_url = reverse('registration')
 
     def test_patch_correct_form_seller(self):
+        """Test registration with correct form for seller."""
         data = {
             'username': 'seller',
             'email': 'testuser@example.com',
@@ -28,6 +29,7 @@ class RegistrationTests(APITestCase):
         self.assertEqual(response.data['email'], 'testuser@example.com')
 
     def test_patch_correct_form_consumer(self):
+        """Test registration with correct form for consumer."""
         data = {
             'username': 'consumer',
             'email': 'testuser@example.com',
@@ -45,6 +47,7 @@ class RegistrationTests(APITestCase):
         self.assertEqual(response.data['email'], 'testuser@example.com')
 
     def test_patch_incorrect_username(self):
+        """Test registration with incorrect username."""
         data = {
             'username': 'consumer consumer',
             'email': 'testuser@example.com',
@@ -57,6 +60,7 @@ class RegistrationTests(APITestCase):
         self.assertEqual(response.data['detail'], 'Benutzername darf kein Leerzeichen enthalten.')
 
     def test_patch_already_exist_username(self):
+        """Test registration with already existing username."""
         User.objects.create_user(username='consumer', password='password')
         data = {
             'username': 'consumer',
@@ -70,6 +74,7 @@ class RegistrationTests(APITestCase):
         self.assertEqual(response.data['detail'], 'Benutzername existiert bereits.')
 
     def test_patch_incorrect_email(self):
+        """Test registration with incorrect email."""
         data = {
             'username': 'consumer',
             'email': 'testuser@example.c',
@@ -82,6 +87,7 @@ class RegistrationTests(APITestCase):
         self.assertEqual(response.data['detail'], 'Bitte geben Sie eine gültige Email an.')
 
     def test_patch_already_exist_email(self):
+        """Test registration with already existing email."""
         User.objects.create_user(username='no-username', password='password', email='testuser@example.com')
         data = {
             'username': 'consumer',
@@ -95,6 +101,7 @@ class RegistrationTests(APITestCase):
         self.assertEqual(response.data['detail'], 'Diese Email existiert bereits.')
 
     def test_patch_password_dont_match(self):
+        """Test registration with passwords that don't match."""
         data = {
             'username': 'consumer',
             'email': 'testuser@example.com',

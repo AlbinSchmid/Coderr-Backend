@@ -4,8 +4,15 @@ from user_auth.api.exeptions import Unauthorized
 from .exeptions import *
 
 class SellerUserCreateOrReadOnly(BasePermission):
-    
+    """
+    Custom permission to only allow authenticated sellers to create offers.
+    All users can read offers.
+    """
     def has_permission(self, request, view):
+        """
+        Check if the user is authenticated and has permission to create offers.
+        Sellers are allowed to create offers, while all users can read offers.
+        """
         if request.method in SAFE_METHODS:
             return True
         elif request.method == 'POST':
@@ -18,8 +25,14 @@ class SellerUserCreateOrReadOnly(BasePermission):
             raise Unauthorized
         
 class OwnerPatchAndDeleteOrIsAuthenticated(BasePermission):
-
+    """
+    Custom permission to only allow the owner of an offer to update or delete it.
+    All authenticated users can read offers.
+    """
     def has_object_permission(self, request, view, obj):
+        """
+        Check if the user is the owner of the offer or if they are authenticated.
+        """
         if request.user and request.user.is_authenticated:
             if request.method in SAFE_METHODS:
                 return True
@@ -30,7 +43,13 @@ class OwnerPatchAndDeleteOrIsAuthenticated(BasePermission):
         raise Unauthorized  
     
 class Authenticated(BasePermission):
+    """
+    Custom permission to only allow authenticated users to access the API.
+    """
     def has_permission(self, request, view):
+        """
+        Check if the user is authenticated.
+        """
         if request.method == 'GET':
             if request.user and request.user.is_authenticated:
                 return True

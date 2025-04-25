@@ -1,0 +1,619 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>user_auth.api package &mdash; Coderr 25.04.2025 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f1b069c9"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="user_auth.migrations package" href="user_auth.migrations.html" />
+    <link rel="prev" title="user_auth package" href="user_auth.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Coderr
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="user_auth.html">user_auth package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="user_auth.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">user_auth.api package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-user_auth.api.exeptions">user_auth.api.exeptions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-user_auth.api.permissions">user_auth.api.permissions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-user_auth.api.serializer">user_auth.api.serializer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-user_auth.api.urls">user_auth.api.urls module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-user_auth.api.validators">user_auth.api.validators module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-user_auth.api.views">user_auth.api.views module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-user_auth.api">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html">user_auth.migrations package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.tests.html">user_auth.tests package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.html#module-user_auth.admin">user_auth.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.html#module-user_auth.apps">user_auth.apps module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.html#module-user_auth.models">user_auth.models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.html#module-user_auth.views">user_auth.views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.html#module-user_auth">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reviews_app.html">reviews_app package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Coderr</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="user_auth.html">user_auth package</a></li>
+      <li class="breadcrumb-item active">user_auth.api package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/user_auth.api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="user-auth-api-package">
+<h1>user_auth.api package<a class="headerlink" href="#user-auth-api-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-user_auth.api.exeptions">
+<span id="user-auth-api-exeptions-module"></span><h2>user_auth.api.exeptions module<a class="headerlink" href="#module-user_auth.api.exeptions" title="Link to this heading"></a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.EmailExistAlready">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">EmailExistAlready</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.exeptions.EmailExistAlready" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the email address already exists.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.EmailExistAlready.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'email_invalid'</span></em><a class="headerlink" href="#user_auth.api.exeptions.EmailExistAlready.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.EmailExistAlready.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Diese</span> <span class="pre">Email</span> <span class="pre">existiert</span> <span class="pre">bereits.'</span></em><a class="headerlink" href="#user_auth.api.exeptions.EmailExistAlready.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.EmailExistAlready.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">409</span></em><a class="headerlink" href="#user_auth.api.exeptions.EmailExistAlready.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.EmailIncorrect">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">EmailIncorrect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.exeptions.EmailIncorrect" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the email address is incorrectly formatted.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.EmailIncorrect.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'email_invalid'</span></em><a class="headerlink" href="#user_auth.api.exeptions.EmailIncorrect.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.EmailIncorrect.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Bitte</span> <span class="pre">geben</span> <span class="pre">Sie</span> <span class="pre">eine</span> <span class="pre">gültige</span> <span class="pre">Email</span> <span class="pre">an.'</span></em><a class="headerlink" href="#user_auth.api.exeptions.EmailIncorrect.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.EmailIncorrect.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">400</span></em><a class="headerlink" href="#user_auth.api.exeptions.EmailIncorrect.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.LoginNotCorrect">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">LoginNotCorrect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.exeptions.LoginNotCorrect" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the login credentials are incorrect.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.LoginNotCorrect.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'login_failed'</span></em><a class="headerlink" href="#user_auth.api.exeptions.LoginNotCorrect.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.LoginNotCorrect.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Ungültige</span> <span class="pre">Anfragedaten.'</span></em><a class="headerlink" href="#user_auth.api.exeptions.LoginNotCorrect.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.LoginNotCorrect.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">400</span></em><a class="headerlink" href="#user_auth.api.exeptions.LoginNotCorrect.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.PasswordNotMatch">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">PasswordNotMatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.exeptions.PasswordNotMatch" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the password and repeated password do not match.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.PasswordNotMatch.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'password_not_match'</span></em><a class="headerlink" href="#user_auth.api.exeptions.PasswordNotMatch.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.PasswordNotMatch.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Passwörter</span> <span class="pre">müssen</span> <span class="pre">übereinstimmen.'</span></em><a class="headerlink" href="#user_auth.api.exeptions.PasswordNotMatch.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.PasswordNotMatch.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">400</span></em><a class="headerlink" href="#user_auth.api.exeptions.PasswordNotMatch.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.Unauthorized">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">Unauthorized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.exeptions.Unauthorized" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the user is not authenticated.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.Unauthorized.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'unauthorized'</span></em><a class="headerlink" href="#user_auth.api.exeptions.Unauthorized.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.Unauthorized.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Benutzer</span> <span class="pre">ist</span> <span class="pre">nicht</span> <span class="pre">authentifiziert.'</span></em><a class="headerlink" href="#user_auth.api.exeptions.Unauthorized.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.Unauthorized.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">401</span></em><a class="headerlink" href="#user_auth.api.exeptions.Unauthorized.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.UserIsNotOwner">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">UserIsNotOwner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.exeptions.UserIsNotOwner" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the authenticated user is not the owner of the profile.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.UserIsNotOwner.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'not_found'</span></em><a class="headerlink" href="#user_auth.api.exeptions.UserIsNotOwner.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.UserIsNotOwner.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Authentifizierter</span> <span class="pre">Benutzer</span> <span class="pre">ist</span> <span class="pre">nicht</span> <span class="pre">der</span> <span class="pre">Eigentümer</span> <span class="pre">Profils.'</span></em><a class="headerlink" href="#user_auth.api.exeptions.UserIsNotOwner.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.UserIsNotOwner.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">403</span></em><a class="headerlink" href="#user_auth.api.exeptions.UserIsNotOwner.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.UserNotFound">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">UserNotFound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.exeptions.UserNotFound" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the user profile is not found.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.UserNotFound.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'not_found'</span></em><a class="headerlink" href="#user_auth.api.exeptions.UserNotFound.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.UserNotFound.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Das</span> <span class="pre">Benutzerprofil</span> <span class="pre">wurde</span> <span class="pre">nicht</span> <span class="pre">gefunden.'</span></em><a class="headerlink" href="#user_auth.api.exeptions.UserNotFound.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.UserNotFound.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">404</span></em><a class="headerlink" href="#user_auth.api.exeptions.UserNotFound.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.UsernameContainsSpace">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">UsernameContainsSpace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.exeptions.UsernameContainsSpace" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the username contains a space.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.UsernameContainsSpace.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'username_invalid'</span></em><a class="headerlink" href="#user_auth.api.exeptions.UsernameContainsSpace.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.UsernameContainsSpace.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Benutzername</span> <span class="pre">darf</span> <span class="pre">kein</span> <span class="pre">Leerzeichen</span> <span class="pre">enthalten.'</span></em><a class="headerlink" href="#user_auth.api.exeptions.UsernameContainsSpace.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.UsernameContainsSpace.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">400</span></em><a class="headerlink" href="#user_auth.api.exeptions.UsernameContainsSpace.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.UsernameExistAlready">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">UsernameExistAlready</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.exeptions.UsernameExistAlready" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the username already exists.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.UsernameExistAlready.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'username_invalid'</span></em><a class="headerlink" href="#user_auth.api.exeptions.UsernameExistAlready.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.UsernameExistAlready.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Benutzername</span> <span class="pre">existiert</span> <span class="pre">bereits.'</span></em><a class="headerlink" href="#user_auth.api.exeptions.UsernameExistAlready.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.exeptions.UsernameExistAlready.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">400</span></em><a class="headerlink" href="#user_auth.api.exeptions.UsernameExistAlready.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-user_auth.api.permissions">
+<span id="user-auth-api-permissions-module"></span><h2>user_auth.api.permissions module<a class="headerlink" href="#module-user_auth.api.permissions" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.api.permissions.IsAuthenticated">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.permissions.</span></span><span class="sig-name descname"><span class="pre">IsAuthenticated</span></span><a class="headerlink" href="#user_auth.api.permissions.IsAuthenticated" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BasePermission</span></code></p>
+<p>Custom permission to only allow authenticated users to access the view.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.api.permissions.IsAuthenticated.has_permission">
+<span class="sig-name descname"><span class="pre">has_permission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.permissions.IsAuthenticated.has_permission" title="Link to this definition"></a></dt>
+<dd><p>Check if the request is a safe method (GET, HEAD, OPTIONS) or if the user is authenticated.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.api.permissions.IsOwnerOrAdmin">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.permissions.</span></span><span class="sig-name descname"><span class="pre">IsOwnerOrAdmin</span></span><a class="headerlink" href="#user_auth.api.permissions.IsOwnerOrAdmin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BasePermission</span></code></p>
+<p>Custom permission to only allow owners of an object or superusers to edit it.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.api.permissions.IsOwnerOrAdmin.has_object_permission">
+<span class="sig-name descname"><span class="pre">has_object_permission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.permissions.IsOwnerOrAdmin.has_object_permission" title="Link to this definition"></a></dt>
+<dd><p>Check if the request is a safe method (GET, HEAD, OPTIONS) or if the user is the owner of the object.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-user_auth.api.serializer">
+<span id="user-auth-api-serializer-module"></span><h2>user_auth.api.serializer module<a class="headerlink" href="#module-user_auth.api.serializer" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.api.serializer.ConsumerSerializer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.serializer.</span></span><span class="sig-name descname"><span class="pre">ConsumerSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.serializer.ConsumerSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for consumer profile. Serializes the consumer data and includes user information.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.api.serializer.ConsumerSerializer.Meta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#user_auth.api.serializer.ConsumerSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Meta class for the ConsumerSerializer.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.serializer.ConsumerSerializer.Meta.exclude">
+<span class="sig-name descname"><span class="pre">exclude</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id']</span></em><a class="headerlink" href="#user_auth.api.serializer.ConsumerSerializer.Meta.exclude" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.serializer.ConsumerSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#user_auth.api.serializer.ConsumerSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="user_auth.html#user_auth.models.Consumer" title="user_auth.models.Consumer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Consumer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.api.serializer.RegistrationSerializer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.serializer.</span></span><span class="sig-name descname"><span class="pre">RegistrationSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.serializer.RegistrationSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for user registration. Validates the input data and creates a new user.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.api.serializer.RegistrationSerializer.Meta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#user_auth.api.serializer.RegistrationSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Meta class for the RegistrationSerializer.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.serializer.RegistrationSerializer.Meta.extra_kwargs">
+<span class="sig-name descname"><span class="pre">extra_kwargs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'password':</span> <span class="pre">{'write_only':</span> <span class="pre">True}}</span></em><a class="headerlink" href="#user_auth.api.serializer.RegistrationSerializer.Meta.extra_kwargs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.serializer.RegistrationSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['username',</span> <span class="pre">'repeated_password',</span> <span class="pre">'password',</span> <span class="pre">'email',</span> <span class="pre">'type']</span></em><a class="headerlink" href="#user_auth.api.serializer.RegistrationSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.serializer.RegistrationSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#user_auth.api.serializer.RegistrationSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.api.serializer.RegistrationSerializer.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.serializer.RegistrationSerializer.save" title="Link to this definition"></a></dt>
+<dd><p>Create a new user account. Set the password and save the user to the database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.api.serializer.RegistrationSerializer.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.serializer.RegistrationSerializer.validate" title="Link to this definition"></a></dt>
+<dd><p>Validate the input data. Check if the password and repeated password match
+and if the email and username are valid.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.api.serializer.SellerSerializer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.serializer.</span></span><span class="sig-name descname"><span class="pre">SellerSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.serializer.SellerSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for seller profile. Serializes the seller data and includes user information.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.api.serializer.SellerSerializer.Meta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#user_auth.api.serializer.SellerSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Meta class for the SellerSerializer.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.serializer.SellerSerializer.Meta.exclude">
+<span class="sig-name descname"><span class="pre">exclude</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id']</span></em><a class="headerlink" href="#user_auth.api.serializer.SellerSerializer.Meta.exclude" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.serializer.SellerSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#user_auth.api.serializer.SellerSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="user_auth.html#user_auth.models.Seller" title="user_auth.models.Seller"><code class="xref py py-class docutils literal notranslate"><span class="pre">Seller</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-user_auth.api.urls">
+<span id="user-auth-api-urls-module"></span><h2>user_auth.api.urls module<a class="headerlink" href="#module-user_auth.api.urls" title="Link to this heading"></a></h2>
+</section>
+<section id="module-user_auth.api.validators">
+<span id="user-auth-api-validators-module"></span><h2>user_auth.api.validators module<a class="headerlink" href="#module-user_auth.api.validators" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="user_auth.api.validators.validate_email_address">
+<span class="sig-prename descclassname"><span class="pre">user_auth.api.validators.</span></span><span class="sig-name descname"><span class="pre">validate_email_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.validators.validate_email_address" title="Link to this definition"></a></dt>
+<dd><p>Validate the email address. Check if it is already in use or if it is incorrectly formatted.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="user_auth.api.validators.validate_password">
+<span class="sig-prename descclassname"><span class="pre">user_auth.api.validators.</span></span><span class="sig-name descname"><span class="pre">validate_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeated_password</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.validators.validate_password" title="Link to this definition"></a></dt>
+<dd><p>Validate the password. Check if it is at least 8 characters long and contains at least one digit.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="user_auth.api.validators.validate_username">
+<span class="sig-prename descclassname"><span class="pre">user_auth.api.validators.</span></span><span class="sig-name descname"><span class="pre">validate_username</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.validators.validate_username" title="Link to this definition"></a></dt>
+<dd><p>Validate the username. Check if it is alphanumeric and does not contain spaces.</p>
+</dd></dl>
+
+</section>
+<section id="module-user_auth.api.views">
+<span id="user-auth-api-views-module"></span><h2>user_auth.api.views module<a class="headerlink" href="#module-user_auth.api.views" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.api.views.ConsumerListView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.views.</span></span><span class="sig-name descname"><span class="pre">ConsumerListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.views.ConsumerListView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListAPIView</span></code></p>
+<p>List all consumers.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.views.ConsumerListView.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'user_auth.api.permissions.IsAuthenticated'&gt;]</span></em><a class="headerlink" href="#user_auth.api.views.ConsumerListView.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.views.ConsumerListView.queryset">
+<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;QuerySet</span> <span class="pre">[&lt;Consumer:</span> <span class="pre">Consumer</span> <span class="pre">object</span> <span class="pre">(1)&gt;,</span> <span class="pre">&lt;Consumer:</span> <span class="pre">Consumer</span> <span class="pre">object</span> <span class="pre">(3)&gt;,</span> <span class="pre">&lt;Consumer:</span> <span class="pre">Consumer</span> <span class="pre">object</span> <span class="pre">(6)&gt;]&gt;</span></em><a class="headerlink" href="#user_auth.api.views.ConsumerListView.queryset" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.views.ConsumerListView.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#user_auth.api.views.ConsumerListView.serializer_class" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#user_auth.api.serializer.ConsumerSerializer" title="user_auth.api.serializer.ConsumerSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConsumerSerializer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.api.views.CustomLogInView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.views.</span></span><span class="sig-name descname"><span class="pre">CustomLogInView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.views.CustomLogInView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObtainAuthToken</span></code></p>
+<p>Custom login view. Inherits from ObtainAuthToken and overrides the post method.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.views.CustomLogInView.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'rest_framework.permissions.AllowAny'&gt;]</span></em><a class="headerlink" href="#user_auth.api.views.CustomLogInView.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.api.views.CustomLogInView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.views.CustomLogInView.post" title="Link to this definition"></a></dt>
+<dd><p>Handle user login. Validate the input data and generate a token for the user.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.api.views.ProfileListView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.views.</span></span><span class="sig-name descname"><span class="pre">ProfileListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.views.ProfileListView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListAPIView</span></code></p>
+<p>List all users (both consumers and sellers).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.api.views.ProfileListView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.views.ProfileListView.get" title="Link to this definition"></a></dt>
+<dd><p>List all users (both consumers and sellers).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.api.views.ProfileSingleView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.views.</span></span><span class="sig-name descname"><span class="pre">ProfileSingleView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.views.ProfileSingleView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RetrieveUpdateDestroyAPIView</span></code></p>
+<p>Retrieve, update or delete a user profile (either consumer or seller) by user ID.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.api.views.ProfileSingleView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.views.ProfileSingleView.get" title="Link to this definition"></a></dt>
+<dd><p>Retrieve a user profile (either consumer or seller) by user ID.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.api.views.ProfileSingleView.get_object">
+<span class="sig-name descname"><span class="pre">get_object</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.views.ProfileSingleView.get_object" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the user profile (either consumer or seller) by user ID.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.api.views.ProfileSingleView.patch">
+<span class="sig-name descname"><span class="pre">patch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.views.ProfileSingleView.patch" title="Link to this definition"></a></dt>
+<dd><p>Update a user profile (either consumer or seller) by user ID.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.views.ProfileSingleView.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'user_auth.api.permissions.IsOwnerOrAdmin'&gt;]</span></em><a class="headerlink" href="#user_auth.api.views.ProfileSingleView.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.api.views.RegistrationView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.views.</span></span><span class="sig-name descname"><span class="pre">RegistrationView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.views.RegistrationView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIView</span></code></p>
+<p>User registration view. Handles user registration and token generation.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.views.RegistrationView.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'rest_framework.permissions.AllowAny'&gt;]</span></em><a class="headerlink" href="#user_auth.api.views.RegistrationView.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.api.views.RegistrationView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.views.RegistrationView.post" title="Link to this definition"></a></dt>
+<dd><p>Handle user registration. Validate the input data and create a new user.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.api.views.SellerListView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.api.views.</span></span><span class="sig-name descname"><span class="pre">SellerListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.api.views.SellerListView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListAPIView</span></code></p>
+<p>List all sellers.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.views.SellerListView.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'user_auth.api.permissions.IsAuthenticated'&gt;]</span></em><a class="headerlink" href="#user_auth.api.views.SellerListView.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.views.SellerListView.queryset">
+<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;QuerySet</span> <span class="pre">[&lt;Seller:</span> <span class="pre">kevin&gt;,</span> <span class="pre">&lt;Seller:</span> <span class="pre">TestBusiness&gt;]&gt;</span></em><a class="headerlink" href="#user_auth.api.views.SellerListView.queryset" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user_auth.api.views.SellerListView.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#user_auth.api.views.SellerListView.serializer_class" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#user_auth.api.serializer.SellerSerializer" title="user_auth.api.serializer.SellerSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SellerSerializer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-user_auth.api">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-user_auth.api" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="user_auth.html" class="btn btn-neutral float-left" title="user_auth package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="user_auth.migrations.html" class="btn btn-neutral float-right" title="user_auth.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Albin Schmid.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

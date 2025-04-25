@@ -1,0 +1,526 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>reviews_app package &mdash; Coderr 25.04.2025 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f1b069c9"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="reviews_app.api package" href="reviews_app.api.html" />
+    <link rel="prev" title="user_auth.tests package" href="user_auth.tests.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Coderr
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="user_auth.html">user_auth package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">reviews_app package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.api.html">reviews_app.api package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.migrations.html">reviews_app.migrations package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.tests.html">reviews_app.tests package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-reviews_app.admin">reviews_app.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-reviews_app.apps">reviews_app.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reviews_app.apps.ReviewsAppConfig"><code class="docutils literal notranslate"><span class="pre">ReviewsAppConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.apps.ReviewsAppConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">ReviewsAppConfig.default_auto_field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.apps.ReviewsAppConfig.name"><code class="docutils literal notranslate"><span class="pre">ReviewsAppConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-reviews_app.models">reviews_app.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reviews_app.models.Review"><code class="docutils literal notranslate"><span class="pre">Review</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.models.Review.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Review.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.models.Review.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Review.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.models.Review.business_user"><code class="docutils literal notranslate"><span class="pre">Review.business_user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.models.Review.business_user_id"><code class="docutils literal notranslate"><span class="pre">Review.business_user_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.models.Review.clean"><code class="docutils literal notranslate"><span class="pre">Review.clean()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.models.Review.created_at"><code class="docutils literal notranslate"><span class="pre">Review.created_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.models.Review.description"><code class="docutils literal notranslate"><span class="pre">Review.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.models.Review.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Review.get_next_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.models.Review.get_next_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Review.get_next_by_updated_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.models.Review.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Review.get_previous_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.models.Review.get_previous_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Review.get_previous_by_updated_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.models.Review.id"><code class="docutils literal notranslate"><span class="pre">Review.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.models.Review.objects"><code class="docutils literal notranslate"><span class="pre">Review.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.models.Review.rating"><code class="docutils literal notranslate"><span class="pre">Review.rating</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.models.Review.reviewer"><code class="docutils literal notranslate"><span class="pre">Review.reviewer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.models.Review.reviewer_id"><code class="docutils literal notranslate"><span class="pre">Review.reviewer_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.models.Review.save"><code class="docutils literal notranslate"><span class="pre">Review.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviews_app.models.Review.updated_at"><code class="docutils literal notranslate"><span class="pre">Review.updated_at</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-reviews_app.views">reviews_app.views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-reviews_app">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="order_app.html">order_app package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="offer_app.html">offer_app package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Coderr</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">reviews_app package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/reviews_app.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="reviews-app-package">
+<h1>reviews_app package<a class="headerlink" href="#reviews-app-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reviews_app.api.html">reviews_app.api package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.api.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.api.html#module-reviews_app.api.exeptions">reviews_app.api.exeptions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.BadRequest"><code class="docutils literal notranslate"><span class="pre">BadRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.BadRequest.default_code"><code class="docutils literal notranslate"><span class="pre">BadRequest.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.BadRequest.default_detail"><code class="docutils literal notranslate"><span class="pre">BadRequest.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.BadRequest.status_code"><code class="docutils literal notranslate"><span class="pre">BadRequest.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.ReviewNotFound"><code class="docutils literal notranslate"><span class="pre">ReviewNotFound</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.ReviewNotFound.default_code"><code class="docutils literal notranslate"><span class="pre">ReviewNotFound.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.ReviewNotFound.default_detail"><code class="docutils literal notranslate"><span class="pre">ReviewNotFound.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.ReviewNotFound.status_code"><code class="docutils literal notranslate"><span class="pre">ReviewNotFound.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserHasAlreadyReview"><code class="docutils literal notranslate"><span class="pre">UserHasAlreadyReview</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserHasAlreadyReview.default_code"><code class="docutils literal notranslate"><span class="pre">UserHasAlreadyReview.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserHasAlreadyReview.default_detail"><code class="docutils literal notranslate"><span class="pre">UserHasAlreadyReview.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserHasAlreadyReview.status_code"><code class="docutils literal notranslate"><span class="pre">UserHasAlreadyReview.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserIsNotConsumer"><code class="docutils literal notranslate"><span class="pre">UserIsNotConsumer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserIsNotConsumer.default_code"><code class="docutils literal notranslate"><span class="pre">UserIsNotConsumer.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserIsNotConsumer.default_detail"><code class="docutils literal notranslate"><span class="pre">UserIsNotConsumer.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserIsNotConsumer.status_code"><code class="docutils literal notranslate"><span class="pre">UserIsNotConsumer.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserIsNotOwnerForDelete"><code class="docutils literal notranslate"><span class="pre">UserIsNotOwnerForDelete</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserIsNotOwnerForDelete.default_code"><code class="docutils literal notranslate"><span class="pre">UserIsNotOwnerForDelete.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserIsNotOwnerForDelete.default_detail"><code class="docutils literal notranslate"><span class="pre">UserIsNotOwnerForDelete.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserIsNotOwnerForDelete.status_code"><code class="docutils literal notranslate"><span class="pre">UserIsNotOwnerForDelete.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserIsNotOwnerForPatch"><code class="docutils literal notranslate"><span class="pre">UserIsNotOwnerForPatch</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserIsNotOwnerForPatch.default_code"><code class="docutils literal notranslate"><span class="pre">UserIsNotOwnerForPatch.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserIsNotOwnerForPatch.default_detail"><code class="docutils literal notranslate"><span class="pre">UserIsNotOwnerForPatch.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserIsNotOwnerForPatch.status_code"><code class="docutils literal notranslate"><span class="pre">UserIsNotOwnerForPatch.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserUnauthenticated"><code class="docutils literal notranslate"><span class="pre">UserUnauthenticated</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserUnauthenticated.default_code"><code class="docutils literal notranslate"><span class="pre">UserUnauthenticated.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserUnauthenticated.default_detail"><code class="docutils literal notranslate"><span class="pre">UserUnauthenticated.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserUnauthenticated.status_code"><code class="docutils literal notranslate"><span class="pre">UserUnauthenticated.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserUnauthenticatedPost"><code class="docutils literal notranslate"><span class="pre">UserUnauthenticatedPost</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserUnauthenticatedPost.default_code"><code class="docutils literal notranslate"><span class="pre">UserUnauthenticatedPost.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserUnauthenticatedPost.default_detail"><code class="docutils literal notranslate"><span class="pre">UserUnauthenticatedPost.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.exeptions.UserUnauthenticatedPost.status_code"><code class="docutils literal notranslate"><span class="pre">UserUnauthenticatedPost.status_code</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.api.html#module-reviews_app.api.permissions">reviews_app.api.permissions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.permissions.OwnerForDeleteAndPatch"><code class="docutils literal notranslate"><span class="pre">OwnerForDeleteAndPatch</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.permissions.OwnerForDeleteAndPatch.has_object_permission"><code class="docutils literal notranslate"><span class="pre">OwnerForDeleteAndPatch.has_object_permission()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.permissions.isAuthenticated"><code class="docutils literal notranslate"><span class="pre">isAuthenticated</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.permissions.isAuthenticated.has_permission"><code class="docutils literal notranslate"><span class="pre">isAuthenticated.has_permission()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.api.html#module-reviews_app.api.serializers">reviews_app.api.serializers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.serializers.ReviewSerializer"><code class="docutils literal notranslate"><span class="pre">ReviewSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.serializers.ReviewSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">ReviewSerializer.Meta</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.api.html#module-reviews_app.api.urls">reviews_app.api.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.api.html#module-reviews_app.api.views">reviews_app.api.views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.views.ReviewDetailView"><code class="docutils literal notranslate"><span class="pre">ReviewDetailView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.views.ReviewDetailView.get_object"><code class="docutils literal notranslate"><span class="pre">ReviewDetailView.get_object()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.views.ReviewDetailView.permission_classes"><code class="docutils literal notranslate"><span class="pre">ReviewDetailView.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.views.ReviewDetailView.queryset"><code class="docutils literal notranslate"><span class="pre">ReviewDetailView.queryset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.views.ReviewDetailView.serializer_class"><code class="docutils literal notranslate"><span class="pre">ReviewDetailView.serializer_class</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.views.ReviewDetailView.update"><code class="docutils literal notranslate"><span class="pre">ReviewDetailView.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.views.ReviewListView"><code class="docutils literal notranslate"><span class="pre">ReviewListView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.views.ReviewListView.filter_backends"><code class="docutils literal notranslate"><span class="pre">ReviewListView.filter_backends</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.views.ReviewListView.get_queryset"><code class="docutils literal notranslate"><span class="pre">ReviewListView.get_queryset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.views.ReviewListView.ordering_fields"><code class="docutils literal notranslate"><span class="pre">ReviewListView.ordering_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.views.ReviewListView.perform_create"><code class="docutils literal notranslate"><span class="pre">ReviewListView.perform_create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.views.ReviewListView.permission_classes"><code class="docutils literal notranslate"><span class="pre">ReviewListView.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.views.ReviewListView.queryset"><code class="docutils literal notranslate"><span class="pre">ReviewListView.queryset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.api.html#reviews_app.api.views.ReviewListView.serializer_class"><code class="docutils literal notranslate"><span class="pre">ReviewListView.serializer_class</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.api.html#module-reviews_app.api">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reviews_app.migrations.html">reviews_app.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.migrations.html#module-reviews_app.migrations.0001_initial">reviews_app.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.migrations.html#module-reviews_app.migrations.0002_alter_review_reviewer">reviews_app.migrations.0002_alter_review_reviewer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0002_alter_review_reviewer.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0002_alter_review_reviewer.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0002_alter_review_reviewer.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.migrations.html#module-reviews_app.migrations.0003_alter_review_business_user">reviews_app.migrations.0003_alter_review_business_user module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0003_alter_review_business_user.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0003_alter_review_business_user.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0003_alter_review_business_user.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.migrations.html#module-reviews_app.migrations.0004_alter_review_business_user">reviews_app.migrations.0004_alter_review_business_user module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0004_alter_review_business_user.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0004_alter_review_business_user.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0004_alter_review_business_user.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.migrations.html#module-reviews_app.migrations.0005_alter_review_business_user_and_more">reviews_app.migrations.0005_alter_review_business_user_and_more module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0005_alter_review_business_user_and_more.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0005_alter_review_business_user_and_more.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0005_alter_review_business_user_and_more.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.migrations.html#module-reviews_app.migrations.0006_alter_review_unique_together">reviews_app.migrations.0006_alter_review_unique_together module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0006_alter_review_unique_together.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0006_alter_review_unique_together.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0006_alter_review_unique_together.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.migrations.html#module-reviews_app.migrations.0007_alter_review_unique_together">reviews_app.migrations.0007_alter_review_unique_together module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0007_alter_review_unique_together.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0007_alter_review_unique_together.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.migrations.html#reviews_app.migrations.0007_alter_review_unique_together.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.migrations.html#module-reviews_app.migrations">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reviews_app.tests.html">reviews_app.tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.tests.html#module-reviews_app.tests.test_review_detail">reviews_app.tests.test_review_detail module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_review_detail.ReviewDetailTests"><code class="docutils literal notranslate"><span class="pre">ReviewDetailTests</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_review_detail.ReviewDetailTests.setUpTestData"><code class="docutils literal notranslate"><span class="pre">ReviewDetailTests.setUpTestData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_review_detail.ReviewDetailTests.test_delete_authenticated_not_exist"><code class="docutils literal notranslate"><span class="pre">ReviewDetailTests.test_delete_authenticated_not_exist()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_review_detail.ReviewDetailTests.test_delete_authenticated_not_owner"><code class="docutils literal notranslate"><span class="pre">ReviewDetailTests.test_delete_authenticated_not_owner()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_review_detail.ReviewDetailTests.test_delete_authenticated_owner"><code class="docutils literal notranslate"><span class="pre">ReviewDetailTests.test_delete_authenticated_owner()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_review_detail.ReviewDetailTests.test_delete_unauthenticated"><code class="docutils literal notranslate"><span class="pre">ReviewDetailTests.test_delete_unauthenticated()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_review_detail.ReviewDetailTests.test_patch_authenticated_false_request"><code class="docutils literal notranslate"><span class="pre">ReviewDetailTests.test_patch_authenticated_false_request()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_review_detail.ReviewDetailTests.test_patch_authenticated_not_exist"><code class="docutils literal notranslate"><span class="pre">ReviewDetailTests.test_patch_authenticated_not_exist()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_review_detail.ReviewDetailTests.test_patch_authenticated_not_owner"><code class="docutils literal notranslate"><span class="pre">ReviewDetailTests.test_patch_authenticated_not_owner()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_review_detail.ReviewDetailTests.test_patch_authenticated_owner"><code class="docutils literal notranslate"><span class="pre">ReviewDetailTests.test_patch_authenticated_owner()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_review_detail.ReviewDetailTests.test_patch_unauthenticated"><code class="docutils literal notranslate"><span class="pre">ReviewDetailTests.test_patch_unauthenticated()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_review_detail.ReviewDetailTests.test_patch_unauthenticated_not_exist"><code class="docutils literal notranslate"><span class="pre">ReviewDetailTests.test_patch_unauthenticated_not_exist()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.tests.html#module-reviews_app.tests.test_reviews_list">reviews_app.tests.test_reviews_list module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_reviews_list.ReviewsListTests"><code class="docutils literal notranslate"><span class="pre">ReviewsListTests</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_reviews_list.ReviewsListTests.setUp"><code class="docutils literal notranslate"><span class="pre">ReviewsListTests.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_reviews_list.ReviewsListTests.setUpTestData"><code class="docutils literal notranslate"><span class="pre">ReviewsListTests.setUpTestData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_reviews_list.ReviewsListTests.test_correct_filter_return_single_result"><code class="docutils literal notranslate"><span class="pre">ReviewsListTests.test_correct_filter_return_single_result()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_reviews_list.ReviewsListTests.test_get_authenticated_consumer"><code class="docutils literal notranslate"><span class="pre">ReviewsListTests.test_get_authenticated_consumer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_reviews_list.ReviewsListTests.test_get_authenticated_seller"><code class="docutils literal notranslate"><span class="pre">ReviewsListTests.test_get_authenticated_seller()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_reviews_list.ReviewsListTests.test_get_unauthenticated"><code class="docutils literal notranslate"><span class="pre">ReviewsListTests.test_get_unauthenticated()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_reviews_list.ReviewsListTests.test_incorrect_filters_return_none_result"><code class="docutils literal notranslate"><span class="pre">ReviewsListTests.test_incorrect_filters_return_none_result()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_reviews_list.ReviewsListTests.test_post_authenticated_consumer"><code class="docutils literal notranslate"><span class="pre">ReviewsListTests.test_post_authenticated_consumer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_reviews_list.ReviewsListTests.test_post_authenticated_consumer_double_review"><code class="docutils literal notranslate"><span class="pre">ReviewsListTests.test_post_authenticated_consumer_double_review()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_reviews_list.ReviewsListTests.test_post_authenticated_seller"><code class="docutils literal notranslate"><span class="pre">ReviewsListTests.test_post_authenticated_seller()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_reviews_list.ReviewsListTests.test_post_authenticated_seller_double_review"><code class="docutils literal notranslate"><span class="pre">ReviewsListTests.test_post_authenticated_seller_double_review()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_reviews_list.ReviewsListTests.test_post_unauthenticated"><code class="docutils literal notranslate"><span class="pre">ReviewsListTests.test_post_unauthenticated()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reviews_app.tests.html#reviews_app.tests.test_reviews_list.ReviewsListTests.test_str_filters_return_error"><code class="docutils literal notranslate"><span class="pre">ReviewsListTests.test_str_filters_return_error()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reviews_app.tests.html#module-reviews_app.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-reviews_app.admin">
+<span id="reviews-app-admin-module"></span><h2>reviews_app.admin module<a class="headerlink" href="#module-reviews_app.admin" title="Link to this heading"></a></h2>
+</section>
+<section id="module-reviews_app.apps">
+<span id="reviews-app-apps-module"></span><h2>reviews_app.apps module<a class="headerlink" href="#module-reviews_app.apps" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="reviews_app.apps.ReviewsAppConfig">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reviews_app.apps.</span></span><span class="sig-name descname"><span class="pre">ReviewsAppConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#reviews_app.apps.ReviewsAppConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<p>Configuration for the Reviews app.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reviews_app.apps.ReviewsAppConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#reviews_app.apps.ReviewsAppConfig.default_auto_field" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reviews_app.apps.ReviewsAppConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'reviews_app'</span></em><a class="headerlink" href="#reviews_app.apps.ReviewsAppConfig.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-reviews_app.models">
+<span id="reviews-app-models-module"></span><h2>reviews_app.models module<a class="headerlink" href="#module-reviews_app.models" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="reviews_app.models.Review">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reviews_app.models.</span></span><span class="sig-name descname"><span class="pre">Review</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#reviews_app.models.Review" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Model representing a review for a business user.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="reviews_app.models.Review.DoesNotExist">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#reviews_app.models.Review.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="reviews_app.models.Review.MultipleObjectsReturned">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#reviews_app.models.Review.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reviews_app.models.Review.business_user">
+<span class="sig-name descname"><span class="pre">business_user</span></span><a class="headerlink" href="#reviews_app.models.Review.business_user" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reviews_app.models.Review.business_user_id">
+<span class="sig-name descname"><span class="pre">business_user_id</span></span><a class="headerlink" href="#reviews_app.models.Review.business_user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="reviews_app.models.Review.clean">
+<span class="sig-name descname"><span class="pre">clean</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#reviews_app.models.Review.clean" title="Link to this definition"></a></dt>
+<dd><p>Validate the review instance before saving.
+Check if the reviewer is a business user and if the review already exists.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reviews_app.models.Review.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#reviews_app.models.Review.created_at" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reviews_app.models.Review.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#reviews_app.models.Review.description" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="reviews_app.models.Review.get_next_by_created_at">
+<span class="sig-name descname"><span class="pre">get_next_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#reviews_app.models.Review.get_next_by_created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="reviews_app.models.Review.get_next_by_updated_at">
+<span class="sig-name descname"><span class="pre">get_next_by_updated_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#reviews_app.models.Review.get_next_by_updated_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="reviews_app.models.Review.get_previous_by_created_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#reviews_app.models.Review.get_previous_by_created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="reviews_app.models.Review.get_previous_by_updated_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_updated_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#reviews_app.models.Review.get_previous_by_updated_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reviews_app.models.Review.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#reviews_app.models.Review.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reviews_app.models.Review.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#reviews_app.models.Review.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reviews_app.models.Review.rating">
+<span class="sig-name descname"><span class="pre">rating</span></span><a class="headerlink" href="#reviews_app.models.Review.rating" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reviews_app.models.Review.reviewer">
+<span class="sig-name descname"><span class="pre">reviewer</span></span><a class="headerlink" href="#reviews_app.models.Review.reviewer" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reviews_app.models.Review.reviewer_id">
+<span class="sig-name descname"><span class="pre">reviewer_id</span></span><a class="headerlink" href="#reviews_app.models.Review.reviewer_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="reviews_app.models.Review.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#reviews_app.models.Review.save" title="Link to this definition"></a></dt>
+<dd><p>Save the review instance to the database.
+Call the clean method to validate the instance before saving.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reviews_app.models.Review.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#reviews_app.models.Review.updated_at" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-reviews_app.views">
+<span id="reviews-app-views-module"></span><h2>reviews_app.views module<a class="headerlink" href="#module-reviews_app.views" title="Link to this heading"></a></h2>
+</section>
+<section id="module-reviews_app">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-reviews_app" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="user_auth.tests.html" class="btn btn-neutral float-left" title="user_auth.tests package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="reviews_app.api.html" class="btn btn-neutral float-right" title="reviews_app.api package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Albin Schmid.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

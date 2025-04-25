@@ -8,9 +8,17 @@ from offer_app.models import Offer, OfferDetail
 from order_app.models import Order
 
 class OrderCountTests(APITestCase):
+    """
+    Test case for the OrderCountView API endpoint.
+    This test case includes tests for counting orders for a specific seller.
+    """
 
     @classmethod
     def setUpTestData(cls):
+        """
+        Set up test data for the OrderCountTests class.
+        This method is called once for the entire test class.
+        """
         user_1 = User.objects.create_user(
             username='TestUser1', password='password1')
         user_2 = User.objects.create_user(
@@ -41,6 +49,9 @@ class OrderCountTests(APITestCase):
         cls.token_consumer = Token.objects.create(user=user_2)
         
     def test_get_authenticated(self):
+        """
+        Test the GET request for the OrderCountView API endpoint with an authenticated user.
+        """
         self.client.credentials()
         self.client.credentials(
             HTTP_AUTHORIZATION='Token ' + self.token_consumer.key)
@@ -49,12 +60,18 @@ class OrderCountTests(APITestCase):
         self.assertEqual(response.data.get('order_count'), 1)
 
     def test_get_unauthenticated(self):
+        """
+        Test the GET request for the OrderCountView API endpoint with an unauthenticated user.
+        """
         self.client.credentials()
         response = self.client.get(self.url_count)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertEqual(response.data.get('detail'), 'Benutzer ist nicht authentifiziert.')
 
     def test_get_not_exist_pk(self):
+        """
+        Test the GET request for the OrderCountView API endpoint with a non-existent primary key (pk).
+        """
         self.client.credentials()
         self.client.credentials(
             HTTP_AUTHORIZATION='Token ' + self.token_consumer.key)
@@ -64,6 +81,9 @@ class OrderCountTests(APITestCase):
         self.assertEqual(response.data.get('detail'), 'Kein Geschäftsnutzer mit der angegebenen ID gefunden.')
 
     def test_get_completed_authenticated(self):
+        """
+        Test the GET request for the CompletedOrderCount API endpoint with an authenticated user.
+        """
         self.client.credentials()
         self.client.credentials(
             HTTP_AUTHORIZATION='Token ' + self.token_consumer.key)
@@ -72,12 +92,18 @@ class OrderCountTests(APITestCase):
         self.assertEqual(response.data.get('completed_order_count'), 0)
 
     def test_get_completed_unauthenticated(self):
+        """
+        Test the GET request for the CompletedOrderCount API endpoint with an unauthenticated user.
+        """
         self.client.credentials()
         response = self.client.get(self.url_completed_count)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertEqual(response.data.get('detail'), 'Benutzer ist nicht authentifiziert.')
 
     def test_get_completed_not_exist_pk(self):
+        """
+        Test the GET request for the CompletedOrderCount API endpoint with a non-existent primary key (pk).
+        """
         self.client.credentials()
         self.client.credentials(
             HTTP_AUTHORIZATION='Token ' + self.token_consumer.key)

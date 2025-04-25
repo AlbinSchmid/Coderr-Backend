@@ -1,0 +1,297 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>user_auth.tests package &mdash; Coderr 25.04.2025 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f1b069c9"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="reviews_app package" href="reviews_app.html" />
+    <link rel="prev" title="user_auth.migrations package" href="user_auth.migrations.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Coderr
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="user_auth.html">user_auth package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="user_auth.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="user_auth.api.html">user_auth.api package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_auth.migrations.html">user_auth.migrations package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">user_auth.tests package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-user_auth.tests.test_profile">user_auth.tests.test_profile module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-user_auth.tests.test_registration">user_auth.tests.test_registration module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-user_auth.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.html#module-user_auth.admin">user_auth.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.html#module-user_auth.apps">user_auth.apps module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.html#module-user_auth.models">user_auth.models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.html#module-user_auth.views">user_auth.views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_auth.html#module-user_auth">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reviews_app.html">reviews_app package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Coderr</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="user_auth.html">user_auth package</a></li>
+      <li class="breadcrumb-item active">user_auth.tests package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/user_auth.tests.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="user-auth-tests-package">
+<h1>user_auth.tests package<a class="headerlink" href="#user-auth-tests-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-user_auth.tests.test_profile">
+<span id="user-auth-tests-test-profile-module"></span><h2>user_auth.tests.test_profile module<a class="headerlink" href="#module-user_auth.tests.test_profile" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.tests.test_profile.ProfileTests">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.tests.test_profile.</span></span><span class="sig-name descname"><span class="pre">ProfileTests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_profile.ProfileTests" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APITestCase</span></code></p>
+<p>Test case for the Profile API endpoint.
+This class contains tests for the PATCH and GET methods of the Profile API.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_profile.ProfileTests.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_profile.ProfileTests.setUp" title="Link to this definition"></a></dt>
+<dd><p>Set up the test client and authenticate the user.
+This method is called before each test method is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_profile.ProfileTests.setUpTestData">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setUpTestData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_profile.ProfileTests.setUpTestData" title="Link to this definition"></a></dt>
+<dd><p>Set up test data for the ProfileTests class.
+This method creates test users, sellers, consumers, and a token for authentication.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_profile.ProfileTests.test_get_consumer_authorized">
+<span class="sig-name descname"><span class="pre">test_get_consumer_authorized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_profile.ProfileTests.test_get_consumer_authorized" title="Link to this definition"></a></dt>
+<dd><p>Test getting the consumer profile with valid data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_profile.ProfileTests.test_get_consumer_unauthorized">
+<span class="sig-name descname"><span class="pre">test_get_consumer_unauthorized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_profile.ProfileTests.test_get_consumer_unauthorized" title="Link to this definition"></a></dt>
+<dd><p>Test getting the consumer profile without authentication.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_profile.ProfileTests.test_get_not_exist_profile">
+<span class="sig-name descname"><span class="pre">test_get_not_exist_profile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_profile.ProfileTests.test_get_not_exist_profile" title="Link to this definition"></a></dt>
+<dd><p>Test getting a non-existent profile.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_profile.ProfileTests.test_get_seller_authorized">
+<span class="sig-name descname"><span class="pre">test_get_seller_authorized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_profile.ProfileTests.test_get_seller_authorized" title="Link to this definition"></a></dt>
+<dd><p>Test getting the seller profile with valid data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_profile.ProfileTests.test_get_seller_unauthorized">
+<span class="sig-name descname"><span class="pre">test_get_seller_unauthorized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_profile.ProfileTests.test_get_seller_unauthorized" title="Link to this definition"></a></dt>
+<dd><p>Test getting the seller profile without authentication.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_profile.ProfileTests.test_get_unauthorized">
+<span class="sig-name descname"><span class="pre">test_get_unauthorized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_profile.ProfileTests.test_get_unauthorized" title="Link to this definition"></a></dt>
+<dd><p>Test getting the profile without authentication.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_profile.ProfileTests.test_patch_exist_email">
+<span class="sig-name descname"><span class="pre">test_patch_exist_email</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_profile.ProfileTests.test_patch_exist_email" title="Link to this definition"></a></dt>
+<dd><p>Test patching the profile with an existing email.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_profile.ProfileTests.test_patch_incorrect_email">
+<span class="sig-name descname"><span class="pre">test_patch_incorrect_email</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_profile.ProfileTests.test_patch_incorrect_email" title="Link to this definition"></a></dt>
+<dd><p>Test patching the profile with an incorrect email.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_profile.ProfileTests.test_patch_not_exist_profile">
+<span class="sig-name descname"><span class="pre">test_patch_not_exist_profile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_profile.ProfileTests.test_patch_not_exist_profile" title="Link to this definition"></a></dt>
+<dd><p>Test patching a non-existent profile.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_profile.ProfileTests.test_patch_not_owner">
+<span class="sig-name descname"><span class="pre">test_patch_not_owner</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_profile.ProfileTests.test_patch_not_owner" title="Link to this definition"></a></dt>
+<dd><p>Test patching the profile as a different user.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_profile.ProfileTests.test_patch_owner_consumer">
+<span class="sig-name descname"><span class="pre">test_patch_owner_consumer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_profile.ProfileTests.test_patch_owner_consumer" title="Link to this definition"></a></dt>
+<dd><p>Test patching the consumer profile with valid data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_profile.ProfileTests.test_patch_owner_seller">
+<span class="sig-name descname"><span class="pre">test_patch_owner_seller</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_profile.ProfileTests.test_patch_owner_seller" title="Link to this definition"></a></dt>
+<dd><p>Test patching the seller profile with valid data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_profile.ProfileTests.test_patch_unauthorized">
+<span class="sig-name descname"><span class="pre">test_patch_unauthorized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_profile.ProfileTests.test_patch_unauthorized" title="Link to this definition"></a></dt>
+<dd><p>Test patching the profile without authentication.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-user_auth.tests.test_registration">
+<span id="user-auth-tests-test-registration-module"></span><h2>user_auth.tests.test_registration module<a class="headerlink" href="#module-user_auth.tests.test_registration" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="user_auth.tests.test_registration.RegistrationTests">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user_auth.tests.test_registration.</span></span><span class="sig-name descname"><span class="pre">RegistrationTests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_registration.RegistrationTests" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APITestCase</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_registration.RegistrationTests.setUpTestData">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setUpTestData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_registration.RegistrationTests.setUpTestData" title="Link to this definition"></a></dt>
+<dd><p>Load initial data for the TestCase.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_registration.RegistrationTests.test_patch_already_exist_email">
+<span class="sig-name descname"><span class="pre">test_patch_already_exist_email</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_registration.RegistrationTests.test_patch_already_exist_email" title="Link to this definition"></a></dt>
+<dd><p>Test registration with already existing email.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_registration.RegistrationTests.test_patch_already_exist_username">
+<span class="sig-name descname"><span class="pre">test_patch_already_exist_username</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_registration.RegistrationTests.test_patch_already_exist_username" title="Link to this definition"></a></dt>
+<dd><p>Test registration with already existing username.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_registration.RegistrationTests.test_patch_correct_form_consumer">
+<span class="sig-name descname"><span class="pre">test_patch_correct_form_consumer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_registration.RegistrationTests.test_patch_correct_form_consumer" title="Link to this definition"></a></dt>
+<dd><p>Test registration with correct form for consumer.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_registration.RegistrationTests.test_patch_correct_form_seller">
+<span class="sig-name descname"><span class="pre">test_patch_correct_form_seller</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_registration.RegistrationTests.test_patch_correct_form_seller" title="Link to this definition"></a></dt>
+<dd><p>Test registration with correct form for seller.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_registration.RegistrationTests.test_patch_incorrect_email">
+<span class="sig-name descname"><span class="pre">test_patch_incorrect_email</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_registration.RegistrationTests.test_patch_incorrect_email" title="Link to this definition"></a></dt>
+<dd><p>Test registration with incorrect email.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_registration.RegistrationTests.test_patch_incorrect_username">
+<span class="sig-name descname"><span class="pre">test_patch_incorrect_username</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_registration.RegistrationTests.test_patch_incorrect_username" title="Link to this definition"></a></dt>
+<dd><p>Test registration with incorrect username.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user_auth.tests.test_registration.RegistrationTests.test_patch_password_dont_match">
+<span class="sig-name descname"><span class="pre">test_patch_password_dont_match</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user_auth.tests.test_registration.RegistrationTests.test_patch_password_dont_match" title="Link to this definition"></a></dt>
+<dd><p>Test registration with passwords that don’t match.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-user_auth.tests">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-user_auth.tests" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="user_auth.migrations.html" class="btn btn-neutral float-left" title="user_auth.migrations package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="reviews_app.html" class="btn btn-neutral float-right" title="reviews_app package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Albin Schmid.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

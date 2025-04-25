@@ -7,6 +7,10 @@ from django.db.models import Avg
 
 
 class BaseInfoView(APIView):
+    """
+    View to provide basic information about the application.
+    This includes the count of reviews, average rating, business profiles, and offers.
+    """
     def get(self, request, *args, **kwargs):
         data = {
             "review_count": Review.objects.count(),

@@ -8,8 +8,16 @@ from reviews_app.models import Review
 
 
 class ReviewDetailTests(APITestCase):
+    """
+    Test case for the ReviewDetail API endpoint.
+    This class contains tests for the PATCH and DELETE methods of the ReviewDetail API.
+    """
     @classmethod
     def setUpTestData(cls):
+        """
+        Set up test data for the ReviewDetailTests class.
+        This method creates test users, sellers, consumers, and a review.
+        """
         cls.user_seller_1 = User.objects.create_user(
             username='Seller1', password='Seller1')
         cls.user_seller_2 = User.objects.create_user(
@@ -39,29 +47,34 @@ class ReviewDetailTests(APITestCase):
         cls.url = reverse('review', kwargs={'pk':cls.review.id})
 
     def test_patch_unauthenticated(self):
+        """Test patching the review without authentication."""
         response = self.client.patch(self.url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertEqual(response.data.get('detail'), 'Unauthorized. Der Benutzer muss authentifiziert sein.')
 
     def test_patch_authenticated_not_owner(self):
+        """Test patching the review as an authenticated user who is not the owner."""
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_consumer_2.key)
         response = self.client.patch(self.url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
         self.assertEqual(response.data.get('detail'), 'Forbidden. Der Benutzer ist nicht berechtigt, diese Bewertung zu bearbeiten.')
 
     def test_patch_authenticated_owner(self):
+        """Test patching the review as the authenticated owner."""
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_consumer_1.key)
         response = self.client.patch(self.url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data.get('description'), 'Alles war toll!')
 
     def test_patch_unauthenticated_not_exist(self):
+        """Test patching a non-existent review without authentication."""
         url = reverse('review', kwargs={'pk': 9999})
         response = self.client.patch(url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertEqual(response.data.get('detail'), 'Unauthorized. Der Benutzer muss authentifiziert sein.')
 
     def test_patch_authenticated_not_exist(self):
+        """Test patching a non-existent review as an authenticated user."""
         url = reverse('review', kwargs={'pk': 9999})
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_consumer_1.key)
         response = self.client.patch(url, self.data, format='json')
@@ -69,6 +82,7 @@ class ReviewDetailTests(APITestCase):
         self.assertEqual(response.data.get('detail'), 'Nicht gefunden. Es wurde keine Bewertung mit der angegebenen ID gefunden.')
 
     def test_patch_authenticated_false_request(self):
+        """Test patching the review with invalid data."""
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_consumer_1.key)
         data = {
             "rating": "",
@@ -79,21 +93,25 @@ class ReviewDetailTests(APITestCase):
         self.assertEqual(response.data.get('detail'), 'Bad Request. Der Anfrage-Body enthält ungültige Daten.')
 
     def test_delete_unauthenticated(self):
+        """Test deleting the review without authentication."""
         response = self.client.delete(self.url)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
     def test_delete_authenticated_not_owner(self):
+        """Test deleting the review as an authenticated user who is not the owner."""
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_seller_1.key)
         response = self.client.delete(self.url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
         self.assertEqual(response.data.get('detail'), 'Forbidden. Der Benutzer ist nicht berechtigt, diese Bewertung zu löschen.')
 
     def test_delete_authenticated_owner(self):
+        """Test deleting the review as the authenticated owner."""
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_consumer_1.key)
         response = self.client.delete(self.url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
     def test_delete_authenticated_not_exist(self):
+        """Test deleting a non-existent review as an authenticated user."""
         url = reverse('review', kwargs={'pk': 9999})
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_consumer_1.key)
         response = self.client.delete(url)

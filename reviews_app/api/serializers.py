@@ -4,6 +4,9 @@ from user_auth.models import User
 from .exeptions import BadRequest
 
 class ReviewSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the Review model.
+    """
     business_user = serializers.PrimaryKeyRelatedField(
         queryset=User.objects.all()
     )
@@ -15,6 +18,9 @@ class ReviewSerializer(serializers.ModelSerializer):
     )
     
     class Meta:
+        """
+        Meta class for the ReviewSerializer.
+        """
         model = Review
         fields = '__all__'
         read_only_fields = ['reviewer']

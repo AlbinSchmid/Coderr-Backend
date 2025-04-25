@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>offer_app.tests package &mdash; Coderr 25.04.2025 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f1b069c9"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="offer_app.migrations package" href="offer_app.migrations.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Coderr
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="user_auth.html">user_auth package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reviews_app.html">reviews_app package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="order_app.html">order_app package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="offer_app.html">offer_app package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="offer_app.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="offer_app.api.html">offer_app.api package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="offer_app.migrations.html">offer_app.migrations package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">offer_app.tests package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-offer_app.tests.test_offer_detail">offer_app.tests.test_offer_detail module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-offer_app.tests.test_offer_list">offer_app.tests.test_offer_list module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-offer_app.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="offer_app.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offer_app.html#module-offer_app.admin">offer_app.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offer_app.html#module-offer_app.apps">offer_app.apps module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offer_app.html#module-offer_app.models">offer_app.models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offer_app.html#module-offer_app.views">offer_app.views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offer_app.html#module-offer_app">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Coderr</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="offer_app.html">offer_app package</a></li>
+      <li class="breadcrumb-item active">offer_app.tests package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/offer_app.tests.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="offer-app-tests-package">
+<h1>offer_app.tests package<a class="headerlink" href="#offer-app-tests-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-offer_app.tests.test_offer_detail">
+<span id="offer-app-tests-test-offer-detail-module"></span><h2>offer_app.tests.test_offer_detail module<a class="headerlink" href="#module-offer_app.tests.test_offer_detail" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailDetailsTest">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.tests.test_offer_detail.</span></span><span class="sig-name descname"><span class="pre">OfferDetailDetailsTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailDetailsTest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APITestCase</span></code></p>
+<p>Test case for the OfferDetailView API endpoint.
+This test case includes tests for retrieving offer details.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailDetailsTest.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailDetailsTest.setUp" title="Link to this definition"></a></dt>
+<dd><p>Set up the test client and authentication token for each test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailDetailsTest.setUpTestData">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setUpTestData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailDetailsTest.setUpTestData" title="Link to this definition"></a></dt>
+<dd><p>Set up test data for the OfferDetailDetailsTest class.
+This method is called once for the entire test class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailDetailsTest.test_get_authorized">
+<span class="sig-name descname"><span class="pre">test_get_authorized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailDetailsTest.test_get_authorized" title="Link to this definition"></a></dt>
+<dd><p>Test the GET request for the OfferDetailView API endpoint with authentication.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailDetailsTest.test_get_not_exist">
+<span class="sig-name descname"><span class="pre">test_get_not_exist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailDetailsTest.test_get_not_exist" title="Link to this definition"></a></dt>
+<dd><p>Test the GET request for a non-existent offer detail.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailDetailsTest.test_get_unauthorized">
+<span class="sig-name descname"><span class="pre">test_get_unauthorized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailDetailsTest.test_get_unauthorized" title="Link to this definition"></a></dt>
+<dd><p>Test the GET request for the OfferDetailView API endpoint without authentication.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailTests">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.tests.test_offer_detail.</span></span><span class="sig-name descname"><span class="pre">OfferDetailTests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailTests" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APITestCase</span></code></p>
+<p>Test case for the OfferDetailView API endpoint.
+This test case includes tests for creating, updating, and deleting offer details.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailTests.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailTests.setUp" title="Link to this definition"></a></dt>
+<dd><p>Set up the test client and authentication token for each test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailTests.setUpTestData">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setUpTestData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailTests.setUpTestData" title="Link to this definition"></a></dt>
+<dd><p>Set up test data for the OfferDetailTests class.
+This method is called once for the entire test class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailTests.test_delete_authorized_not_owner">
+<span class="sig-name descname"><span class="pre">test_delete_authorized_not_owner</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailTests.test_delete_authorized_not_owner" title="Link to this definition"></a></dt>
+<dd><p>Test the DELETE request for the OfferDetailView API endpoint with authentication but not as the owner.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailTests.test_delete_authorized_owner">
+<span class="sig-name descname"><span class="pre">test_delete_authorized_owner</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailTests.test_delete_authorized_owner" title="Link to this definition"></a></dt>
+<dd><p>Test the DELETE request for the OfferDetailView API endpoint with authentication as the owner.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailTests.test_delete_not_exist">
+<span class="sig-name descname"><span class="pre">test_delete_not_exist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailTests.test_delete_not_exist" title="Link to this definition"></a></dt>
+<dd><p>Test the DELETE request for a non-existent offer detail.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailTests.test_delete_unauthorized">
+<span class="sig-name descname"><span class="pre">test_delete_unauthorized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailTests.test_delete_unauthorized" title="Link to this definition"></a></dt>
+<dd><p>Test the DELETE request for the OfferDetailView API endpoint without authentication.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailTests.test_get_authorized">
+<span class="sig-name descname"><span class="pre">test_get_authorized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailTests.test_get_authorized" title="Link to this definition"></a></dt>
+<dd><p>Test the GET request for the OfferDetailView API endpoint with authentication.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailTests.test_get_not_exist">
+<span class="sig-name descname"><span class="pre">test_get_not_exist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailTests.test_get_not_exist" title="Link to this definition"></a></dt>
+<dd><p>Test the GET request for a non-existent offer detail.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailTests.test_get_unauthorized">
+<span class="sig-name descname"><span class="pre">test_get_unauthorized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailTests.test_get_unauthorized" title="Link to this definition"></a></dt>
+<dd><p>Test the GET request for the OfferDetailView API endpoint without authentication.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailTests.test_patch_authorized_not_owner">
+<span class="sig-name descname"><span class="pre">test_patch_authorized_not_owner</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailTests.test_patch_authorized_not_owner" title="Link to this definition"></a></dt>
+<dd><p>Test the PATCH request for the OfferDetailView API endpoint with authentication but not as the owner.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailTests.test_patch_authorized_owner">
+<span class="sig-name descname"><span class="pre">test_patch_authorized_owner</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailTests.test_patch_authorized_owner" title="Link to this definition"></a></dt>
+<dd><p>Test the PATCH request for the OfferDetailView API endpoint with authentication as the owner.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailTests.test_patch_not_exist">
+<span class="sig-name descname"><span class="pre">test_patch_not_exist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailTests.test_patch_not_exist" title="Link to this definition"></a></dt>
+<dd><p>Test the PATCH request for a non-existent offer detail.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_detail.OfferDetailTests.test_patch_unauthorized">
+<span class="sig-name descname"><span class="pre">test_patch_unauthorized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_detail.OfferDetailTests.test_patch_unauthorized" title="Link to this definition"></a></dt>
+<dd><p>Test the PATCH request for the OfferDetailView API endpoint without authentication.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-offer_app.tests.test_offer_list">
+<span id="offer-app-tests-test-offer-list-module"></span><h2>offer_app.tests.test_offer_list module<a class="headerlink" href="#module-offer_app.tests.test_offer_list" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_list.OfferListTests">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offer_app.tests.test_offer_list.</span></span><span class="sig-name descname"><span class="pre">OfferListTests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_list.OfferListTests" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APITestCase</span></code></p>
+<p>Test case for the OfferListView API endpoint.
+This test case includes tests for creating and listing offers.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_list.OfferListTests.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_list.OfferListTests.setUp" title="Link to this definition"></a></dt>
+<dd><p>Set up the test client and authentication token for each test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_list.OfferListTests.setUpTestData">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setUpTestData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_list.OfferListTests.setUpTestData" title="Link to this definition"></a></dt>
+<dd><p>Set up test data for the OfferListTests class.
+This method is called once for the entire test class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_list.OfferListTests.test_get_authorized_consumer">
+<span class="sig-name descname"><span class="pre">test_get_authorized_consumer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_list.OfferListTests.test_get_authorized_consumer" title="Link to this definition"></a></dt>
+<dd><p>Test the GET request for the OfferListView API endpoint with authentication.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_list.OfferListTests.test_get_authorized_seller">
+<span class="sig-name descname"><span class="pre">test_get_authorized_seller</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_list.OfferListTests.test_get_authorized_seller" title="Link to this definition"></a></dt>
+<dd><p>Test the GET request for the OfferListView API endpoint with authentication.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_list.OfferListTests.test_get_unauthorized">
+<span class="sig-name descname"><span class="pre">test_get_unauthorized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_list.OfferListTests.test_get_unauthorized" title="Link to this definition"></a></dt>
+<dd><p>Test the GET request for the OfferListView API endpoint without authentication.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_list.OfferListTests.test_post_authorized_consumer">
+<span class="sig-name descname"><span class="pre">test_post_authorized_consumer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_list.OfferListTests.test_post_authorized_consumer" title="Link to this definition"></a></dt>
+<dd><p>Test the POST request for the OfferListView API endpoint with authentication.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_list.OfferListTests.test_post_authorized_seller">
+<span class="sig-name descname"><span class="pre">test_post_authorized_seller</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_list.OfferListTests.test_post_authorized_seller" title="Link to this definition"></a></dt>
+<dd><p>Test the POST request for the OfferListView API endpoint with authentication.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offer_app.tests.test_offer_list.OfferListTests.test_post_unauthorized">
+<span class="sig-name descname"><span class="pre">test_post_unauthorized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#offer_app.tests.test_offer_list.OfferListTests.test_post_unauthorized" title="Link to this definition"></a></dt>
+<dd><p>Test the POST request for the OfferListView API endpoint without authentication.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-offer_app.tests">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-offer_app.tests" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="offer_app.migrations.html" class="btn btn-neutral float-left" title="offer_app.migrations package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Albin Schmid.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

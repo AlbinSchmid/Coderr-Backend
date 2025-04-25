@@ -12,9 +12,15 @@ from .permissions import *
 
 
 class CustomLogInView(ObtainAuthToken):
+    """
+    Custom login view. Inherits from ObtainAuthToken and overrides the post method.
+    """
     permission_classes = [AllowAny]
 
     def post(self, request):
+        """
+        Handle user login. Validate the input data and generate a token for the user.
+        """
         serializer = self.serializer_class(data=request.data)
         data = {}
 
@@ -34,9 +40,15 @@ class CustomLogInView(ObtainAuthToken):
             
 
 class RegistrationView(APIView):
+    """
+    User registration view. Handles user registration and token generation.
+    """
     permission_classes = [AllowAny]
 
     def post(self, request):
+        """
+        Handle user registration. Validate the input data and create a new user.
+        """
         serializer = RegistrationSerializer(data=request.data)
         data = {}
 
@@ -55,9 +67,15 @@ class RegistrationView(APIView):
         
 
 class ProfileSingleView(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Retrieve, update or delete a user profile (either consumer or seller) by user ID.
+    """
     permission_classes = [IsOwnerOrAdmin]
 
     def get_object(self):
+        """
+        Retrieve the user profile (either consumer or seller) by user ID.
+        """
         pk = self.kwargs.get('pk')
         obj = Consumer.objects.filter(user__id=pk).first() or Seller.objects.filter(user__id=pk).first()
         if not obj:
@@ -67,11 +85,17 @@ class ProfileSingleView(generics.RetrieveUpdateDestroyAPIView):
         return obj
     
     def get(self, request, *args, **kwargs):
+        """
+        Retrieve a user profile (either consumer or seller) by user ID.
+        """
         obj = self.get_object()
         serializer = ConsumerSerializer(obj) if isinstance(obj, Consumer) else SellerSerializer(obj)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
     def patch(self, request, *args, **kwargs):
+        """
+        Update a user profile (either consumer or seller) by user ID.
+        """
         obj = self.get_object() 
         serializer = ConsumerSerializer(obj, data=request.data, partial=True) if isinstance(obj, Consumer) else SellerSerializer(obj, data=request.data, partial=True)
         user = obj.user
@@ -101,8 +125,13 @@ class ProfileSingleView(generics.RetrieveUpdateDestroyAPIView):
 
 
 class ProfileListView(generics.ListAPIView):
-
+    """
+    List all users (both consumers and sellers).
+    """
     def get(self, request, *args, **kwargs):
+        """
+        List all users (both consumers and sellers).
+        """
         consumer = Consumer.objects.all()
         seller = Seller.objects.all()
 
@@ -114,12 +143,18 @@ class ProfileListView(generics.ListAPIView):
     
 
 class SellerListView(generics.ListAPIView):
+    """
+    List all sellers.
+    """
     queryset = Seller.objects.all()
     serializer_class = SellerSerializer
     permission_classes = [IsAuthenticated]
 
 
 class ConsumerListView(generics.ListAPIView):
+    """
+    List all consumers.
+    """
     queryset = Consumer.objects.all()
     serializer_class = ConsumerSerializer
     permission_classes = [IsAuthenticated]

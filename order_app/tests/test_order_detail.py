@@ -9,10 +9,17 @@ from order_app.models import Order
 
 
 class OrderDetailTests(APITestCase):
+    """
+    Test case for the OrderDetailView API endpoint.
+    This test case includes tests for updating and deleting orders.
+    """
 
     @classmethod
     def setUpTestData(cls):
-
+        """
+        Set up test data for the OrderDetailTests class.
+        This method is called once for the entire test class.
+        """
         user_1 = User.objects.create_user(
             username='TestUser1', password='password1')
         user_2 = User.objects.create_user(
@@ -52,18 +59,27 @@ class OrderDetailTests(APITestCase):
         cls.url = reverse('order', kwargs={'pk': cls.order.id})
 
     def test_patch_unauthenticated(self):
+        """
+        Test the PATCH request for the OrderDetailView API endpoint with an unauthenticated user.
+        """
         response = self.client.patch(self.url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertEqual(response.data.get('detail'),
                          'Benutzer ist nicht authentifiziert.')
         
     def test_patch_authenticated_seller(self):
+        """
+        Test the PATCH request for the OrderDetailView API endpoint with an authenticated seller.
+        """
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_seller.key)
         response = self.client.patch(self.url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data.get('status'), 'completed')
 
     def test_patch_authenticated_consumer(self):
+        """
+        Test the PATCH request for the OrderDetailView API endpoint with an authenticated consumer.
+        """
         self.client.credentials()
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_consumer.key)
         response = self.client.patch(self.url, self.data, format='json')
@@ -72,6 +88,9 @@ class OrderDetailTests(APITestCase):
                          'Benutzer hat keine Berechtigung, diese Bestellung zu aktualisieren.')
         
     def test_patch_not_exist_order(self):
+        """
+        Test the PATCH request for the OrderDetailView API endpoint with a non-existent order.
+        """
         self.client.credentials()
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_seller.key)
         url = reverse('order', kwargs={'pk': 9999})
@@ -81,6 +100,9 @@ class OrderDetailTests(APITestCase):
                          'Die angegebene Bestellung wurde nicht gefunden.')
         
     def test_delete_unauthenticated(self):
+        """
+        Test the DELETE request for the OrderDetailView API endpoint with an unauthenticated user.
+        """
         response = self.client.delete(self.url)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertEqual(response.data.get('detail'),
@@ -88,6 +110,9 @@ class OrderDetailTests(APITestCase):
         self.assertEqual(Order.objects.count(), 1)
         
     def test_delete_authenticated_no_staff(self):
+        """
+        Test the DELETE request for the OrderDetailView API endpoint with an authenticated user who is not a staff member.
+        """
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_seller.key)
         response = self.client.delete(self.url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
@@ -95,6 +120,9 @@ class OrderDetailTests(APITestCase):
         self.assertEqual(Order.objects.count(), 1)
 
     def test_delete_authenticated_staff(self):
+        """
+        Test the DELETE request for the OrderDetailView API endpoint with an authenticated staff member.
+        """
         self.client.credentials()
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_staff.key)
         initial_count = Order.objects.count()
@@ -103,6 +131,9 @@ class OrderDetailTests(APITestCase):
         self.assertEqual(Order.objects.count(), initial_count - 1)
 
     def test_delete_not_exist_order(self):
+        """
+        Test the DELETE request for the OrderDetailView API endpoint with a non-existent order.
+        """
         self.client.credentials()
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_staff.key)
         url = reverse('order', kwargs={'pk': 9999})

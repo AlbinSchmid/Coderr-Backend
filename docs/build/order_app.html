@@ -1,0 +1,576 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>order_app package &mdash; Coderr 25.04.2025 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f1b069c9"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="order_app.api package" href="order_app.api.html" />
+    <link rel="prev" title="reviews_app.tests package" href="reviews_app.tests.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Coderr
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="user_auth.html">user_auth package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reviews_app.html">reviews_app package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">order_app package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.api.html">order_app.api package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="order_app.migrations.html">order_app.migrations package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="order_app.tests.html">order_app.tests package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-order_app.admin">order_app.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-order_app.apps">order_app.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#order_app.apps.OrderAppConfig"><code class="docutils literal notranslate"><span class="pre">OrderAppConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.apps.OrderAppConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">OrderAppConfig.default_auto_field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.apps.OrderAppConfig.name"><code class="docutils literal notranslate"><span class="pre">OrderAppConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-order_app.models">order_app.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#order_app.models.Order"><code class="docutils literal notranslate"><span class="pre">Order</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.models.Order.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Order.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.models.Order.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Order.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.models.Order.business_user"><code class="docutils literal notranslate"><span class="pre">Order.business_user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.models.Order.business_user_id"><code class="docutils literal notranslate"><span class="pre">Order.business_user_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.models.Order.created_at"><code class="docutils literal notranslate"><span class="pre">Order.created_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.models.Order.customer_user"><code class="docutils literal notranslate"><span class="pre">Order.customer_user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.models.Order.customer_user_id"><code class="docutils literal notranslate"><span class="pre">Order.customer_user_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.models.Order.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Order.get_next_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.models.Order.get_next_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Order.get_next_by_updated_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.models.Order.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Order.get_previous_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.models.Order.get_previous_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Order.get_previous_by_updated_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.models.Order.id"><code class="docutils literal notranslate"><span class="pre">Order.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.models.Order.objects"><code class="docutils literal notranslate"><span class="pre">Order.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.models.Order.offer_detail"><code class="docutils literal notranslate"><span class="pre">Order.offer_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.models.Order.offer_detail_id"><code class="docutils literal notranslate"><span class="pre">Order.offer_detail_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.models.Order.status"><code class="docutils literal notranslate"><span class="pre">Order.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#order_app.models.Order.updated_at"><code class="docutils literal notranslate"><span class="pre">Order.updated_at</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-order_app.views">order_app.views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-order_app">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="offer_app.html">offer_app package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Coderr</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">order_app package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/order_app.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="order-app-package">
+<h1>order_app package<a class="headerlink" href="#order-app-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="order_app.api.html">order_app.api package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="order_app.api.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.api.html#module-order_app.api.exeptions">order_app.api.exeptions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.IncorrectStatus"><code class="docutils literal notranslate"><span class="pre">IncorrectStatus</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.IncorrectStatus.default_code"><code class="docutils literal notranslate"><span class="pre">IncorrectStatus.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.IncorrectStatus.default_detail"><code class="docutils literal notranslate"><span class="pre">IncorrectStatus.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.IncorrectStatus.status_code"><code class="docutils literal notranslate"><span class="pre">IncorrectStatus.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.OfferDetailNotExist"><code class="docutils literal notranslate"><span class="pre">OfferDetailNotExist</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.OfferDetailNotExist.default_code"><code class="docutils literal notranslate"><span class="pre">OfferDetailNotExist.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.OfferDetailNotExist.default_detail"><code class="docutils literal notranslate"><span class="pre">OfferDetailNotExist.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.OfferDetailNotExist.status_code"><code class="docutils literal notranslate"><span class="pre">OfferDetailNotExist.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.OrderNotFound"><code class="docutils literal notranslate"><span class="pre">OrderNotFound</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.OrderNotFound.default_code"><code class="docutils literal notranslate"><span class="pre">OrderNotFound.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.OrderNotFound.default_detail"><code class="docutils literal notranslate"><span class="pre">OrderNotFound.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.OrderNotFound.status_code"><code class="docutils literal notranslate"><span class="pre">OrderNotFound.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.UserIsNotConsumer"><code class="docutils literal notranslate"><span class="pre">UserIsNotConsumer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.UserIsNotConsumer.default_code"><code class="docutils literal notranslate"><span class="pre">UserIsNotConsumer.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.UserIsNotConsumer.default_detail"><code class="docutils literal notranslate"><span class="pre">UserIsNotConsumer.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.UserIsNotConsumer.status_code"><code class="docutils literal notranslate"><span class="pre">UserIsNotConsumer.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.UserIsNotSeller"><code class="docutils literal notranslate"><span class="pre">UserIsNotSeller</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.UserIsNotSeller.default_code"><code class="docutils literal notranslate"><span class="pre">UserIsNotSeller.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.UserIsNotSeller.default_detail"><code class="docutils literal notranslate"><span class="pre">UserIsNotSeller.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.UserIsNotSeller.status_code"><code class="docutils literal notranslate"><span class="pre">UserIsNotSeller.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.UserIsNotStaff"><code class="docutils literal notranslate"><span class="pre">UserIsNotStaff</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.UserIsNotStaff.default_code"><code class="docutils literal notranslate"><span class="pre">UserIsNotStaff.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.UserIsNotStaff.default_detail"><code class="docutils literal notranslate"><span class="pre">UserIsNotStaff.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.UserIsNotStaff.status_code"><code class="docutils literal notranslate"><span class="pre">UserIsNotStaff.status_code</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.UserSellerNotFound"><code class="docutils literal notranslate"><span class="pre">UserSellerNotFound</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.UserSellerNotFound.default_code"><code class="docutils literal notranslate"><span class="pre">UserSellerNotFound.default_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.UserSellerNotFound.default_detail"><code class="docutils literal notranslate"><span class="pre">UserSellerNotFound.default_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.exeptions.UserSellerNotFound.status_code"><code class="docutils literal notranslate"><span class="pre">UserSellerNotFound.status_code</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.api.html#module-order_app.api.permissions">order_app.api.permissions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.api.html#order_app.api.permissions.ConsumerForPostOrAuthenticated"><code class="docutils literal notranslate"><span class="pre">ConsumerForPostOrAuthenticated</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.permissions.ConsumerForPostOrAuthenticated.has_permission"><code class="docutils literal notranslate"><span class="pre">ConsumerForPostOrAuthenticated.has_permission()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="order_app.api.html#order_app.api.permissions.SellerForPatchOrStaffForDelete"><code class="docutils literal notranslate"><span class="pre">SellerForPatchOrStaffForDelete</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.permissions.SellerForPatchOrStaffForDelete.has_permission"><code class="docutils literal notranslate"><span class="pre">SellerForPatchOrStaffForDelete.has_permission()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.api.html#module-order_app.api.serializers">order_app.api.serializers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.api.html#order_app.api.serializers.OrderCountSerializer"><code class="docutils literal notranslate"><span class="pre">OrderCountSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.serializers.OrderCountSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">OrderCountSerializer.Meta</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="order_app.api.html#order_app.api.serializers.OrderSerializer"><code class="docutils literal notranslate"><span class="pre">OrderSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.serializers.OrderSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">OrderSerializer.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.serializers.OrderSerializer.create"><code class="docutils literal notranslate"><span class="pre">OrderSerializer.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.serializers.OrderSerializer.update"><code class="docutils literal notranslate"><span class="pre">OrderSerializer.update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.serializers.OrderSerializer.validate_offer_detail_id"><code class="docutils literal notranslate"><span class="pre">OrderSerializer.validate_offer_detail_id()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.api.html#module-order_app.api.urls">order_app.api.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.api.html#module-order_app.api.views">order_app.api.views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.api.html#order_app.api.views.CompletedOrderCount"><code class="docutils literal notranslate"><span class="pre">CompletedOrderCount</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.views.CompletedOrderCount.get"><code class="docutils literal notranslate"><span class="pre">CompletedOrderCount.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.views.CompletedOrderCount.permission_classes"><code class="docutils literal notranslate"><span class="pre">CompletedOrderCount.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.views.CompletedOrderCount.queryset"><code class="docutils literal notranslate"><span class="pre">CompletedOrderCount.queryset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.views.CompletedOrderCount.serializer_class"><code class="docutils literal notranslate"><span class="pre">CompletedOrderCount.serializer_class</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="order_app.api.html#order_app.api.views.OrderCountView"><code class="docutils literal notranslate"><span class="pre">OrderCountView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.views.OrderCountView.get"><code class="docutils literal notranslate"><span class="pre">OrderCountView.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.views.OrderCountView.permission_classes"><code class="docutils literal notranslate"><span class="pre">OrderCountView.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.views.OrderCountView.queryset"><code class="docutils literal notranslate"><span class="pre">OrderCountView.queryset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.views.OrderCountView.serializer_class"><code class="docutils literal notranslate"><span class="pre">OrderCountView.serializer_class</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="order_app.api.html#order_app.api.views.OrderDetailView"><code class="docutils literal notranslate"><span class="pre">OrderDetailView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.views.OrderDetailView.get_object"><code class="docutils literal notranslate"><span class="pre">OrderDetailView.get_object()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.views.OrderDetailView.permission_classes"><code class="docutils literal notranslate"><span class="pre">OrderDetailView.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.views.OrderDetailView.queryset"><code class="docutils literal notranslate"><span class="pre">OrderDetailView.queryset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.views.OrderDetailView.serializer_class"><code class="docutils literal notranslate"><span class="pre">OrderDetailView.serializer_class</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="order_app.api.html#order_app.api.views.OrderListView"><code class="docutils literal notranslate"><span class="pre">OrderListView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.views.OrderListView.perform_create"><code class="docutils literal notranslate"><span class="pre">OrderListView.perform_create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.views.OrderListView.permission_classes"><code class="docutils literal notranslate"><span class="pre">OrderListView.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.views.OrderListView.queryset"><code class="docutils literal notranslate"><span class="pre">OrderListView.queryset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.api.html#order_app.api.views.OrderListView.serializer_class"><code class="docutils literal notranslate"><span class="pre">OrderListView.serializer_class</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.api.html#module-order_app.api">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="order_app.migrations.html">order_app.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="order_app.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.migrations.html#module-order_app.migrations.0001_initial">order_app.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.migrations.html#module-order_app.migrations.0002_order_offer">order_app.migrations.0002_order_offer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0002_order_offer.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0002_order_offer.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0002_order_offer.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.migrations.html#module-order_app.migrations.0003_remove_order_offer">order_app.migrations.0003_remove_order_offer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0003_remove_order_offer.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0003_remove_order_offer.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0003_remove_order_offer.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.migrations.html#module-order_app.migrations.0004_offer">order_app.migrations.0004_offer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0004_offer.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0004_offer.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0004_offer.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.migrations.html#module-order_app.migrations.0005_order_offer">order_app.migrations.0005_order_offer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0005_order_offer.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0005_order_offer.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0005_order_offer.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.migrations.html#module-order_app.migrations.0006_remove_order_offer_delete_offer">order_app.migrations.0006_remove_order_offer_delete_offer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0006_remove_order_offer_delete_offer.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0006_remove_order_offer_delete_offer.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0006_remove_order_offer_delete_offer.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.migrations.html#module-order_app.migrations.0007_order_offer_detail">order_app.migrations.0007_order_offer_detail module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0007_order_offer_detail.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0007_order_offer_detail.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0007_order_offer_detail.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.migrations.html#module-order_app.migrations.0008_remove_order_name_order_created_at_order_status_and_more">order_app.migrations.0008_remove_order_name_order_created_at_order_status_and_more module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0008_remove_order_name_order_created_at_order_status_and_more.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0008_remove_order_name_order_created_at_order_status_and_more.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0008_remove_order_name_order_created_at_order_status_and_more.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.migrations.html#module-order_app.migrations.0009_rename_update_at_order_updated_at">order_app.migrations.0009_rename_update_at_order_updated_at module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0009_rename_update_at_order_updated_at.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0009_rename_update_at_order_updated_at.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0009_rename_update_at_order_updated_at.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.migrations.html#module-order_app.migrations.0010_order_customer_user">order_app.migrations.0010_order_customer_user module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0010_order_customer_user.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0010_order_customer_user.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0010_order_customer_user.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.migrations.html#module-order_app.migrations.0011_order_business_user">order_app.migrations.0011_order_business_user module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0011_order_business_user.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0011_order_business_user.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0011_order_business_user.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.migrations.html#module-order_app.migrations.0012_alter_order_business_user">order_app.migrations.0012_alter_order_business_user module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0012_alter_order_business_user.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0012_alter_order_business_user.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.migrations.html#order_app.migrations.0012_alter_order_business_user.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.migrations.html#module-order_app.migrations">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="order_app.tests.html">order_app.tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="order_app.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.tests.html#module-order_app.tests.test_order_aa">order_app.tests.test_order_aa module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_aa.OrderListTests"><code class="docutils literal notranslate"><span class="pre">OrderListTests</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_aa.OrderListTests.setUpTestData"><code class="docutils literal notranslate"><span class="pre">OrderListTests.setUpTestData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_aa.OrderListTests.test_get_authenticated"><code class="docutils literal notranslate"><span class="pre">OrderListTests.test_get_authenticated()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_aa.OrderListTests.test_post_unauthenticated"><code class="docutils literal notranslate"><span class="pre">OrderListTests.test_post_unauthenticated()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.tests.html#module-order_app.tests.test_order_count">order_app.tests.test_order_count module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_count.OrderCountTests"><code class="docutils literal notranslate"><span class="pre">OrderCountTests</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_count.OrderCountTests.setUpTestData"><code class="docutils literal notranslate"><span class="pre">OrderCountTests.setUpTestData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_count.OrderCountTests.test_get_authenticated"><code class="docutils literal notranslate"><span class="pre">OrderCountTests.test_get_authenticated()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_count.OrderCountTests.test_get_completed_authenticated"><code class="docutils literal notranslate"><span class="pre">OrderCountTests.test_get_completed_authenticated()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_count.OrderCountTests.test_get_completed_not_exist_pk"><code class="docutils literal notranslate"><span class="pre">OrderCountTests.test_get_completed_not_exist_pk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_count.OrderCountTests.test_get_completed_unauthenticated"><code class="docutils literal notranslate"><span class="pre">OrderCountTests.test_get_completed_unauthenticated()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_count.OrderCountTests.test_get_not_exist_pk"><code class="docutils literal notranslate"><span class="pre">OrderCountTests.test_get_not_exist_pk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_count.OrderCountTests.test_get_unauthenticated"><code class="docutils literal notranslate"><span class="pre">OrderCountTests.test_get_unauthenticated()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.tests.html#module-order_app.tests.test_order_detail">order_app.tests.test_order_detail module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_detail.OrderDetailTests"><code class="docutils literal notranslate"><span class="pre">OrderDetailTests</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_detail.OrderDetailTests.setUpTestData"><code class="docutils literal notranslate"><span class="pre">OrderDetailTests.setUpTestData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_detail.OrderDetailTests.test_delete_authenticated_no_staff"><code class="docutils literal notranslate"><span class="pre">OrderDetailTests.test_delete_authenticated_no_staff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_detail.OrderDetailTests.test_delete_authenticated_staff"><code class="docutils literal notranslate"><span class="pre">OrderDetailTests.test_delete_authenticated_staff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_detail.OrderDetailTests.test_delete_not_exist_order"><code class="docutils literal notranslate"><span class="pre">OrderDetailTests.test_delete_not_exist_order()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_detail.OrderDetailTests.test_delete_unauthenticated"><code class="docutils literal notranslate"><span class="pre">OrderDetailTests.test_delete_unauthenticated()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_detail.OrderDetailTests.test_patch_authenticated_consumer"><code class="docutils literal notranslate"><span class="pre">OrderDetailTests.test_patch_authenticated_consumer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_detail.OrderDetailTests.test_patch_authenticated_seller"><code class="docutils literal notranslate"><span class="pre">OrderDetailTests.test_patch_authenticated_seller()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_detail.OrderDetailTests.test_patch_not_exist_order"><code class="docutils literal notranslate"><span class="pre">OrderDetailTests.test_patch_not_exist_order()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="order_app.tests.html#order_app.tests.test_order_detail.OrderDetailTests.test_patch_unauthenticated"><code class="docutils literal notranslate"><span class="pre">OrderDetailTests.test_patch_unauthenticated()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.tests.html#module-order_app.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-order_app.admin">
+<span id="order-app-admin-module"></span><h2>order_app.admin module<a class="headerlink" href="#module-order_app.admin" title="Link to this heading"></a></h2>
+</section>
+<section id="module-order_app.apps">
+<span id="order-app-apps-module"></span><h2>order_app.apps module<a class="headerlink" href="#module-order_app.apps" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="order_app.apps.OrderAppConfig">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">order_app.apps.</span></span><span class="sig-name descname"><span class="pre">OrderAppConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.apps.OrderAppConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<p>Configuration for the Order application.
+This class is used to set the default auto field and the name of the application.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.apps.OrderAppConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#order_app.apps.OrderAppConfig.default_auto_field" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.apps.OrderAppConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'order_app'</span></em><a class="headerlink" href="#order_app.apps.OrderAppConfig.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-order_app.models">
+<span id="order-app-models-module"></span><h2>order_app.models module<a class="headerlink" href="#module-order_app.models" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="order_app.models.Order">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">order_app.models.</span></span><span class="sig-name descname"><span class="pre">Order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.models.Order" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Model representing an order.
+Each order is associated with a specific offer detail and has a status.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="order_app.models.Order.DoesNotExist">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#order_app.models.Order.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="order_app.models.Order.MultipleObjectsReturned">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#order_app.models.Order.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.models.Order.business_user">
+<span class="sig-name descname"><span class="pre">business_user</span></span><a class="headerlink" href="#order_app.models.Order.business_user" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.models.Order.business_user_id">
+<span class="sig-name descname"><span class="pre">business_user_id</span></span><a class="headerlink" href="#order_app.models.Order.business_user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.models.Order.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#order_app.models.Order.created_at" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.models.Order.customer_user">
+<span class="sig-name descname"><span class="pre">customer_user</span></span><a class="headerlink" href="#order_app.models.Order.customer_user" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.models.Order.customer_user_id">
+<span class="sig-name descname"><span class="pre">customer_user_id</span></span><a class="headerlink" href="#order_app.models.Order.customer_user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="order_app.models.Order.get_next_by_created_at">
+<span class="sig-name descname"><span class="pre">get_next_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.models.Order.get_next_by_created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="order_app.models.Order.get_next_by_updated_at">
+<span class="sig-name descname"><span class="pre">get_next_by_updated_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.models.Order.get_next_by_updated_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="order_app.models.Order.get_previous_by_created_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.models.Order.get_previous_by_created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="order_app.models.Order.get_previous_by_updated_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_updated_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.models.Order.get_previous_by_updated_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.models.Order.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#order_app.models.Order.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.models.Order.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#order_app.models.Order.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.models.Order.offer_detail">
+<span class="sig-name descname"><span class="pre">offer_detail</span></span><a class="headerlink" href="#order_app.models.Order.offer_detail" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.models.Order.offer_detail_id">
+<span class="sig-name descname"><span class="pre">offer_detail_id</span></span><a class="headerlink" href="#order_app.models.Order.offer_detail_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.models.Order.status">
+<span class="sig-name descname"><span class="pre">status</span></span><a class="headerlink" href="#order_app.models.Order.status" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.models.Order.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#order_app.models.Order.updated_at" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-order_app.views">
+<span id="order-app-views-module"></span><h2>order_app.views module<a class="headerlink" href="#module-order_app.views" title="Link to this heading"></a></h2>
+</section>
+<section id="module-order_app">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-order_app" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="reviews_app.tests.html" class="btn btn-neutral float-left" title="reviews_app.tests package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="order_app.api.html" class="btn btn-neutral float-right" title="order_app.api package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Albin Schmid.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

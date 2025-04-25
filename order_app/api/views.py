@@ -9,11 +9,17 @@ from user_auth.models import Seller
 
 
 class OrderListView(generics.ListCreateAPIView):
+    """
+    View to list and create orders.
+    """
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
     permission_classes = [ConsumerForPostOrAuthenticated]
 
     def perform_create(self, serializer):
+        """
+        Save the order with the customer user and business user.
+        """
         offer_detail_id = self.request.data.get('offer_detail_id')
         offer_detail_user = OfferDetail.objects.filter(id=offer_detail_id).select_related('offer__user').first()
         business_user = offer_detail_user.offer.user
@@ -21,11 +27,17 @@ class OrderListView(generics.ListCreateAPIView):
 
 
 class OrderDetailView(generics.RetrieveUpdateDestroyAPIView):
+    """
+    View to retrieve, update, or delete an order.
+    """
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
     permission_classes = [SellerForPatchOrStaffForDelete]
 
     def get_object(self):
+        """
+        Retrieve the order object based on the provided primary key (pk).
+        """
         pk = self.kwargs.get('pk')
         obj = Order.objects.filter(pk=pk).first()
             
@@ -35,11 +47,17 @@ class OrderDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 
 class OrderCountView(generics.ListAPIView):
+    """
+    View to count the number of orders for a specific seller.
+    """
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
     permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
+        """
+        Get the count of orders for a specific seller.
+        """
         user_id = kwargs.get('pk')
         seller = Seller.objects.filter(user_id=user_id)
 
@@ -50,11 +68,17 @@ class OrderCountView(generics.ListAPIView):
     
 
 class CompletedOrderCount(generics.ListAPIView):
+    """
+    View to count the number of completed orders for a specific seller.
+    """
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
     permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
+        """
+        Get the count of completed orders for a specific seller.
+        """
         user_id = kwargs.get('pk')
         seller = Seller.objects.filter(user_id=user_id)
         if seller:

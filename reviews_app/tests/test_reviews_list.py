@@ -8,9 +8,16 @@ from reviews_app.models import Review
 
 
 class ReviewsListTests(APITestCase):
-
+    """
+    Test case for the ReviewsList API endpoint.
+    This class contains tests for the GET and POST methods of the ReviewsList API.
+    """
     @classmethod
     def setUpTestData(cls):
+        """
+        Set up test data for the ReviewsListTests class.
+        This method creates test users, sellers, consumers, and a review.
+        """
         cls.user_seller_1 = User.objects.create_user(
             username='Seller1', password='Seller1')
         cls.user_seller_2 = User.objects.create_user(
@@ -40,27 +47,35 @@ class ReviewsListTests(APITestCase):
         cls.url = reverse('reviews')
 
     def setUp(self):
+        """
+        Set up the test client and authenticate the user.
+        This method is called before each test method is executed.
+        """
         self.client.credentials()
 
     def test_get_unauthenticated(self):
+        """Test getting reviews without authentication."""
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertEqual(response.data.get('detail'),
                          'Unauthorized. Der Benutzer muss authentifiziert sein.')
 
     def test_get_authenticated_seller(self):
+        """Test getting reviews as an authenticated seller."""
         self.client.credentials(
             HTTP_AUTHORIZATION='Token ' + self.token_seller.key)
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_get_authenticated_consumer(self):
+        """Test getting reviews as an authenticated consumer."""
         self.client.credentials(
             HTTP_AUTHORIZATION='Token ' + self.token_consumer.key)
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_correct_filter_return_single_result(self):
+        """Test getting reviews with correct filters."""
         self.client.credentials(
             HTTP_AUTHORIZATION='Token ' + self.token_seller.key)
         response = self.client.get(f'/api/reviews/?business_user_id={self.user_seller_1.id}&reviewer_id={self.user_consumer_2.id}')
@@ -70,6 +85,7 @@ class ReviewsListTests(APITestCase):
         self.assertTrue(all(review["reviewer"] == self.user_consumer_2.id for review in response.json()))
 
     def test_incorrect_filters_return_none_result(self):
+        """Test getting reviews with incorrect filters."""
         self.client.credentials(
             HTTP_AUTHORIZATION='Token ' + self.token_seller.key)
         response = self.client.get(f'/api/reviews/?business_user_id=777&reviewer_id=888')
@@ -77,6 +93,7 @@ class ReviewsListTests(APITestCase):
         self.assertEqual(len(response.json()), 0)
 
     def test_str_filters_return_error(self):
+        """Test getting reviews with string filters."""
         self.client.credentials(
             HTTP_AUTHORIZATION='Token ' + self.token_seller.key)
         response = self.client.get(f'/api/reviews/?business_user_id={''}&reviewer_id={'asdf'}')
@@ -84,18 +101,21 @@ class ReviewsListTests(APITestCase):
         self.assertEqual(response.data.get('detail'), 'Ungültige Anfrageparameter.')
 
     def test_post_unauthenticated(self):
+        """Test posting a review without authentication."""
         response = self.client.post(self.url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertEqual(response.data.get('detail'),
                          'Unauthorized. Der Benutzer muss authentifiziert sein und ein Kundenprofil besitzen.')
 
     def test_post_authenticated_seller(self):
+        """Test posting a review as an authenticated seller."""
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_seller.key)
         response = self.client.post(self.url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
         self.assertEqual(response.data.get('detail'), 'Forbidden. Der Bentutzer ist kein typ vom Consumer.')
 
     def test_post_authenticated_consumer(self):
+        """Test posting a review as an authenticated consumer."""
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_consumer.key)
         response = self.client.post(self.url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
@@ -103,6 +123,7 @@ class ReviewsListTests(APITestCase):
         self.assertEqual(response.data["reviewer"], self.user_consumer_1.id)
 
     def test_post_authenticated_consumer_double_review(self):
+        """Test posting a review as an authenticated consumer who has already reviewed."""
         Review.objects.create(business_user=self.user_seller_1, rating=1, description='TestForFilter', reviewer=self.user_consumer_1)
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_consumer.key)
         response = self.client.post(self.url, self.data, format='json')
@@ -110,6 +131,7 @@ class ReviewsListTests(APITestCase):
         self.assertEqual(response.data.get('detail'), 'Forbidden. Ein Benutzer kann nur eine Bewertung pro Geschäftsprofil abgeben.')
 
     def test_post_authenticated_seller_double_review(self):
+        """Test posting a review as an authenticated seller who has already reviewed."""
         Review.objects.create(business_user=self.user_seller_1, rating=1, description='TestForFilter', reviewer=self.user_consumer_1)
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_seller.key)
         response = self.client.post(self.url, self.data, format='json')

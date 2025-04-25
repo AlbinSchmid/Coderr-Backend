@@ -8,9 +8,17 @@ from offer_app.models import Offer, OfferDetail
 
 
 class OrderListTests(APITestCase):
+    """
+    Test case for the OrderListView API endpoint.
+    This test case includes tests for creating and listing orders.
+    """
 
     @classmethod
     def setUpTestData(cls):
+        """
+        Set up test data for the OrderListTests class.
+        This method is called once for the entire test class.
+        """
         cls.url = reverse('orders')
         
         user_1 = User.objects.create_user(
@@ -42,6 +50,9 @@ class OrderListTests(APITestCase):
         }
 
     def test_get_authenticated(self):
+        """
+        Test the GET request for the OrderListView API endpoint with an authenticated user.
+        """
         url = reverse('orders')
         self.client.credentials(
             HTTP_AUTHORIZATION='Token ' + self.token_seller.key)
@@ -49,6 +60,9 @@ class OrderListTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_post_unauthenticated(self):
+        """
+        Test the POST request for the OrderListView API endpoint with an unauthenticated user.
+        """
         response = self.client.post(self.url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 

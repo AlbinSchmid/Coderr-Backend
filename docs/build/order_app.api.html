@@ -1,0 +1,529 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>order_app.api package &mdash; Coderr 25.04.2025 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f1b069c9"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="order_app.migrations package" href="order_app.migrations.html" />
+    <link rel="prev" title="order_app package" href="order_app.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Coderr
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="user_auth.html">user_auth package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reviews_app.html">reviews_app package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="order_app.html">order_app package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="order_app.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">order_app.api package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-order_app.api.exeptions">order_app.api.exeptions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-order_app.api.permissions">order_app.api.permissions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-order_app.api.serializers">order_app.api.serializers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-order_app.api.urls">order_app.api.urls module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-order_app.api.views">order_app.api.views module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-order_app.api">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="order_app.migrations.html">order_app.migrations package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="order_app.tests.html">order_app.tests package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.html#module-order_app.admin">order_app.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.html#module-order_app.apps">order_app.apps module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.html#module-order_app.models">order_app.models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.html#module-order_app.views">order_app.views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="order_app.html#module-order_app">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="offer_app.html">offer_app package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Coderr</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="order_app.html">order_app package</a></li>
+      <li class="breadcrumb-item active">order_app.api package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/order_app.api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="order-app-api-package">
+<h1>order_app.api package<a class="headerlink" href="#order-app-api-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-order_app.api.exeptions">
+<span id="order-app-api-exeptions-module"></span><h2>order_app.api.exeptions module<a class="headerlink" href="#module-order_app.api.exeptions" title="Link to this heading"></a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="order_app.api.exeptions.IncorrectStatus">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">order_app.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">IncorrectStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.exeptions.IncorrectStatus" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the status is incorrect.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.IncorrectStatus.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'bad_request'</span></em><a class="headerlink" href="#order_app.api.exeptions.IncorrectStatus.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.IncorrectStatus.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Ungültiger</span> <span class="pre">Status</span> <span class="pre">oder</span> <span class="pre">unzulässige</span> <span class="pre">Felder</span> <span class="pre">in</span> <span class="pre">der</span> <span class="pre">Anfrage.'</span></em><a class="headerlink" href="#order_app.api.exeptions.IncorrectStatus.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.IncorrectStatus.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">400</span></em><a class="headerlink" href="#order_app.api.exeptions.IncorrectStatus.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="order_app.api.exeptions.OfferDetailNotExist">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">order_app.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">OfferDetailNotExist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.exeptions.OfferDetailNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the offer detail does not exist.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.OfferDetailNotExist.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'not_found'</span></em><a class="headerlink" href="#order_app.api.exeptions.OfferDetailNotExist.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.OfferDetailNotExist.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Das</span> <span class="pre">angegebene</span> <span class="pre">Angebotsdetail</span> <span class="pre">wurde</span> <span class="pre">nicht</span> <span class="pre">gefunden.'</span></em><a class="headerlink" href="#order_app.api.exeptions.OfferDetailNotExist.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.OfferDetailNotExist.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">404</span></em><a class="headerlink" href="#order_app.api.exeptions.OfferDetailNotExist.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="order_app.api.exeptions.OrderNotFound">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">order_app.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">OrderNotFound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.exeptions.OrderNotFound" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the order is not found.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.OrderNotFound.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'not_found'</span></em><a class="headerlink" href="#order_app.api.exeptions.OrderNotFound.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.OrderNotFound.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Die</span> <span class="pre">angegebene</span> <span class="pre">Bestellung</span> <span class="pre">wurde</span> <span class="pre">nicht</span> <span class="pre">gefunden.'</span></em><a class="headerlink" href="#order_app.api.exeptions.OrderNotFound.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.OrderNotFound.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">404</span></em><a class="headerlink" href="#order_app.api.exeptions.OrderNotFound.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="order_app.api.exeptions.UserIsNotConsumer">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">order_app.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">UserIsNotConsumer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.exeptions.UserIsNotConsumer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the user is not a consumer.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.UserIsNotConsumer.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'false_user'</span></em><a class="headerlink" href="#order_app.api.exeptions.UserIsNotConsumer.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.UserIsNotConsumer.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Benutzer</span> <span class="pre">hat</span> <span class="pre">keine</span> <span class="pre">Berechtigung,</span> <span class="pre">z.B.</span> <span class="pre">weil</span> <span class="pre">nicht</span> <span class="pre">vom</span> <span class="pre">typ</span> <span class="pre">customer.'</span></em><a class="headerlink" href="#order_app.api.exeptions.UserIsNotConsumer.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.UserIsNotConsumer.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">403</span></em><a class="headerlink" href="#order_app.api.exeptions.UserIsNotConsumer.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="order_app.api.exeptions.UserIsNotSeller">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">order_app.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">UserIsNotSeller</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.exeptions.UserIsNotSeller" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the user is not a seller.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.UserIsNotSeller.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'false_user'</span></em><a class="headerlink" href="#order_app.api.exeptions.UserIsNotSeller.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.UserIsNotSeller.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Benutzer</span> <span class="pre">hat</span> <span class="pre">keine</span> <span class="pre">Berechtigung,</span> <span class="pre">diese</span> <span class="pre">Bestellung</span> <span class="pre">zu</span> <span class="pre">aktualisieren.'</span></em><a class="headerlink" href="#order_app.api.exeptions.UserIsNotSeller.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.UserIsNotSeller.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">403</span></em><a class="headerlink" href="#order_app.api.exeptions.UserIsNotSeller.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="order_app.api.exeptions.UserIsNotStaff">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">order_app.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">UserIsNotStaff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.exeptions.UserIsNotStaff" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the user is not a staff member.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.UserIsNotStaff.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'false_user'</span></em><a class="headerlink" href="#order_app.api.exeptions.UserIsNotStaff.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.UserIsNotStaff.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Benutzer</span> <span class="pre">hat</span> <span class="pre">keine</span> <span class="pre">Berechtigung,</span> <span class="pre">die</span> <span class="pre">Bestellung</span> <span class="pre">zu</span> <span class="pre">löschen.'</span></em><a class="headerlink" href="#order_app.api.exeptions.UserIsNotStaff.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.UserIsNotStaff.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">403</span></em><a class="headerlink" href="#order_app.api.exeptions.UserIsNotStaff.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="order_app.api.exeptions.UserSellerNotFound">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">order_app.api.exeptions.</span></span><span class="sig-name descname"><span class="pre">UserSellerNotFound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.exeptions.UserSellerNotFound" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIException</span></code></p>
+<p>Exception raised when the seller user is not found.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.UserSellerNotFound.default_code">
+<span class="sig-name descname"><span class="pre">default_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'not_found'</span></em><a class="headerlink" href="#order_app.api.exeptions.UserSellerNotFound.default_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.UserSellerNotFound.default_detail">
+<span class="sig-name descname"><span class="pre">default_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Kein</span> <span class="pre">Geschäftsnutzer</span> <span class="pre">mit</span> <span class="pre">der</span> <span class="pre">angegebenen</span> <span class="pre">ID</span> <span class="pre">gefunden.'</span></em><a class="headerlink" href="#order_app.api.exeptions.UserSellerNotFound.default_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.exeptions.UserSellerNotFound.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">404</span></em><a class="headerlink" href="#order_app.api.exeptions.UserSellerNotFound.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-order_app.api.permissions">
+<span id="order-app-api-permissions-module"></span><h2>order_app.api.permissions module<a class="headerlink" href="#module-order_app.api.permissions" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="order_app.api.permissions.ConsumerForPostOrAuthenticated">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">order_app.api.permissions.</span></span><span class="sig-name descname"><span class="pre">ConsumerForPostOrAuthenticated</span></span><a class="headerlink" href="#order_app.api.permissions.ConsumerForPostOrAuthenticated" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BasePermission</span></code></p>
+<p>Custom permission to only allow authenticated users to create orders.
+Consumers are allowed to create orders, while sellers and staff members are not.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="order_app.api.permissions.ConsumerForPostOrAuthenticated.has_permission">
+<span class="sig-name descname"><span class="pre">has_permission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.permissions.ConsumerForPostOrAuthenticated.has_permission" title="Link to this definition"></a></dt>
+<dd><p>Check if the user is authenticated and has permission to create orders.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="order_app.api.permissions.SellerForPatchOrStaffForDelete">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">order_app.api.permissions.</span></span><span class="sig-name descname"><span class="pre">SellerForPatchOrStaffForDelete</span></span><a class="headerlink" href="#order_app.api.permissions.SellerForPatchOrStaffForDelete" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BasePermission</span></code></p>
+<p>Custom permission to only allow sellers to update orders and staff members to delete orders.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="order_app.api.permissions.SellerForPatchOrStaffForDelete.has_permission">
+<span class="sig-name descname"><span class="pre">has_permission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.permissions.SellerForPatchOrStaffForDelete.has_permission" title="Link to this definition"></a></dt>
+<dd><p>Check if the user is authenticated and has permission to update or delete orders.
+Sellers are allowed to update orders, while staff members are allowed to delete orders.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-order_app.api.serializers">
+<span id="order-app-api-serializers-module"></span><h2>order_app.api.serializers module<a class="headerlink" href="#module-order_app.api.serializers" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="order_app.api.serializers.OrderCountSerializer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">order_app.api.serializers.</span></span><span class="sig-name descname"><span class="pre">OrderCountSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.serializers.OrderCountSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for counting orders.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="order_app.api.serializers.OrderCountSerializer.Meta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#order_app.api.serializers.OrderCountSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Meta class for OrderCountSerializer.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.serializers.OrderCountSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'__all__'</span></em><a class="headerlink" href="#order_app.api.serializers.OrderCountSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.serializers.OrderCountSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#order_app.api.serializers.OrderCountSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="order_app.html#order_app.models.Order" title="order_app.models.Order"><code class="xref py py-class docutils literal notranslate"><span class="pre">Order</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="order_app.api.serializers.OrderSerializer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">order_app.api.serializers.</span></span><span class="sig-name descname"><span class="pre">OrderSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.serializers.OrderSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for the Order model.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="order_app.api.serializers.OrderSerializer.Meta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#order_app.api.serializers.OrderSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Meta class for OrderSerializer.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.serializers.OrderSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'business_user',</span> <span class="pre">'customer_user',</span> <span class="pre">'title',</span> <span class="pre">'revisions',</span> <span class="pre">'delivery_time_in_days',</span> <span class="pre">'price',</span> <span class="pre">'features',</span> <span class="pre">'offer_type',</span> <span class="pre">'status',</span> <span class="pre">'created_at',</span> <span class="pre">'updated_at',</span> <span class="pre">'offer_detail_id']</span></em><a class="headerlink" href="#order_app.api.serializers.OrderSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.serializers.OrderSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#order_app.api.serializers.OrderSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="order_app.html#order_app.models.Order" title="order_app.models.Order"><code class="xref py py-class docutils literal notranslate"><span class="pre">Order</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.serializers.OrderSerializer.Meta.read_only_fields">
+<span class="sig-name descname"><span class="pre">read_only_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['customer_user']</span></em><a class="headerlink" href="#order_app.api.serializers.OrderSerializer.Meta.read_only_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="order_app.api.serializers.OrderSerializer.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">validated_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.serializers.OrderSerializer.create" title="Link to this definition"></a></dt>
+<dd><p>Create a new Order instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="order_app.api.serializers.OrderSerializer.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validated_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.serializers.OrderSerializer.update" title="Link to this definition"></a></dt>
+<dd><p>Update an existing Order instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="order_app.api.serializers.OrderSerializer.validate_offer_detail_id">
+<span class="sig-name descname"><span class="pre">validate_offer_detail_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.serializers.OrderSerializer.validate_offer_detail_id" title="Link to this definition"></a></dt>
+<dd><p>Validate the offer_detail_id field.
+Check if the offer detail exists.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-order_app.api.urls">
+<span id="order-app-api-urls-module"></span><h2>order_app.api.urls module<a class="headerlink" href="#module-order_app.api.urls" title="Link to this heading"></a></h2>
+</section>
+<section id="module-order_app.api.views">
+<span id="order-app-api-views-module"></span><h2>order_app.api.views module<a class="headerlink" href="#module-order_app.api.views" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="order_app.api.views.CompletedOrderCount">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">order_app.api.views.</span></span><span class="sig-name descname"><span class="pre">CompletedOrderCount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.views.CompletedOrderCount" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListAPIView</span></code></p>
+<p>View to count the number of completed orders for a specific seller.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="order_app.api.views.CompletedOrderCount.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.views.CompletedOrderCount.get" title="Link to this definition"></a></dt>
+<dd><p>Get the count of completed orders for a specific seller.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.views.CompletedOrderCount.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'user_auth.api.permissions.IsAuthenticated'&gt;]</span></em><a class="headerlink" href="#order_app.api.views.CompletedOrderCount.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.views.CompletedOrderCount.queryset">
+<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;QuerySet</span> <span class="pre">[]&gt;</span></em><a class="headerlink" href="#order_app.api.views.CompletedOrderCount.queryset" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.views.CompletedOrderCount.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#order_app.api.views.CompletedOrderCount.serializer_class" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#order_app.api.serializers.OrderSerializer" title="order_app.api.serializers.OrderSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderSerializer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="order_app.api.views.OrderCountView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">order_app.api.views.</span></span><span class="sig-name descname"><span class="pre">OrderCountView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.views.OrderCountView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListAPIView</span></code></p>
+<p>View to count the number of orders for a specific seller.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="order_app.api.views.OrderCountView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.views.OrderCountView.get" title="Link to this definition"></a></dt>
+<dd><p>Get the count of orders for a specific seller.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.views.OrderCountView.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'user_auth.api.permissions.IsAuthenticated'&gt;]</span></em><a class="headerlink" href="#order_app.api.views.OrderCountView.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.views.OrderCountView.queryset">
+<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;QuerySet</span> <span class="pre">[]&gt;</span></em><a class="headerlink" href="#order_app.api.views.OrderCountView.queryset" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.views.OrderCountView.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#order_app.api.views.OrderCountView.serializer_class" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#order_app.api.serializers.OrderSerializer" title="order_app.api.serializers.OrderSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderSerializer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="order_app.api.views.OrderDetailView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">order_app.api.views.</span></span><span class="sig-name descname"><span class="pre">OrderDetailView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.views.OrderDetailView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RetrieveUpdateDestroyAPIView</span></code></p>
+<p>View to retrieve, update, or delete an order.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="order_app.api.views.OrderDetailView.get_object">
+<span class="sig-name descname"><span class="pre">get_object</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.views.OrderDetailView.get_object" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the order object based on the provided primary key (pk).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.views.OrderDetailView.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'order_app.api.permissions.SellerForPatchOrStaffForDelete'&gt;]</span></em><a class="headerlink" href="#order_app.api.views.OrderDetailView.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.views.OrderDetailView.queryset">
+<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;QuerySet</span> <span class="pre">[]&gt;</span></em><a class="headerlink" href="#order_app.api.views.OrderDetailView.queryset" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.views.OrderDetailView.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#order_app.api.views.OrderDetailView.serializer_class" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#order_app.api.serializers.OrderSerializer" title="order_app.api.serializers.OrderSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderSerializer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="order_app.api.views.OrderListView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">order_app.api.views.</span></span><span class="sig-name descname"><span class="pre">OrderListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.views.OrderListView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListCreateAPIView</span></code></p>
+<p>View to list and create orders.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="order_app.api.views.OrderListView.perform_create">
+<span class="sig-name descname"><span class="pre">perform_create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serializer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#order_app.api.views.OrderListView.perform_create" title="Link to this definition"></a></dt>
+<dd><p>Save the order with the customer user and business user.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.views.OrderListView.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'order_app.api.permissions.ConsumerForPostOrAuthenticated'&gt;]</span></em><a class="headerlink" href="#order_app.api.views.OrderListView.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.views.OrderListView.queryset">
+<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;QuerySet</span> <span class="pre">[]&gt;</span></em><a class="headerlink" href="#order_app.api.views.OrderListView.queryset" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="order_app.api.views.OrderListView.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#order_app.api.views.OrderListView.serializer_class" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#order_app.api.serializers.OrderSerializer" title="order_app.api.serializers.OrderSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderSerializer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-order_app.api">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-order_app.api" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="order_app.html" class="btn btn-neutral float-left" title="order_app package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="order_app.migrations.html" class="btn btn-neutral float-right" title="order_app.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Albin Schmid.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

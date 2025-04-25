@@ -8,5 +8,5 @@ urlpatterns = [
     path('profile/', ProfileListView.as_view(), name='profile'),
     path('profile/<int:pk>/', ProfileSingleView.as_view(), name='profile-detail'),
     path('profiles/business/', SellerListView.as_view(), name="seller"),
-    path('profiles/customer/', ConsumerListView.as_view(), name="consumer")
+    path('profiles/customer/', ConsumerListView.as_view(), name="consumer"),
 ]

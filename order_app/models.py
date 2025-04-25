@@ -4,6 +4,10 @@ from django.contrib.auth.models import User
 
 
 class Order(models.Model):
+    """
+    Model representing an order.
+    Each order is associated with a specific offer detail and has a status.
+    """
     business_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='seller_users', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

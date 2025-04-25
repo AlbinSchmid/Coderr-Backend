@@ -5,6 +5,11 @@ from django.contrib.auth.models import User
 
 
 class Offer(models.Model):
+    """
+    Model representing an offer.
+    Each offer is associated with a user and has a title, image, description,
+    created_at, updated_at, minimum price, and minimum delivery time.
+    """
     title = models.CharField(max_length=255)
     image = models.FileField(upload_to='offers/', blank=True, null=True)
     description = models.TextField(max_length=255)
@@ -16,6 +21,11 @@ class Offer(models.Model):
 
 
 class OfferDetail(models.Model):
+    """
+    Model representing the details of an offer.
+    Each offer detail is associated with an offer and has a title, number of revisions,
+    delivery time in days, price, features, and offer type.
+    """
     OFFER_CHOICES = [
         ('basic', 'Basic'),
         ('standard', 'Standard'),
