@@ -31,7 +31,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'api.coderr.albin-schmid.com'
+]
 
 
 # Application definition
@@ -69,11 +71,14 @@ ROOT_URLCONF = 'coderr.urls'
 CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:5500',
     'http://localhost:5500',
+    'https://api.coderr.albin-schmid.com',
+    'https://coderr.albin-schmid.com',
 ]
 
 CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:5500',
     'http://localhost:5500',
+    'https://coderr.albin-schmid.com',
 ]
 
 TEMPLATES = [
