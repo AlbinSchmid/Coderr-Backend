@@ -23,7 +23,7 @@ class OfferListView(generics.ListCreateAPIView):
         Optionally restricts the returned offers to a given user,
         by filtering against a `creator_id` query parameter in the URL.
         """
-        queryset = Offer.objects.all()
+        queryset = Offer.objects.all().order_by('-created_at')
         creator_id_param = self.request.query_params.get('creator_id', None)
         max_delivery_time_param = self.request.query_params.get('max_delivery_time', None)
         min_price = self.request.query_params.get('min_price', None)
