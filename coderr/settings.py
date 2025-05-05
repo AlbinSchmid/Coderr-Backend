@@ -170,8 +170,6 @@ REST_FRAMEWORK = {
 }
 
 sentry_sdk.init(
-    dsn="https://377cfb1e1dcf008d310d541bcc82ddc9@o4509243315585024.ingest.de.sentry.io/4509270585770064",
-    # Add data like request headers and IP for users,
-    # see https://docs.sentry.io/platforms/python/data-management/data-collected/ for more info
+    dsn=os.getenv('SENTRY_DSN'),
     send_default_pii=True,
 )
