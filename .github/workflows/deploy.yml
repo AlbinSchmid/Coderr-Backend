@@ -1,0 +1,19 @@
+name: Update Server on Push 
+on: [push]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SECRET }}
+        port: ${{ secrets.PORT }}
+        script: |
+          sudo su - schmidalbin15 -c "cd /home/schmidalbin15/projects/Coderr-Backend && git pull"
+          sudo su - schmidalbin15 -c "cd /home/schmidalbin15/projects/Coderr-Backend && ./env/bin/pip install -r requirements.txt"
+          sudo supervisorctl restart coderr_gunicorn
