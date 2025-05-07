@@ -4,32 +4,30 @@ Dieses Projekt ist das Backend von Coderr, entwickelt mit Django und Django REST
 
 ---
 
-## Installation & Setup
+## 📦 Installation & Setup
 
-## Voraussetzungen
+### Voraussetzungen
 
 Stelle sicher, dass du Python 3.9+ und pip installiert hast.
 
----
+### Repository klonen
 
-## Repository klonen
+```
+git clone git@github.com:AlbinSchmid/Coderr-Backend.git
+cd Coderr-Backend
+```
 
-git clone https://github.com/deinusername/coderr-backend.git
-cd coderr-backend
-
----
-
-## Virtuelle Umgebung erstellen & aktivieren
+### Virtuelle Umgebung erstellen & aktivieren
 
 python -m venv venv  # Virtuelle Umgebung erstellen
 source venv/bin/activate  # Mac/Linux
 venv\Scripts\activate  # Windows
 
----
+### Abhängigkeiten installieren
 
-## Abhängigkeiten installieren
-
+```
 pip install -r requirements.txt
+```
 
 ---
 
@@ -37,21 +35,27 @@ pip install -r requirements.txt
 
 Erstelle eine .env-Datei im Root-Verzeichnis und füge deine Umgebungsvariablen hinzu:
 
+```
 DEBUG=True
 SECRET_KEY=dein-geheimer-schlüssel
 DATABASE_URL=sqlite:///db.sqlite3  # Oder PostgreSQL/MySQL Verbindungsstring
+```
 
 ---
 
 ## Datenbankmigrationen ausführen
 
+```
 python manage.py migrate
+```
 
 ---
 
 ## Server starten
 
+```
 python manage.py runserver
+```
 
 Der Server läuft nun unter: http://127.0.0.1:8000/
 
@@ -66,15 +70,11 @@ Falls Django REST Framework Browsable API aktiviert ist, kannst du Endpunkte dir
 
 ## Wichtige Technologien
 
-Django (5.1.6)
-
-Django REST Framework (3.15.2)
-
-django-cors-headers (4.7.0) für Cross-Origin-Requests
-
-django-filter (25.1) für Query-Filter
-
-python-dotenv (1.0.1) für Umgebungsvariablen
+- Django (5.1.6)
+- Django REST Framework (3.15.2)
+- django-cors-headers (4.7.0) für Cross-Origin-Requests
+- django-filter (25.1) für Query-Filter
+- python-dotenv (1.0.1) für Umgebungsvariablen
 
 ---
 
@@ -82,20 +82,25 @@ python-dotenv (1.0.1) für Umgebungsvariablen
 
 ### Superuser erstellen (für Admin-Zugang)
 
+```
 python manage.py createsuperuser
+```
 
-### Tests ausführen
+### 🧪 Testing
 
+```
 python manage.py test
+```
 
 ---
 
-## Deployment
+## 🔐 Deployment
 
-Für ein Deployment mit Gunicorn und PostgreSQL:
+Empfohlene Infrastruktur:
 
-pip install gunicorn psycopg2-binary
-python manage.py collectstatic --noinput
+-Google Cloud VM
+-Nginx (Reverse Proxy mit SSL)
+-Gunicorn
 
 
 ## Mitwirken
