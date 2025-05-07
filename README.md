@@ -51,7 +51,7 @@ python manage.py migrate
 
 ---
 
-## Server starten
+## 🚀 Server starten
 
 ```
 python manage.py runserver
@@ -61,14 +61,7 @@ Der Server läuft nun unter: http://127.0.0.1:8000/
 
 ---
 
-## API-Dokumentation
-
-Die API ist unter http://127.0.0.1:8000/api/ erreichbar.
-Falls Django REST Framework Browsable API aktiviert ist, kannst du Endpunkte direkt testen.
-
----
-
-## Wichtige Technologien
+## ⚙️ Wichtige Technologien
 
 - Django (5.1.6)
 - Django REST Framework (3.15.2)
@@ -78,15 +71,7 @@ Falls Django REST Framework Browsable API aktiviert ist, kannst du Endpunkte dir
 
 ---
 
-## Entwickeln & Testen
-
-### Superuser erstellen (für Admin-Zugang)
-
-```
-python manage.py createsuperuser
-```
-
-### 🧪 Testing
+## 🧪 Testing
 
 ```
 python manage.py test
